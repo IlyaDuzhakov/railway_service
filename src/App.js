@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Main from "./pages/Main/Main";
+import ConfirmOrder from "./pages/ConfirmOrder/ConfirmOrder";
+import Passengers from "./pages/Passengers/Passengers";
+import Payment from "./pages/Payment/Payment";
+import SelectSeats from "./pages/SelectSeats/SelectSeats.jsx";
+import SelectTrain from "./pages/SelectTrain/SelectTrain";
+import SuccessfulOrder from "./pages/SuccessfulOrder/SuccessfulOrder";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/confirm_order" element={<ConfirmOrder />} />
+        <Route path="/passengers" element={<Passengers />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/select_seats" element={<SelectSeats />} />
+        <Route path="/select_train" element={<SelectTrain />} />
+        <Route path="/successful_order" element={<SuccessfulOrder />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
