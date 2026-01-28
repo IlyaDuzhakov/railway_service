@@ -1,0 +1,42 @@
+.how_works_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../../../../public/img/how-works.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.how_works_top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+.more_information {
+    width: 325px;
+    height: 60px;
+    background: none;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    z-index: 10;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.question {
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+    padding-top: 9px;
+}
+
+.how_works_bottom {
+    display: flex;
+    justify-content: center;
+    gap: 198px;
+    margin-top: 107px;
+    margin-bottom: 90px;
+}

@@ -1,7 +1,7 @@
-import HeaderMain from "../../components/Header/HeaderMain";
-import About from "../../components/MainPage/About";
-import HowWorks from "../../components/MainPage/HowWorks";
-import Reviews from "../../components/MainPage/Reviews";
+import HeaderMain from "../../components/Header/HeaderMain/HeaderMain.jsx";
+import About from "../../components/MainPage/About.jsx";
+import HowWorks from "../../components/MainPage/HowWorks/HowWorks.jsx";
+import Reviews from "../../components/MainPage/Reviews.jsx";
 
 const Main = () => {
   return (

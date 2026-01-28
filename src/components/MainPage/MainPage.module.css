@@ -1,10 +1,61 @@
-.orange {
-    background-color: rgb(188, 154, 4);
-    width: 100px;
-    height: 100px;
+.how_works_card {
+    display: flex;
+    width: 280px;
+   flex-direction: column;
+   align-items: center;
 }
 
+
 .img {
-    width: 50px;
-    height: 50px;
+  width: 162px;
+  height: 162px;
 }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about_title {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.about_block {
+  position: relative;
+  padding-left: 24px;
+}
+
+.about_text {
+  font-size: 24px;
+  font-weight: 400;
+  padding-left: 24px;
+}
+
+.about_block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #ffa500;
+}
+
+.about_text_bold {
+  font-weight: 700;
+  font-size: 24px;
+
+  padding-left: 24px;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: 400;
+    color: #E5E5E5;
+    margin-top: 34px;
+    padding: 0 32px;
+    text-align: center;
+}
+
+/* Reviews */

@@ -1,8 +1,11 @@
-import React from 'react'
+
+import HeaderSelectTrain from '../../components/Header/HeaderSelectTrain/HeaderSelectTrain'
 
 const SelectTrain = () => {
   return (
-    <div>SelectTrain</div>
+    <div>
+        <HeaderSelectTrain />
+    </div>
   )
 }
 
