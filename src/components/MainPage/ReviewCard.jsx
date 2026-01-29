@@ -1,12 +1,12 @@
-import React from 'react'
+import styles from './MainPage.module.css'
 
 const ReviewCard = ({el}) => {
   return (
-    <div className="reviewCard">
+    <div className={styles.review_сard}>
             <img src={el.path} alt="" />
-            <div className="reviewText">
-                <h3>{el.name}</h3>
-                <p>{el.text}</p>
+            <div className={styles.review}>
+                <h3 className={styles.review_name}>{el.name}</h3>
+                <p className={styles.review_text}>{el.text}</p>
             </div>
         </div>
   )

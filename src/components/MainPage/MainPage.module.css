@@ -59,3 +59,21 @@
 }
 
 /* Reviews */
+
+.reviews_block {
+    display: flex;
+    justify-content: center;
+}
+
+.review_сard {
+    display: flex;
+    flex: 1;
+}
+
+.review_text {
+    max-width: 400px;
+}
+
+.wr {
+    display: flex;
+}

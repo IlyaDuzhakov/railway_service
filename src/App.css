@@ -6,4 +6,5 @@
 
 .container {
   width: 1400px;
+  position: relative;
 }
