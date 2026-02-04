@@ -1,0 +1,21 @@
+.react-datepicker__input-container 
+.react-datepicker__calendar-icon {
+      right: 0;
+}
+
+.react-datepicker__view-calendar-icon .input {
+  padding-left: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  height: 43px;
+  
+  
+}
+
+
+.react-datepicker__week .react-datepicker__day--selected {
+  background-color: #ffffff;
+}
+.react-datepicker__week .react-datepicker__day--selected:hover {
+  background-color: rgb(243, 142, 11);
+}

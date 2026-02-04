@@ -6,10 +6,10 @@ const Stages = () => {
       <div className="container">
         <div className={styles.stages_btns}>
           <button className={styles.stages_btn}>
-            <div className={styles.stages_text}>
+            {/* <div className={styles.stages_text}> */}
             <div className={styles.number}>1</div>
             <span className={styles.title}>Билеты</span>
-            </div>
+            {/* </div> */}
             <div className={styles.arrow}></div>
             
           </button>

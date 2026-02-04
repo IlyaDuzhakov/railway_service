@@ -11,14 +11,25 @@
   height: 162px;
 }
 
-.container {
+/* about */
+
+.about {
+    display: flex;
+    justify-content: center;
+    padding-top: 144px;
+    padding-bottom: 91px;
+}
+
+/* .container {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+} */
 
 .about_title {
   font-size: 36px;
   font-weight: 500;
+  margin-bottom: 30px;
 }
 
 .about_block {
@@ -30,6 +41,7 @@
   font-size: 24px;
   font-weight: 400;
   padding-left: 24px;
+  padding-bottom: 14px;
 }
 
 .about_block::before {
@@ -77,3 +89,9 @@
 .wr {
     display: flex;
 }
+
+
+/* .about_title {
+    margin-top: 144px;
+    
+} */

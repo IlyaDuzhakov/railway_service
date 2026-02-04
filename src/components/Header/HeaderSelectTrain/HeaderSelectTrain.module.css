@@ -1,0 +1,6 @@
+.header_bg {
+    background-image: url('../../../../public/img/header2-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

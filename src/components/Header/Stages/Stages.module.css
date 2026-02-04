@@ -13,13 +13,15 @@
 
 .stages_btn {
     display: flex;
-    justify-content: space-between;
+    position: relative;
     flex: 1;
     align-items: center;
     padding-left: 13px;
     padding-top: 23px;
     padding-bottom: 19px;
     background-color: #3E3C41;
+    overflow: hidden;
+    border: none;
 }
 
 .number {
@@ -37,6 +39,9 @@
 
 .title {
     color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 32px;
 }
 
 .stages_text {
@@ -44,7 +49,11 @@
 }
 
 .arrow {
-    border: 1px solid #E5E5E5;
+    position: absolute;
+    right: 20px;
+    border-right: 1px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5;
+
     height: 98px;
     width: 98px;
     transform: rotate(45deg);
