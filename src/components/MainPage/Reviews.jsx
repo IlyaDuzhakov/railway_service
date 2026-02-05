@@ -18,7 +18,7 @@ const Reviews = () => {
   return (
     <div className={styles.reviews_block}>
     <div className="container">
-      <h2>отзывы</h2>
+      <h2 className={styles.reviews}>отзывы</h2>
       <div className={styles.wr}>
       {reviews.map((el, index) => {
         return <ReviewCard el={el} key={index}/>;

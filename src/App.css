@@ -9,3 +9,22 @@
   position: relative;
 }
 
+/* switcher */
+
+
+.css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase.Mui-checked .css-17jyosd-MuiSwitch-thumb {
+  background-color: #FFA800;
+}
+
+.css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase .css-17jyosd-MuiSwitch-thumb {
+  background-color: #C4C4C4;
+}
+
+.css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase.Mui-checked + .css-tj8d99-MuiSwitch-track {
+  background-color: #FCDC9D;
+}
+.css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase + .css-tj8d99-MuiSwitch-track {
+  background-color: #ffffff;
+}
+
+/*  */

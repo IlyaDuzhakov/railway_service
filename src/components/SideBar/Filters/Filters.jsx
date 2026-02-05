@@ -1,5 +1,6 @@
 import iconPhone from '../../../assets/icons/phone.svg'
 import Switch from '@mui/material/Switch';
+import styles from './Filters.module.css'
 
 const Filters = () => {
 
@@ -15,10 +16,10 @@ const Filters = () => {
   return (
     <div>
         {filtersList.map((el)=> {
-           return <div>
+           return <div className={styles.filter}>
             <img src={iconPhone} alt="iconPhone" />
             <p>{el.title}</p>
-            <Switch defaultChecked />
+            <Switch defaultChecked color="red"/>
            </div> 
         })}
     </div>

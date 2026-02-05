@@ -3,9 +3,9 @@ import classes from "./HowWorks.module.css";
 
 const HowWorks = () => {
   const cards = [
-    { path: "./img/icons/desctop.svg", text: "Удобный заказ на сайте" },
-    { path: "./img/icons/build.svg", text: "Нет необходимости ехать в офис" },
-    { path: "./img/icons/planet.svg", text: "Огромный выбор направлений" },
+    { path: "/img/icons/desctop.svg", text: "Удобный заказ на сайте" },
+    { path: "/img/icons/build.svg", text: "Нет необходимости ехать в офис" },
+    { path: "/img/icons/planet.svg", text: "Огромный выбор направлений" },
   ];
 
   return (

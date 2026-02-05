@@ -1,12 +1,12 @@
 import styles from "./Footer.module.css";
 import phoneIcon from "../../assets/icons/phone.svg";
 import postboxIcon from "../../assets/icons/postbox.svg";
-import skypeIcon from "../../assets/icons/skype.svg";
+// import skypeIcon from "../../assets/icons/skype.svg";
 import locationIcon from "../../assets/icons/location.svg";
-import youtubeIcon from "../../assets/icons/youtube.svg";
-import linkedinIcon from "../../assets/icons/linkedin.svg";
+// import youtubeIcon from "../../assets/icons/youtube.svg";
+// import linkedinIcon from "/img/icons/linkedin.svg";
 import googleIcon from "../../assets/icons/google.svg";
-import facebookIcon from "../../assets/icons/facebook.svg";
+// import facebookIcon from "/img/icons/facebook.svg";
 import twitterIcon from "../../assets/icons/twitter.svg";
 import arrowIcon from "../../assets/icons/arrow.svg";
 import trainIcon from "../../assets/icons/railway_service.svg";
@@ -42,7 +42,7 @@ const Footer = () => {
               <div className={styles.footer_box}>
                 <img
                   className={styles.skype_icon}
-                  src={skypeIcon}
+                  src='/img/icons/youtube.svg'
                   alt="skype"
                 />
                 <a
@@ -91,12 +91,12 @@ const Footer = () => {
                 <div className={styles.social_icon}>
                   <img
                     className={styles.youtube_icon}
-                    src={youtubeIcon}
+                    src='/img/icons/youtube.svg'
                     alt="youtube"
                   />
                   <img
                     className={styles.linkedin_icon}
-                    src={linkedinIcon}
+                    src='/img/icons/linkedin.svg'
                     alt="linkedin"
                   />
                   <img
@@ -106,7 +106,7 @@ const Footer = () => {
                   />
                   <img
                     className={styles.facebook_icon}
-                    src={facebookIcon}
+                    src='/img/icons/facebook.svg'
                     alt="facebook"
                   />
                   <img

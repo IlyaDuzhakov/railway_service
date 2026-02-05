@@ -1,14 +1,24 @@
-import SelectDate from './Date/SelectDate.jsx'
-import styles from './SideBar.module.css'
-import Filters from './Filters/Filters.jsx'
+import SelectDate from "./Date/SelectDate.jsx";
+import styles from "./SideBar.module.css";
+import Filters from "./Filters/Filters.jsx";
+import PriceRange from "./PriceRange/PriceRange.jsx";
+import Directions from "./Directions/Directions.jsx";
+import LastTrains from "./LastTrains/LastTrains.jsx";
 
 const SideBar = () => {
   return (
     <aside className={styles.aside}>
-<SelectDate />
-<Filters />
+      <div className={styles.aside_top}>
+      <SelectDate />
+      <Filters />
+      <PriceRange />
+      <Directions />
+      </div>
+      <div className={styles.aside_bottom}>
+          <LastTrains />
+      </div>
     </aside>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

@@ -75,23 +75,46 @@
 .reviews_block {
     display: flex;
     justify-content: center;
+    margin-top: 152px;
+    
 }
 
 .review_сard {
     display: flex;
     flex: 1;
+    gap: 35px;
+    align-items: center;
+    
+}
+
+
+.wr {
+  display: flex;
+  gap: 85px;
+
+}
+
+.reviews {
+  margin-bottom: 33px;
+  font-size: 36px;
+  font-weight: 500;
+  color: #292929;
+}
+
+.review {
+  height: 164px;
+}
+
+.review_name {
+  color: #000000;
+  font-weight: 500;
+  font-size: 24px;
 }
 
 .review_text {
     max-width: 400px;
+    font-size: 18px;
+    font-weight: 300;
+    padding-top: 10px;
+    color: #928F94;
 }
-
-.wr {
-    display: flex;
-}
-
-
-/* .about_title {
-    margin-top: 144px;
-    
-} */
