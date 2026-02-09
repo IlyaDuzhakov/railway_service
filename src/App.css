@@ -27,4 +27,17 @@
   background-color: #ffffff;
 }
 
-/*  */
+/* swiper */
+
+
+.swiper-pagination .swiper-pagination-bullet {
+  width: 19px;
+  height: 19px;
+  background-color: #E5E5E5;
+  opacity: 1;
+}
+
+ .swiper-pagination .swiper-pagination-bullet-active  {
+  background-color: #C4C4C4;
+ }
+

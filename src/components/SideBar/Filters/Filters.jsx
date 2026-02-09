@@ -15,8 +15,8 @@ const Filters = () => {
 
   return (
     <div>
-        {filtersList.map((el)=> {
-           return <div className={styles.filter}>
+        {filtersList.map((el, index)=> {
+           return <div className={styles.filter} key={index}>
             <img src={iconPhone} alt="iconPhone" />
             <p>{el.title}</p>
             <Switch defaultChecked color="red"/>

@@ -1,0 +1,55 @@
+.last_ticket {
+  background-color: #fff;
+  padding-left: 18px;
+  padding-top: 18px;
+  padding-right: 18px;
+  padding-bottom: 14px;
+  margin-bottom: 17px;
+  border: 1px solid #c4c4c4;
+  height: 161px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.city {
+  font-size: 20px;
+  font-weight: 400;
+  color: #292929;
+}
+
+.railway_left,
+.railway_right {
+  font-size: 16px;
+  font-weight: 400;
+  color: #928f94;
+}
+
+.railway_right {
+  text-align: right;
+}
+
+.price {
+  color: #ffa800;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.bottom_right {
+    display: flex;
+    align-items: flex-end;
+}
+
+.price_text {
+    line-height: 100%;
+}

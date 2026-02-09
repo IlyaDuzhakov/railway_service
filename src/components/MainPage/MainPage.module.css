@@ -84,7 +84,7 @@
     flex: 1;
     gap: 35px;
     align-items: center;
-    
+    margin-bottom: 137px;
 }
 
 
@@ -103,6 +103,7 @@
 
 .review {
   height: 164px;
+  
 }
 
 .review_name {

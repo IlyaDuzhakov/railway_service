@@ -9,6 +9,7 @@ const ReviewCard = ({el}) => {
                 <p className={styles.review_text}>{el.text}</p>
             </div>
         </div>
+        
   )
 }
 
