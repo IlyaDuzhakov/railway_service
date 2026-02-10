@@ -1,7 +1,20 @@
 import updateIcon from "../../../assets/icons/update.svg";
 import styles from "../HeaderMain/HeaderMain.module.css";
+import {useState} from 'react'
 
 const ChooseDirection = () => {
+
+  
+
+  const [from, setFrom] = useState('')
+
+  const findCities = async (event) => {
+    const responce = await fetch('https://students.netoservices.ru/fe-diplom/routes/cities?name=м')
+    const data = await responce.json()
+    
+        setFrom(event.target.value)
+  }
+
   return (
     <form className={styles.search_form}>
       <div className={styles.form_container}>
@@ -10,10 +23,13 @@ const ChooseDirection = () => {
             <div className={styles.form_title}>Направление</div>
 
             <div className={styles.choose_direction}>
-              <input
+              <input value={from}
                 className={styles.input}
                 type="text"
                 placeholder="Откуда"
+                onChange={(event) => {
+                  findCities(event)
+                }}
               />
 
               <img className={styles.update_icon} src={updateIcon} alt="swap" />

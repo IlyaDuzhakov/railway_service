@@ -1,7 +1,192 @@
 .train_direction {
     background-color: #E4E0E9;
+    width: 196px;
 }
 
 .train {
     display: flex;
+    width: 959px;
+    height: 354px;
+    border: 1px solid #C4C4C4;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+    margin-bottom: 47px;
+    margin-left: 83px;
 }
+
+.train_icon {
+    padding-left: 43px;
+    padding-top: 58px;
+    padding-right: 68px;
+    padding-bottom: 17px;
+}
+
+.train_number {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    color: #3E3C41;
+    width: 93px;
+    height: 27px;
+    margin: 0 auto;
+}
+
+.directions {
+    padding-left: 26px;
+    padding-top: 15px;
+    padding-right: 18px;
+    padding-bottom: 92px;
+}
+
+.from {
+    display: flex;
+    align-items: center;
+    color: #292929;
+    width: 13px;
+    gap: 10px;
+}
+
+.from_text {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.train_info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 39px;
+    padding-right: 22px; 
+}
+
+.train_info_left,
+.train_info_right {
+    padding-top: 54px;
+    padding-bottom: 23px;
+}
+
+.train_item {
+    display: flex;
+    align-items: center;
+    
+    padding-right: 36px;
+}
+
+.station_name {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.departure_datetime {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+}
+
+.landing_stations {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    color: #292929;
+}
+
+.orange_arrow {
+    width: 30px;
+    height: 20px;
+    
+}
+
+.train_item_arrow {
+    margin-left: 23px;
+    margin-right: 51px;
+}
+
+.travel_time {
+    color: #C4C4C4;
+}
+
+.train_info_right {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #E5E5E5;
+    justify-content: space-between;
+}
+
+.seat_row {
+    display: flex;
+    padding-left: 27px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .seat_price_wrapper {
+
+} */
+
+.seat_name {
+    width: 86px;
+    height: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3E3C41;
+}
+
+.seat_count {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFA800;
+}
+
+.seat_price_from {
+    font-family: Roboto;
+    color: #928F94;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.seat_price {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    color: #2D2B2F;
+}
+
+.seat_coin {
+    width: 16px;
+    height: 16px;
+    
+}
+
+.seat_top {
+    display: flex;
+    flex-direction: column;
+}
+
+.seat_bottom {
+    display: flex;
+    flex-direction: column;
+    padding-left: 27px;
+    align-items: flex-end;
+}
+
+.choose_seats {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    background-color: #FFA800;
+    border: none;
+    border-radius: 5px;
+    padding-left: 9px;
+    padding-top: 6px;
+    padding-bottom: 9px;
+    padding-right: 14px;
+    width: 100%;
+    margin-top: 18px;
+}
+
