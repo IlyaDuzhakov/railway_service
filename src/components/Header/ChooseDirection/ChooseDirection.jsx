@@ -1,53 +1,49 @@
-import updateIcon from "../../../assets/icons/update.svg";
-import styles from "../HeaderMain/HeaderMain.module.css";
-import {useState} from 'react'
+
+import styles from "./ChooseDirection.module.css";
+import { useState, useEffect } from "react";
+import Inputs from './Inputs.jsx'
 
 const ChooseDirection = () => {
+  const [from, setFrom] = useState("");
+  const [listCities, setListCities] = useState([]);
 
-  
+  const findTrains = () => {
 
-  const [from, setFrom] = useState('')
+    fetch( 'https://students.netoservices.ru/fe-diplom/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa8f83e028786ea567b' )
+    .then( response => response.json()
+        .then( data => { console.log( 'routes',  data ) })
+    );
+  }
 
   const findCities = async (event) => {
-    const responce = await fetch('https://students.netoservices.ru/fe-diplom/routes/cities?name=м')
-    const data = await responce.json()
-    
-        setFrom(event.target.value)
-  }
+    try {
+      if (from != "") {
+        const responce = await fetch(
+          `https://students.netoservices.ru/fe-diplom/routes/cities?name=${from}`,
+        );
+
+        const data = await responce.json();
+
+        setListCities(data);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    findCities();
+  }, [from]);
 
   return (
     <form className={styles.search_form}>
       <div className={styles.form_container}>
-        <div className={styles.select_container}>
-          <div className={styles.direction}>
-            <div className={styles.form_title}>Направление</div>
+       <Inputs from={from} setFrom={setFrom} listCities={listCities} />
 
-            <div className={styles.choose_direction}>
-              <input value={from}
-                className={styles.input}
-                type="text"
-                placeholder="Откуда"
-                onChange={(event) => {
-                  findCities(event)
-                }}
-              />
-
-              <img className={styles.update_icon} src={updateIcon} alt="swap" />
-
-              <input className={styles.input} type="text" placeholder="Куда" />
-            </div>
-          </div>
-          <div className={styles.date}>
-            <div className={styles.form_title}>Дата</div>
-
-            <div className={styles.choose_data}>
-              <input className={styles.input} type="date" />
-              <input className={styles.input} type="date" />
-            </div>
-          </div>
-        </div>
-
-        <button className={styles.submit_btn} type="submit">
+        <button className={styles.submit_btn} type="submit" onClick={(e)=> {
+          e.preventDefault()
+          findTrains()
+        }}>
           НАЙТИ БИЛЕТЫ
         </button>
       </div>
