@@ -2,21 +2,23 @@ import HeaderSelectTrain from "../../components/Header/HeaderSelectTrain/HeaderS
 import TrainsList from "../../components/SelectTrainPage/TrainsList/TrainsList";
 import SideBar from "../../components/SideBar/SideBar";
 import styles from "./SelectTrain.module.css";
+import {useState} from 'react'
 
 const SelectTrain = () => {
 
+  const [trains, setTrains] = useState([]);
 
 
   return (
     <div>
-      <HeaderSelectTrain />
+      <HeaderSelectTrain setTrains={setTrains}/>
       <div className={styles.main}>
         <div className="container">
           <div className={styles.main_wrapper}>
             <SideBar />
             <main>
               <div className={styles.button_choose}>Кнопки выбора</div>
-              <TrainsList />
+              <TrainsList trains={trains}/>
             </main>
           </div>
         </div>

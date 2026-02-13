@@ -3,7 +3,7 @@ import styles from "./TrainsList.module.css";
 import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
 
-const TrainsList = () => {
+const TrainsList = ({trains}) => {
   const seatsList = {
     first: "Люкс",
     second: "Купе",
@@ -11,25 +11,25 @@ const TrainsList = () => {
     fourth: "Сидячий",
   };
 
-  const [trains, setTrains] = useState([]);
+//   const [trains, setTrains] = useState([]);
 
-  const msc = "67ceb6548c75f00047c8f78d";
-  const chumikha = "67ceb6548c75f00047c8f820";
-  const spb = "67ceb6548c75f00047c8f78e";
+//   const msc = "67ceb6548c75f00047c8f78d";
+//   const chumikha = "67ceb6548c75f00047c8f820";
+//   const spb = "67ceb6548c75f00047c8f78e";
 
-  const getTrains = () => {
-    fetch(
-      `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${msc}&to_city_id=${spb}`,
-    ).then((response) =>
-      response.json().then((data) => {
-        setTrains(data.items);
-      }),
-    );
-  };
+//   const getTrains = () => {
+//     fetch(
+//       `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${msc}&to_city_id=${spb}`,
+//     ).then((response) =>
+//       response.json().then((data) => {
+//         setTrains(data.items);
+//       }),
+//     );
+//   };
 
-  useEffect(() => {
-    getTrains();
-  }, []);
+//   useEffect(() => {
+//     getTrains();
+//   }, []);
 
   return (
     <div>

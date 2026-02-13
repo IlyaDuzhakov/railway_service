@@ -13,11 +13,19 @@ const formatDate = (ms) => {
 };
 
 const travelTime = (ms) => {
-     const date = new Date(ms)
-     let hours = (date.getHours() - 1).toString();
-     let minutes = date.getMinutes().toString();
-     const rezult = `${hours} : ${minutes}`;
-     return rezult;
-}
+  const date = new Date(ms);
+  let hours = (date.getHours() - 1).toString();
+  let minutes = date.getMinutes().toString();
+  const rezult = `${hours} : ${minutes}`;
+  return rezult;
+};
 
-export { formatDate, travelTime }
+const getCityId = async (name) => {
+  const response = await fetch(
+    `https://students.netoservices.ru/fe-diplom/routes/cities?name=${name}`,
+  );
+  const data = await response.json();
+  return data[0]._id;
+};
+
+export { formatDate, travelTime, getCityId };
