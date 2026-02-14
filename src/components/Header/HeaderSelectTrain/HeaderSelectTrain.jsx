@@ -3,12 +3,12 @@ import HeaderTop from "../HeaderTop/HeaderTop";
 import Stages from "../Stages/Stages";
 import styles from "./HeaderSelectTrain.module.css";
 
-const HeaderSelectTrain = ({setTrains}) => {
+const HeaderSelectTrain = () => {
   return (
     <div>
       <div className={styles.header_bg}>
         <HeaderTop />
-        <ChooseDirection setTrains={setTrains}/>
+        <ChooseDirection />
       </div>
       <Stages />
     </div>

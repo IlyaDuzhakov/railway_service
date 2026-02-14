@@ -1,5 +1,6 @@
 import styles from './ChooseDirection.module.css'
-import Date from './Date.jsx'
+import DateStart from './DateStart.jsx'
+import DateEnd from './DateEnd.jsx'
 
 const InputsDate = () => {
   return (
@@ -7,8 +8,8 @@ const InputsDate = () => {
             <div className={styles.form_title}>Дата</div>
 
             <div className={styles.choose_data}>
-              <Date />
-              <Date />
+              <DateStart />
+              <DateEnd />
               
             </div>
           </div>

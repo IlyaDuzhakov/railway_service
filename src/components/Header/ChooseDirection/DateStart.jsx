@@ -1,16 +1,19 @@
+import { useContext } from "react";
 import styles from "./ChooseDirection.module.css";
 import DatePicker from "react-datepicker";
-import { useState } from "react";
+import { TicketContext } from "../../../helpers/context";
 
-const Date = () => {
-  const [date, setDate] = useState("");
+
+const DateStart = () => {
+  
+  const [newTicket, setNewTicket] = useContext(TicketContext)
 
   return (
     <DatePicker
       dateFormat="dd.MM.yyyy"
       showIcon
-      selected={date}
-      onChange={(date) => setDate(date)}
+      selected={newTicket.dateStart}
+      onChange={(date) => setNewTicket({...newTicket, dateStart: date})}
       className="input"
       icon={
         <svg
@@ -34,4 +37,4 @@ const Date = () => {
   );
 };
 
-export default Date;
+export default DateStart;

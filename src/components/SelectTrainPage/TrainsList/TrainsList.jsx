@@ -1,35 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./TrainsList.module.css";
 import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
+import {TrainContext} from '../../../helpers/context.js'
 
-const TrainsList = ({trains}) => {
+
+const TrainsList = () => {
+  const [trains, setTrains] = useContext(TrainContext)
   const seatsList = {
     first: "Люкс",
     second: "Купе",
     third: "Плацкарт",
     fourth: "Сидячий",
   };
-
-//   const [trains, setTrains] = useState([]);
-
-//   const msc = "67ceb6548c75f00047c8f78d";
-//   const chumikha = "67ceb6548c75f00047c8f820";
-//   const spb = "67ceb6548c75f00047c8f78e";
-
-//   const getTrains = () => {
-//     fetch(
-//       `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${msc}&to_city_id=${spb}`,
-//     ).then((response) =>
-//       response.json().then((data) => {
-//         setTrains(data.items);
-//       }),
-//     );
-//   };
-
-//   useEffect(() => {
-//     getTrains();
-//   }, []);
 
   return (
     <div>

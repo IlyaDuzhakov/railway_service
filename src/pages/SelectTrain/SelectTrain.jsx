@@ -4,21 +4,25 @@ import SideBar from "../../components/SideBar/SideBar";
 import styles from "./SelectTrain.module.css";
 import {useState} from 'react'
 
+
+
+
+
 const SelectTrain = () => {
 
-  const [trains, setTrains] = useState([]);
-
+  
+  
 
   return (
     <div>
-      <HeaderSelectTrain setTrains={setTrains}/>
+      <HeaderSelectTrain/>
       <div className={styles.main}>
         <div className="container">
           <div className={styles.main_wrapper}>
             <SideBar />
             <main>
               <div className={styles.button_choose}>Кнопки выбора</div>
-              <TrainsList trains={trains}/>
+              <TrainsList/>
             </main>
           </div>
         </div>
@@ -28,3 +32,4 @@ const SelectTrain = () => {
 };
 
 export default SelectTrain;
+
