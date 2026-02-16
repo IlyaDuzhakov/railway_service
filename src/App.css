@@ -4,27 +4,55 @@
   padding: 0;
 }
 
+/* a {
+  text-decoration: none;
+} */
+
 .container {
   width: 1400px;
   position: relative;
 }
+
+
 
 /* switcher */
 
 
 .css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase.Mui-checked .css-17jyosd-MuiSwitch-thumb {
   background-color: #FFA800;
+  width: 28px;
+  height: 28px;
 }
 
 .css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase .css-17jyosd-MuiSwitch-thumb {
   background-color: #C4C4C4;
+  width: 28px;
+  height: 28px;
 }
 
-.css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase.Mui-checked + .css-tj8d99-MuiSwitch-track {
+
+.css-rehya9-MuiSwitch-root .css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase.Mui-checked + .css-tj8d99-MuiSwitch-track { 
   background-color: #FCDC9D;
+  opacity: 1;
+  height: 19px;
 }
 .css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase + .css-tj8d99-MuiSwitch-track {
   background-color: #ffffff;
+  opacity: 1;
+  height: 19px;
+}
+
+.Filters_filter__WNX9T .css-rehya9-MuiSwitch-root {
+  width: 96px;
+}
+
+.css-rehya9-MuiSwitch-root .css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase.Mui-checked {
+  transform: translate(49px);
+  padding: 8px;
+}
+
+.css-rehya9-MuiSwitch-root .css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase {
+  padding: 8px;
 }
 
 /* swiper */
@@ -52,4 +80,8 @@
   color: #000;
   outline: none;
   background-color: #fff;
+}
+
+.react-datepicker-wrapper:first-child {
+  margin-right: 20px;
 }

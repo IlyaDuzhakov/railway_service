@@ -4,3 +4,19 @@
     background-color: brown;
     border: 5px solid #fff;
 }
+
+.price_range {
+    position: relative;
+}
+
+.price_range::after {
+  content: "";
+  position: absolute;
+
+  left: -28px;
+  right: -36px;
+  top: 0;
+
+  height: 1px;
+  background-color: #E5E5E5;
+}

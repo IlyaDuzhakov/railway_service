@@ -1,0 +1,20 @@
+.directions_wrapper {
+    display: flex;
+}
+
+.forward {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.forward_top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forward_left,
+.forward_right {
+    display: flex;
+    gap: 6px;
+}

@@ -1,29 +1,36 @@
-import iconPhone from '../../../assets/icons/phone.svg'
-import Switch from '@mui/material/Switch';
-import styles from './Filters.module.css'
+// import iconPhone from '../../../../public/img/icons'
+import Switch from "@mui/material/Switch";
+import styles from "./Filters.module.css";
+import { StylesProvider } from "@material-ui/styles";
 
 const Filters = () => {
+  const way = "/img/icons";
 
-    const filtersList = [
-        {title: 'Купе',},
-        {title: 'Платцкарт',},
-        {title: 'Сидячий',},
-        {title: 'Люкс',},
-        {title: 'Wi-Fi',},
-        {title: 'Экспресс',}
-    ]
+  const filtersList = [
+    { title: "Купе", img: `${way}/train_compartment.svg` },
+    { title: "Платцкарт", img: `${way}/reserved_seat.svg` },
+    { title: "Сидячий", img: `${way}/seat.svg` },
+    { title: "Люкс", img: `${way}/luxury.svg` },
+    { title: "Wi-Fi", img: `${way}/Wi-Fi.svg` },
+    { title: "Экспресс", img: `${way}/express.svg` },
+  ];
 
   return (
-    <div>
-        {filtersList.map((el, index)=> {
-           return <div className={styles.filter} key={index}>
-            <img src={iconPhone} alt="iconPhone" />
-            <p>{el.title}</p>
-            <Switch defaultChecked color="red"/>
-           </div> 
-        })}
-    </div>
-  )
-}
+    <div className={styles.filter_wrapper}>
+      {filtersList.map((el, index) => {
+        return (
+          <div className={styles.filter} key={index}>
+            <img src={el.img} alt="iconPhone" />
+            <p className={styles.train_place}>{el.title}</p>
 
-export default Filters
+            <StylesProvider injectFirst>
+              <Switch defaultChecked color="red" />
+            </StylesProvider>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Filters;

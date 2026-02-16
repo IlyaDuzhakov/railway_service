@@ -8,7 +8,6 @@ import SelectSeats from "./pages/SelectSeats/SelectSeats.jsx";
 import SelectTrain from "./pages/SelectTrain/SelectTrain";
 import SuccessfulOrder from "./pages/SuccessfulOrder/SuccessfulOrder";
 import Footer from "./components/Footer/Footer.jsx";
-import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import { TrainContext, TicketContext } from "./helpers/context.js";
 

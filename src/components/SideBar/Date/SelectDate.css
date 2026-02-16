@@ -1,15 +1,16 @@
 .react-datepicker__input-container 
 .react-datepicker__calendar-icon {
       right: 0;
+      width: 30px;
+      height: 30px;
 }
 
 .react-datepicker__view-calendar-icon .input {
   padding-left: 8px;
   font-size: 18px;
   font-weight: 400;
-  height: 43px;
-  
-  
+  height: 60px;
+  margin-bottom: 34px;
 }
 
 
@@ -19,3 +20,13 @@
 .react-datepicker__week .react-datepicker__day--selected:hover {
   background-color: rgb(243, 142, 11);
 }
+
+.travel_date,
+.return_date {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 30px;
+  color: #ffffff;
+  
+}
+

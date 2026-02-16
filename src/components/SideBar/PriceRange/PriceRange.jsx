@@ -2,6 +2,7 @@ import Slider from '@mui/material/Slider';
 import './PriceRange.css'
 import {useState} from 'react'
 
+
 const PriceRange = () => {
 
     const [price, setPrice] = useState([1920, 4500])
@@ -24,7 +25,7 @@ const PriceRange = () => {
   }
 ];
   return (
-    <div>
+    <div className='price_range'>
       <h3>Стоимость</h3>
       <Slider className="price" 
         // aria-label="Always visible"

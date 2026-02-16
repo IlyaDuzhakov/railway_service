@@ -1,3 +1,33 @@
 .filter {
     display: flex;
+    justify-content: space-between;
+    
+    padding-top: 35px;
+    align-items: center;
+}
+
+.filter_wrapper {
+  position: relative;
+  padding-left: 40px;
+}
+
+.filter_wrapper::after {
+  content: "";
+  position: absolute;
+
+  left: -28px;
+  right: -36px;
+  top: 0;
+
+  height: 1px;
+  background-color: #E5E5E5;
+}
+
+.train_place {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: left;
+    width: 90px;
 }

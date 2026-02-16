@@ -5,6 +5,8 @@ import { TicketContext } from "../../../helpers/context";
 
 
 const DateStart = () => {
+
+  
   
   const [newTicket, setNewTicket] = useContext(TicketContext)
 
@@ -14,7 +16,7 @@ const DateStart = () => {
       showIcon
       selected={newTicket.dateStart}
       onChange={(date) => setNewTicket({...newTicket, dateStart: date})}
-      className="input"
+      className="input input_start"
       icon={
         <svg
           width="20"

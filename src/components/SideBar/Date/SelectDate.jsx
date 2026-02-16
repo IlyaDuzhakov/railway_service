@@ -7,7 +7,7 @@ const SelectDate = () => {
   const [endDate, setEndDate] = useState(new Date());
   return (
     <div className='date'>
-      <h3>Дата поездки</h3>
+      <h3 className="travel_date">Дата поездки</h3>
       <DatePicker
         dateFormat="dd.MM.yyyy"
         showIcon
@@ -33,7 +33,7 @@ const SelectDate = () => {
           </svg>
         }
       />
-      <h3>Дата возвращения</h3>
+      <h3 className="return_date">Дата возвращения</h3>
       <DatePicker
         dateFormat="dd.MM.yyyy"
         showIcon
