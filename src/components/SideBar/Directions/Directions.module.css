@@ -6,11 +6,20 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    
+}
+
+.border_directions {
+    border-top: 1px solid #E5E5E5;
+    margin-left: -28px;
+    margin-right: -36px;
+    margin-top: 32px;
 }
 
 .forward_top {
     display: flex;
     justify-content: space-between;
+    margin-top: 27px;
 }
 
 .forward_left,
@@ -18,3 +27,4 @@
     display: flex;
     gap: 6px;
 }
+

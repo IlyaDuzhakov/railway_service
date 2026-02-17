@@ -36,6 +36,8 @@
   opacity: 1;
   height: 19px;
 }
+
+
 .css-1kddok5-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase + .css-tj8d99-MuiSwitch-track {
   background-color: #ffffff;
   opacity: 1;
@@ -84,4 +86,28 @@
 
 .react-datepicker-wrapper:first-child {
   margin-right: 20px;
+}
+
+.sidebarDivider {
+    margin-right: -36px;
+    border-bottom: 1px solid #E5E5E5;
+    margin-left: -28px;
+
+}
+
+.travel_date, 
+.return_date {
+  padding-bottom: 8px;
+}
+
+.price_range {
+  margin-top: 37px;
+}
+
+.price_text {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 30px;
+  color: #fff;
+
 }

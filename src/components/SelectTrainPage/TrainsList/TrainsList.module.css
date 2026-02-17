@@ -190,3 +190,10 @@
     margin-top: 18px;
 }
 
+
+.pagination_wrap {
+  margin-top: auto;           /* прижать вниз */
+  /* padding: 24px 0; */
+  display: flex;
+  justify-content: flex-end;
+}

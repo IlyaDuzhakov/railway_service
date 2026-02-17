@@ -59,6 +59,7 @@ const SelectDate = () => {
           </svg>
         }
       />
+      <div className='sidebarDivider'></div>
     </div>
   );
 };

@@ -7,21 +7,10 @@
 }
 
 .filter_wrapper {
-  position: relative;
+
   padding-left: 40px;
 }
 
-.filter_wrapper::after {
-  content: "";
-  position: absolute;
-
-  left: -28px;
-  right: -36px;
-  top: 0;
-
-  height: 1px;
-  background-color: #E5E5E5;
-}
 
 .train_place {
     font-family: Roboto;
@@ -30,4 +19,11 @@
     color: #ffffff;
     text-align: left;
     width: 90px;
+}
+
+.filter_border {
+    border-bottom: 1px solid #E5E5E5;
+    margin-left: -68px;
+    margin-right: -36px;
+    margin-top: 23px;
 }

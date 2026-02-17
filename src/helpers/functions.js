@@ -28,4 +28,14 @@ const getCityId = async (name) => {
   return data[0]._id;
 };
 
-export { formatDate, travelTime, getCityId };
+const filterTrains = (trains, filter) => {
+  const arr = []
+  for (let train of trains) {
+    if (train.departure[filter] === true) {
+      arr.push(train)
+    }  
+  }
+  return arr
+}
+
+export { formatDate, travelTime, getCityId, filterTrains };

@@ -26,7 +26,7 @@ const PriceRange = () => {
 ];
   return (
     <div className='price_range'>
-      <h3>Стоимость</h3>
+      <h3 className='price_text'>Стоимость</h3>
       <Slider className="price" 
         // aria-label="Always visible"
         defaultValue={80}

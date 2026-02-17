@@ -2,11 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import styles from "./TrainsList.module.css";
 import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
-import {TrainContext} from '../../../helpers/context.js'
-
+import { TrainContext } from "../../../helpers/context.js";
 
 const TrainsList = () => {
-  const [trains, setTrains] = useContext(TrainContext)
+  const [trains, setTrains] = useContext(TrainContext);
   const seatsList = {
     first: "Люкс",
     second: "Купе",
@@ -15,7 +14,8 @@ const TrainsList = () => {
   };
 
   return (
-    <div>
+    <div className={styles.page}>
+      <div className={styles.list}>
       {trains.map((el, index) => {
         return (
           <div className={styles.train} key={index}>
@@ -87,32 +87,42 @@ const TrainsList = () => {
 
                   return (
                     <div className={styles.seat_top}>
-                    <div key={seatClass} className={styles.seat_row}>
-                      <div className={styles.seat_name}>
-                        {seatsList[seatClass]}
-                      </div>
-                      <p className={styles.seat_count}>{count}</p>
-                       <div className={styles.seat_price_wrapper}>
-                      <span className={styles.seat_price_from}>от</span>
-                      <span className={styles.seat_price}>
-                        {el.min_price}
-                      </span>
-                      <img className={styles.seat_coin} src="/img/icons/coin.svg" alt="coin" />
-                      </div>
+                      <div key={seatClass} className={styles.seat_row}>
+                        <div className={styles.seat_name}>
+                          {seatsList[seatClass]}
+                        </div>
+                        <p className={styles.seat_count}>{count}</p>
+                        <div className={styles.seat_price_wrapper}>
+                          <span className={styles.seat_price_from}>от</span>
+                          <span className={styles.seat_price}>
+                            {el.min_price}
+                          </span>
+                          <img
+                            className={styles.seat_coin}
+                            src="/img/icons/coin.svg"
+                            alt="coin"
+                          />
+                        </div>
                       </div>
                     </div>
                   );
                 })}
-                      <div className={styles.seat_bottom}>
-                      <img src="/img/icons/last_train_icons_grey.svg" alt="service" />
-                      <button className={styles.choose_seats}>Выбрать места</button>
-                      </div>
+                <div className={styles.seat_bottom}>
+                  <img
+                    src="/img/icons/last_train_icons_grey.svg"
+                    alt="service"
+                  />
+                  <button className={styles.choose_seats}>Выбрать места</button>
+                </div>
               </div>
             </div>
           </div>
         );
-    })}
-    <TrainsPagination />
+      })}
+      </div>
+      <div className={styles.pagination_wrap}>
+      {trains.length !== 0 ? <TrainsPagination /> : ""}
+      </div>
     </div>
   );
 };

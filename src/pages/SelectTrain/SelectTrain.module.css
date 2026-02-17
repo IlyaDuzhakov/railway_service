@@ -4,6 +4,22 @@
     padding-top: 95px;
 }
 
-.main_wrapper {
+/* .main_wrapper {
     display: flex;
+} */
+
+
+.main_wrapper {
+  display: flex;
+            /* важно */
+}
+
+/* правая часть */
+.content {
+  flex: 1;
+  min-width: 0;
+
+   /* 200px под хедер/ступени, подгони */
+  display: flex;
+  flex-direction: column;
 }

@@ -1,6 +1,52 @@
-.paginetion_number {
+.pagination_number {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 30px;
     width: 85px;
     height: 75px;
     margin-top: 142px;
     margin-bottom: 193px;
+    background-color: #fff;
+    color: #928F94;
+    border: 1px solid #C4C4C4;
 }
+
+.caret_wrapper {
+    display: flex;
+    gap: 35px;
+}
+
+.caret_left,
+.caret_right {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 30px;
+    width: 84px;
+    height: 75px;
+    margin-top: 142px;
+    margin-bottom: 193px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+}
+
+.active {
+    background-color: #FFA800;
+    color: #fff;
+    border: none;
+}
+
+.pagination_number:hover {
+  border-color: orange;
+  color: orange;
+}
+
+.active:hover {
+  background: orange;
+  color: white;
+  
+}
+
+.caret_left img:hover,
+.caret_right img:hover {
+   transform: scale(1.1)
+} 

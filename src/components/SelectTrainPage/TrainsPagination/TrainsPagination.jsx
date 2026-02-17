@@ -1,14 +1,26 @@
 import styles from './TrainsPagination.module.css'
+import { useState } from "react";
 
 const TrainsPagination = () => {
+
+  const [activePage, setActivePage] = useState(1);
+  const pages = [1, 2, 3];
   return (
-    <div>
+    <div className={styles.caret_wrapper}>
         <button className={styles.caret_left}>
             <img src="/img/icons/caret_left.svg" alt="caret left" />
         </button>
-        <button className={styles.paginetion_number}>1</button>
-        <button className={styles.paginetion_number}>2</button>
-        <button className={styles.paginetion_number}>3</button>
+        {pages.map((p)=> (
+          <button 
+          key={p}
+          onClick={() => setActivePage(p)}
+          className={`${styles.pagination_number} ${
+            activePage === p ? styles.active : ""
+          }`}
+        >
+          {p}
+        </button>
+        ))}
         <button className={styles.caret_left}>
             <img src="/img/icons/caret_right.svg" alt="caret right" />
         </button>
