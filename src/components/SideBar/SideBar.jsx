@@ -9,14 +9,13 @@ const SideBar = () => {
   return (
     <aside className={styles.aside}>
       <div className={styles.aside_top}>
-      <SelectDate />
-      <Filters />
-      <PriceRange />
-      <Directions />
+        <SelectDate />
+        <Filters />
+        <PriceRange />
+        <Directions />
       </div>
-      <div className={styles.aside_bottom}>
-          <LastTrains />
-      </div>
+
+      <LastTrains />
     </aside>
   );
 };

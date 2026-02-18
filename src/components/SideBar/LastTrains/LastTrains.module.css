@@ -53,3 +53,16 @@
 .price_text {
     line-height: 100%;
 }
+
+.last_ticket_wrapper {
+  margin-top: 94px;
+}
+
+.last_ticket_text {
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 26px;
+  text-align: left;
+  text-transform: uppercase;
+}

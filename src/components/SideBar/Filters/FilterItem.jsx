@@ -1,15 +1,26 @@
 import styles from "./Filters.module.css";
 import { StylesProvider } from "@material-ui/styles";
 import Switch from "@mui/material/Switch";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { filterTrains } from "../../../helpers/functions";
+import {TrainContext, ShowTrainsContext } from '../../../helpers/context.js'
+  
 
-const FilterItem = ({ el, index }) => {
+const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
+  
+  const [trains, setTrains] = useContext(TrainContext)
+  const [showTrains, setshowTrains] = useContext(ShowTrainsContext)
   const [checked, setChecked] = useState(false);
   const handleSwitch = (event) => {
     setChecked((prev) => !prev);
     if (checked === false ) {
-        console.log(event.target.name)
+        setActiveFilters([...activeFilters, event.target.name])
+        // const rezult = filterTrains(trains, event.target.name)
+        // setshowTrains(rezult)
+    }
+    else {
+        // setshowTrains(trains) // отображаем все поезда
+        // написать логику, которая будет удалять текущий фильтр из списка фильтров
     }
   };
 

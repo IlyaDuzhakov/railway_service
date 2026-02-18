@@ -17,8 +17,8 @@ const LastTrains = () => {
   }, []);
 
   return (
-    <div>
-      <h2>последние билеты</h2>
+    <div className={styles.last_ticket_wrapper}>
+      <h2 className={styles.last_ticket_text}>последние билеты</h2>
       {lastTickets.map((el, index) => {
         return (
           <div className={styles.last_ticket} key={index}>

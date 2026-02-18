@@ -2,10 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import styles from "./TrainsList.module.css";
 import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
-import { TrainContext } from "../../../helpers/context.js";
+import { ShowTrainsContext } from "../../../helpers/context.js";
 
 const TrainsList = () => {
-  const [trains, setTrains] = useContext(TrainContext);
+  const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
   const seatsList = {
     first: "Люкс",
     second: "Купе",
@@ -16,7 +16,7 @@ const TrainsList = () => {
   return (
     <div className={styles.page}>
       <div className={styles.list}>
-      {trains.map((el, index) => {
+      {showTrains.map((el, index) => {
         return (
           <div className={styles.train} key={index}>
             <div className={styles.train_direction}>
@@ -121,7 +121,7 @@ const TrainsList = () => {
       })}
       </div>
       <div className={styles.pagination_wrap}>
-      {trains.length !== 0 ? <TrainsPagination /> : ""}
+      {showTrains.length !== 0 ? <TrainsPagination /> : ""}
       </div>
     </div>
   );

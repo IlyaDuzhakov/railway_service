@@ -1,25 +1,55 @@
 .main {
-    display: flex;
-    justify-content: center;
-    padding-top: 95px;
+  display: flex;
+  justify-content: center;
+  padding-top: 95px;
 }
 
 /* .main_wrapper {
     display: flex;
 } */
 
-
 .main_wrapper {
   display: flex;
-            /* важно */
+  gap: 84px;
 }
 
-/* правая часть */
 .content {
   flex: 1;
   min-width: 0;
-
-   /* 200px под хедер/ступени, подгони */
   display: flex;
   flex-direction: column;
+}
+
+.ticket_wrapper {
+  display: flex;
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ticket_text {
+  font-family: Roboto;
+  font-weight: 700;
+  text-align: center;
+  font-size: 50px;
+  color: #292929;
+}
+
+.ticket_icon {
+  width: 600px;
+  height: 600px;
+  opacity: 0.2;
+  transition:
+    transform 200ms ease,
+    filter 200ms ease;
+}
+
+.ticket_icon:hover {
+  /* transform: scale(1.08); */
+  filter: brightness(0) saturate(100%) invert(71%) sepia(96%) saturate(1700%)
+    hue-rotate(2deg) brightness(102%) contrast(103%);
+  opacity: 0.7;
 }
