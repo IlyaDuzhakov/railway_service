@@ -4,6 +4,7 @@ import Switch from "@mui/material/Switch";
 import { useContext, useState } from "react";
 import { filterTrains } from "../../../helpers/functions";
 import {TrainContext, ShowTrainsContext } from '../../../helpers/context.js'
+import { deleteFilter } from "../../../helpers/functions";
   
 
 const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
@@ -12,16 +13,22 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
   const [showTrains, setshowTrains] = useContext(ShowTrainsContext)
   const [checked, setChecked] = useState(false);
   const handleSwitch = (event) => {
-    setChecked((prev) => !prev);
-    if (checked === false ) {
-        setActiveFilters([...activeFilters, event.target.name])
-        // const rezult = filterTrains(trains, event.target.name)
-        // setshowTrains(rezult)
-    }
-    else {
-        // setshowTrains(trains) // отображаем все поезда
-        // написать логику, которая будет удалять текущий фильтр из списка фильтров
-    }
+    setChecked((prev) => {
+        // console.log(prev) 
+        if (prev === false ) {
+            setActiveFilters([...activeFilters, event.target.name])
+            const actualTrains = filterTrains(trains, [...activeFilters, event.target.name])
+            setshowTrains(actualTrains)
+        }
+        else {
+            const rezult = deleteFilter(activeFilters, event.target.name)
+            setActiveFilters(rezult)
+            const actualTrains = filterTrains(trains, rezult)
+            setshowTrains(actualTrains)
+        }
+        // console.log(activeFilters)
+        return !prev
+});
   };
 
   return (
@@ -36,7 +43,9 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
           name={el.label}
           onChange={(event) => {
             handleSwitch(event);
+            // console.log(activeFilters)
           }}
+
         />
       </StylesProvider>
     </div>

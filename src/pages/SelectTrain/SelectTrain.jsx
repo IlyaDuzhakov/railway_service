@@ -18,7 +18,25 @@ const SelectTrain = () => {
             <main className={styles.content}>
               {trains.length !== 0 ? (
                 <>
-                  <div className={styles.button_choose}>Кнопки выбора</div>
+                  <div className={styles.button_choose}>
+                    <div>
+                      <p>найдено</p>
+                    </div>
+                    <div>
+                        <p>сортировать по:</p>
+                        <select name="" id="">
+                          <option value="time">времени</option>
+                          <option value="cost">стоимости</option>
+                          <option value="duration">длительности</option>
+                        </select>
+                    </div>
+                    <div>
+                      <p>показывать по:</p>
+                      <button>5</button>
+                      <button>10</button>
+                      <button>20</button>
+                    </div>
+                  </div>
                   <TrainsList />
                 </>
               ) : (

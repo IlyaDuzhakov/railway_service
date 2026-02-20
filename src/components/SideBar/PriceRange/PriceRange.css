@@ -1,7 +1,59 @@
 
 
 .css-1e45yg4-MuiSlider-root .css-xvk2i-MuiSlider-track  {
-    background-color: brown;
-    border: 5px solid #fff;
+    /* background-color: brown; */
+    border: 3px solid #FFA800;
+    background-color: #FFA800;
+    height: 19px;
 }
 
+.css-1e45yg4-MuiSlider-root .css-r64h58-MuiSlider-rail {
+    border: 1px solid #C4C4C4;
+    background-color: #3E3C41;
+    height: 19px;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.css-1e45yg4-MuiSlider-root .css-swtyag-MuiSlider-markLabel {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+    color: #E5E5E5;
+}
+
+.css-1e45yg4-MuiSlider-root .css-1qb795b-MuiSlider-markLabel {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 16px;
+    color: #E5E5E5;
+}
+
+.arrival_time,
+.departure_time {
+    font-family: Roboto;
+    font-family: 400;
+    font-size: 24px;
+    color: #E5E5E5;
+    text-align: right;
+}
+
+.departure_time {
+    text-align: left;
+}
+
+.time_range {
+    margin-bottom: 46px;
+}
+
+.time_band {
+    margin-bottom: 30px;
+}
+
+.direction_text_top {
+   margin-top: 19px;
+}
+
+.direction_text_bottom {
+    margin-top: 15px;
+}

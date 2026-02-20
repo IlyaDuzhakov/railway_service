@@ -15,18 +15,23 @@ const PriceRange = () => {
     value: 1920,
     label: '1920',
   },
-//   {
-//     value: 4500,
-//     label: '4500',
-//   },
+  {
+    value: 4500,
+    label: '4500',
+  },
   {
     value: 7000,
     label: '7000',
   }
 ];
+
   return (
     <div className='price_range'>
       <h3 className='price_text'>Стоимость</h3>
+      <div className='direction_text'>
+        <span className='from'>от</span>
+        <span className='to'>до</span>
+      </div>
       <Slider className="price" 
         // aria-label="Always visible"
         defaultValue={80}
@@ -34,6 +39,7 @@ const PriceRange = () => {
         step={10}
         marks={marks}
         min={1920}
+        middle={4500}
         max={7000}
         // valueLabelDisplay="on"
         valueLabelDisplay="auto"

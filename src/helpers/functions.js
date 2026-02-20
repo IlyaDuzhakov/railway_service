@@ -28,14 +28,31 @@ const getCityId = async (name) => {
   return data[0]._id;
 };
 
-const filterTrains = (trains, filter) => {
-  const arr = []
+const filterTrains = (trains, filters) => {
+  const arr = [];
   for (let train of trains) {
-    if (train.departure[filter] === true) {
-      arr.push(train)
-    }  
+    let check = true;
+    for (let filter of filters) {
+      if (train.departure[filter] === false) {
+        check = false;
+        break;
+      }
+    }
+    if (check === true) {
+      arr.push(train);
+    }
   }
-  return arr
+  return arr;
+};
+
+const deleteFilter = (arr, del) => {
+      const filter = []
+      for (let el of arr) {
+          if (el !== del) {
+            filter.push(el)
+          }
+      }
+      return filter
 }
 
-export { formatDate, travelTime, getCityId, filterTrains };
+export { formatDate, travelTime, getCityId, filterTrains, deleteFilter };

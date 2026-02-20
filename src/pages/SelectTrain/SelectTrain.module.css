@@ -53,3 +53,7 @@
     hue-rotate(2deg) brightness(102%) contrast(103%);
   opacity: 0.7;
 }
+
+.button_choose {
+  display: flex;
+}

@@ -57,6 +57,19 @@
   padding: 8px;
 }
 
+/* переопределяем стили */
+
+.css-1e45yg4-MuiSlider-root .css-1xcmt9q-MuiSlider-thumb {
+  background-color: #ffffff;
+  width: 24px;
+  height: 24px;
+}
+
+
+
+
+/* переопределяем стили */
+
 /* swiper */
 
 
@@ -110,4 +123,18 @@
   font-size: 30px;
   color: #fff;
 
+}
+
+.direction_text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.from,
+.to {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
 }

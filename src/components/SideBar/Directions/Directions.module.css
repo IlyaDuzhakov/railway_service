@@ -20,6 +20,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: 27px;
+    margin-bottom: 34px;
+    align-items: center;
 }
 
 .forward_left,
@@ -28,3 +30,29 @@
     gap: 6px;
 }
 
+.btns {
+    background: none;
+    border: none;
+}
+
+.btn {
+    width: 20px;
+    height: 20px;
+}
+
+.btns:hover {
+    cursor: pointer;
+}
+
+.forward_text {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.border_line {
+    border-top: 1px solid #E5E5E5;
+    margin-left: -28px;
+    margin-right: -36px;
+}

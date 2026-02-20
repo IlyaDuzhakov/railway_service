@@ -7,6 +7,7 @@ const Directions = () => {
       <div className={styles.forward}>
         <div className={styles.border_directions}></div>
         <DirectionItem forward='Туда'/>
+        <div className={styles.border_line}></div>
         <DirectionItem forward='Обратно'/>
       </div>
     </div>
