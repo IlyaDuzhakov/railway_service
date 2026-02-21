@@ -24,6 +24,7 @@ const ChooseDirection = () => {
       response.json().then((data) => {
         setTrains(data.items);
         console.log(data.items)
+        console.log(data.total_count)
       }),
     );
   };

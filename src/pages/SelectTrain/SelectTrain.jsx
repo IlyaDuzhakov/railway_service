@@ -2,11 +2,14 @@ import HeaderSelectTrain from "../../components/Header/HeaderSelectTrain/HeaderS
 import TrainsList from "../../components/SelectTrainPage/TrainsList/TrainsList";
 import SideBar from "../../components/SideBar/SideBar";
 import styles from "./SelectTrain.module.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TrainContext } from "../../helpers/context.js";
+import OptionsBar from "../../components/SelectTrainPage/OptionsBar/OptionsBar.jsx";
+
 
 const SelectTrain = () => {
   const [trains, setTrains] = useContext(TrainContext);
+  
 
   return (
     <div>
@@ -18,25 +21,7 @@ const SelectTrain = () => {
             <main className={styles.content}>
               {trains.length !== 0 ? (
                 <>
-                  <div className={styles.button_choose}>
-                    <div>
-                      <p>найдено</p>
-                    </div>
-                    <div>
-                        <p>сортировать по:</p>
-                        <select name="" id="">
-                          <option value="time">времени</option>
-                          <option value="cost">стоимости</option>
-                          <option value="duration">длительности</option>
-                        </select>
-                    </div>
-                    <div>
-                      <p>показывать по:</p>
-                      <button>5</button>
-                      <button>10</button>
-                      <button>20</button>
-                    </div>
-                  </div>
+                  <OptionsBar />
                   <TrainsList />
                 </>
               ) : (

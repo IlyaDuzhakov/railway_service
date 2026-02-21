@@ -1,0 +1,4 @@
+.button_choose {
+  display: flex;
+  justify-content: space-between;
+}

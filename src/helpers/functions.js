@@ -55,4 +55,11 @@ const deleteFilter = (arr, del) => {
       return filter
 }
 
-export { formatDate, travelTime, getCityId, filterTrains, deleteFilter };
+const sortTrains = (trains, selectedSort) => {
+     const sorted = trains.slice().sort((a, b)=> {
+        return a.departure[selectedSort] - b.departure[selectedSort]
+     })
+     return sorted
+}
+
+export { formatDate, travelTime, getCityId, filterTrains, deleteFilter, sortTrains };
