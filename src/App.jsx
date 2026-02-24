@@ -9,10 +9,13 @@ import SelectTrain from "./pages/SelectTrain/SelectTrain";
 import SuccessfulOrder from "./pages/SuccessfulOrder/SuccessfulOrder";
 import Footer from "./components/Footer/Footer.jsx";
 import { useEffect, useState } from "react";
+import { findMinMax } from "./helpers/functions.js";
 import {
   TrainContext,
   TicketContext,
   ShowTrainsContext,
+  LoaderContext,
+  MinMaxContext,
 } from "./helpers/context.js";
 
 function App() {
@@ -25,27 +28,47 @@ function App() {
     dateEnd: "",
   });
 
-  useEffect(()=> {
-    setshowTrains(trains)
-  }, [trains])
-  
+  const [range, setRange] = useState({ min: 0, max: 1000 });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const showLoader = () => {
+    setIsLoading(true);
+  };
+
+  const hideLoader = () => {
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    setshowTrains(trains);
+    const rezultMinMax = findMinMax(trains);
+    setRange(rezultMinMax);
+  }, [trains]);
+
   return (
     <div className="App">
-      <ShowTrainsContext.Provider value={[showTrains, setshowTrains]}>
-        <TicketContext.Provider value={[newTicket, setNewTicket]}>
-          <TrainContext.Provider value={[trains, setTrains]}>
-            <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/confirm_order" element={<ConfirmOrder />} />
-              <Route path="/passengers" element={<Passengers />} />
-              <Route path="/payment" element={<Payment />} />
-              <Route path="/select_seats" element={<SelectSeats />} />
-              <Route path="/select_train" element={<SelectTrain />} />
-              <Route path="/successful_order" element={<SuccessfulOrder />} />
-            </Routes>
-          </TrainContext.Provider>
-        </TicketContext.Provider>
-      </ShowTrainsContext.Provider>
+      <MinMaxContext.Provider value={range}>
+        <LoaderContext.Provider value={[isLoading, showLoader, hideLoader]}>
+          <ShowTrainsContext.Provider value={[showTrains, setshowTrains]}>
+            <TicketContext.Provider value={[newTicket, setNewTicket]}>
+              <TrainContext.Provider value={[trains, setTrains]}>
+                <Routes>
+                  <Route path="/" element={<Main />} />
+                  <Route path="/confirm_order" element={<ConfirmOrder />} />
+                  <Route path="/passengers" element={<Passengers />} />
+                  <Route path="/payment" element={<Payment />} />
+                  <Route path="/select_seats" element={<SelectSeats />} />
+                  <Route path="/select_train" element={<SelectTrain />} />
+                  <Route
+                    path="/successful_order"
+                    element={<SuccessfulOrder />}
+                  />
+                </Routes>
+              </TrainContext.Provider>
+            </TicketContext.Provider>
+          </ShowTrainsContext.Provider>
+        </LoaderContext.Provider>
+      </MinMaxContext.Provider>
       <Footer />
     </div>
   );

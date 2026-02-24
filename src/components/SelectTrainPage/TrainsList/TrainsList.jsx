@@ -3,6 +3,7 @@ import styles from "./TrainsList.module.css";
 import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
 import { ShowTrainsContext } from "../../../helpers/context.js";
+import { Link } from 'react-router-dom'
 
 const TrainsList = () => {
   const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
@@ -112,7 +113,7 @@ const TrainsList = () => {
                     src="/img/icons/last_train_icons_grey.svg"
                     alt="service"
                   />
-                  <button className={styles.choose_seats}>Выбрать места</button>
+                  <button className={styles.choose_seats}><Link to='/select_seats'>Выбрать места</Link></button>
                 </div>
               </div>
             </div>

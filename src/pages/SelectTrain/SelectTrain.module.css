@@ -4,10 +4,6 @@
   padding-top: 95px;
 }
 
-/* .main_wrapper {
-    display: flex;
-} */
-
 .main_wrapper {
   display: flex;
   gap: 84px;
@@ -48,10 +44,32 @@
 }
 
 .ticket_icon:hover {
-  /* transform: scale(1.08); */
   filter: brightness(0) saturate(100%) invert(71%) sepia(96%) saturate(1700%)
     hue-rotate(2deg) brightness(102%) contrast(103%);
   opacity: 0.7;
 }
 
+.choose_text {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 30px;
+  color: #292929;
+  text-transform: uppercase;
+}
+
+.choose_train_btn {
+  border: 1px solid #292929;
+  border-radius: 5px;
+  height: 60px;
+  background-color: #ffffff;
+  width: 325px;
+}
+
+.btn_text {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 24px;
+  color: #292929;
+  text-align: center;
+}
 

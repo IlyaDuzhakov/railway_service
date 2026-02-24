@@ -3,13 +3,14 @@ import TrainsList from "../../components/SelectTrainPage/TrainsList/TrainsList";
 import SideBar from "../../components/SideBar/SideBar";
 import styles from "./SelectTrain.module.css";
 import { useContext, useState } from "react";
-import { TrainContext } from "../../helpers/context.js";
+import { TrainContext, LoaderContext } from "../../helpers/context.js";
 import OptionsBar from "../../components/SelectTrainPage/OptionsBar/OptionsBar.jsx";
-
+import Loader from "../../components/SelectTrainPage/Loader/Loader.jsx";
+import InstructionsText from "../../components/SelectTrainPage/TrainsList/InstructionsText.jsx";
 
 const SelectTrain = () => {
   const [trains, setTrains] = useContext(TrainContext);
-  
+  const [isLoading] = useContext(LoaderContext);
 
   return (
     <div>
@@ -19,24 +20,15 @@ const SelectTrain = () => {
           <div className={styles.main_wrapper}>
             <SideBar />
             <main className={styles.content}>
-              {trains.length !== 0 ? (
+              {isLoading === false && trains.length === 0 ? (
+                <InstructionsText />
+              ) : isLoading === true ? (
+                <Loader />
+              ) : (
                 <>
                   <OptionsBar />
                   <TrainsList />
                 </>
-              ) : (
-                <div className={styles.ticket_wrapper}>
-                  <div className={styles.ticket}>
-                    <h2 className={styles.ticket_text}>
-                      Выберите города и даты и нажмите на кнопку "найти билеты"
-                    </h2>
-                    <img
-                      className={styles.ticket_icon}
-                      src="/img/icons/train_ticket.svg"
-                      alt="ticket"
-                    />
-                  </div>
-                </div>
               )}
             </main>
           </div>

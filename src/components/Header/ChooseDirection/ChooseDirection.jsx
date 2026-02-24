@@ -1,32 +1,44 @@
 import styles from "./ChooseDirection.module.css";
 import { useState, useEffect, useContext } from "react";
 import Inputs from "./Inputs.jsx";
-import {getCityId} from '../../../helpers/functions.js'
-import { TrainContext, TicketContext } from "../../../helpers/context.js";
+import { getCityId } from "../../../helpers/functions.js";
+import { TrainContext, TicketContext, LoaderContext } from "../../../helpers/context.js";
 import { Link } from "react-router-dom";
 
 const ChooseDirection = () => {
-  const [trains, setTrains] = useContext(TrainContext)
-  const [newTicket, setNewTicket] = useContext(TicketContext)
+  const [trains, setTrains] = useContext(TrainContext);
+  const [newTicket, setNewTicket] = useContext(TicketContext);
   const [listCitiesFrom, setListCitiesFrom] = useState([]);
   const [listCitiesTo, setListCitiesTo] = useState([]);
-// https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78d&to_city_id=67ceb6548c75f00047c8f78e
+  const [isLoading, showLoader, hideLoader] = useContext(LoaderContext)
+  // https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78d&to_city_id=67ceb6548c75f00047c8f78e
 
   const findTrains = async () => {
- 
-    const cityFrom = await getCityId(newTicket.from)
-    const cityTo = await getCityId(newTicket.to)
-    let longLink = `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${cityFrom}&to_city_id=${cityTo}&date_start=${newTicket.dateStart}&date_end=${newTicket.dateEnd}`
-    let shortLink = `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${cityFrom}&to_city_id=${cityTo}`
-    let url = newTicket.dateStart !== '' && newTicket.dateEnd !== '' ? longLink : shortLink
-    
-    fetch(url).then((response) =>
-      response.json().then((data) => {
-        setTrains(data.items);
-        console.log(data.items)
-        console.log(data.total_count)
-      }),
-    );
+    showLoader()
+    try {
+      const cityFrom = await getCityId(newTicket.from);
+      const cityTo = await getCityId(newTicket.to);
+      let longLink = `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${cityFrom}&to_city_id=${cityTo}&date_start=${newTicket.dateStart}&date_end=${newTicket.dateEnd}`;
+      let shortLink = `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${cityFrom}&to_city_id=${cityTo}`;
+      let url =
+        newTicket.dateStart !== "" && newTicket.dateEnd !== ""
+          ? longLink
+          : shortLink;
+      
+      fetch(url).then((response) =>
+        response.json().then((data) => {
+          setTrains(data.items);
+          console.log(data.items);
+          // console.log(data.total_count);
+        }),
+      );
+    } catch (error) {
+      console.log(error.message) 
+    }
+    finally {
+      hideLoader()
+      console.log(trains.length)
+    }
   };
 
   const findCities = async (direction, str) => {
@@ -60,10 +72,7 @@ const ChooseDirection = () => {
   return (
     <form className={styles.search_form}>
       <div className={styles.form_container}>
-        <Inputs
-          listCitiesFrom={listCitiesFrom}
-          listCitiesTo={listCitiesTo}
-        />
+        <Inputs listCitiesFrom={listCitiesFrom} listCitiesTo={listCitiesTo} />
 
         <button
           className={styles.submit_btn}
@@ -73,9 +82,7 @@ const ChooseDirection = () => {
             findTrains();
           }}
         >
-          <Link to='/select_train'>
-          НАЙТИ БИЛЕТЫ
-          </Link>
+          <Link to="/select_train">НАЙТИ БИЛЕТЫ</Link>
         </button>
       </div>
     </form>
