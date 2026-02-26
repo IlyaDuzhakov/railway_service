@@ -1,0 +1,49 @@
+
+.train_item {
+    display: flex;
+    align-items: center;
+    
+    padding-right: 36px;
+}
+
+.station_name {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    color: #928F94;
+}
+
+.departure_datetime {
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+}
+
+.landing_stations {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    color: #292929;
+}
+
+.orange_arrow {
+    width: 30px;
+    height: 20px;
+    
+}
+
+.train_item_arrow {
+    margin-left: 23px;
+    margin-right: 51px;
+}
+
+.travel_time {
+    color: #C4C4C4;
+}
+
+.train_info_left,
+.train_info_right {
+    padding-top: 54px;
+    padding-bottom: 23px;
+}

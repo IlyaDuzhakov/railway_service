@@ -46,41 +46,59 @@ const filterTrains = (trains, filters) => {
 };
 
 const filterPrice = (trains, min, max) => {
-     const rezult = []
-     for (let train of trains) {
-      if (train.min_price >= min && train.min_price <= max) {
-        rezult.push(train)
-      }
-     }
-     return rezult
-}
+  const rezult = [];
+  for (let train of trains) {
+    if (train.min_price >= min && train.min_price <= max) {
+      rezult.push(train);
+    }
+  }
+  return rezult;
+};
 
 const deleteFilter = (arr, del) => {
-      const filter = []
-      for (let el of arr) {
-          if (el !== del) {
-            filter.push(el)
-          }
-      }
-      return filter
-}
+  const filter = [];
+  for (let el of arr) {
+    if (el !== del) {
+      filter.push(el);
+    }
+  }
+  return filter;
+};
 
 const sortTrains = (trains, selectedSort) => {
-     const sorted = trains.slice().sort((a, b)=> {
-        return a.departure[selectedSort] - b.departure[selectedSort]
-     })
-     return sorted
-}
+  const sorted = trains.slice().sort((a, b) => {
+    return a.departure[selectedSort] - b.departure[selectedSort];
+  });
+  return sorted;
+};
 
 const findMinMax = (trains) => {
-    const prices = []
-    for (let train of trains) {
-      prices.push(train.min_price)
-    }
-   prices.sort((a, b)=> {
-        return a - b
-   })
-   return {min: prices[0], max: prices[prices.length - 1] }
-}
+  const prices = [];
+  for (let train of trains) {
+    prices.push(train.min_price);
+  }
+  prices.sort((a, b) => {
+    return a - b;
+  });
+  return { min: prices[0], max: prices[prices.length - 1] };
+};
 
-export { formatDate, travelTime, getCityId, filterTrains, deleteFilter, sortTrains, findMinMax, filterPrice  };
+const getTrain = (trains, id) => {
+  for (let train of trains) {
+    if (train.departure._id === id) {
+      return train;
+    }
+  }
+};
+
+export {
+  formatDate,
+  travelTime,
+  getCityId,
+  filterTrains,
+  deleteFilter,
+  sortTrains,
+  findMinMax,
+  filterPrice,
+  getTrain,
+};

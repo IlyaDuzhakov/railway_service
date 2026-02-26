@@ -9,7 +9,12 @@ const LastTrains = () => {
       "https://students.netoservices.ru/fe-diplom/routes/last",
     );
     const data = await response.json();
-    setLastTickets(data);
+    if (data.length <= 3) {
+      setLastTickets(data);
+    }
+    else {
+      setLastTickets(data.slice(0, 3));
+    }
   };
 
   useEffect(() => {

@@ -113,7 +113,7 @@ const TrainsList = () => {
                     src="/img/icons/last_train_icons_grey.svg"
                     alt="service"
                   />
-                  <button className={styles.choose_seats}><Link to='/select_seats'>Выбрать места</Link></button>
+                  <button className={styles.choose_seats}><Link to={`/select_seats/${el.departure._id}`}>Выбрать места</Link></button>
                 </div>
               </div>
             </div>

@@ -57,7 +57,7 @@ function App() {
                   <Route path="/confirm_order" element={<ConfirmOrder />} />
                   <Route path="/passengers" element={<Passengers />} />
                   <Route path="/payment" element={<Payment />} />
-                  <Route path="/select_seats" element={<SelectSeats />} />
+                  <Route path="/select_seats/:trainId" element={<SelectSeats />} />
                   <Route path="/select_train" element={<SelectTrain />} />
                   <Route
                     path="/successful_order"
