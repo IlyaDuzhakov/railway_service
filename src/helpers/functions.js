@@ -20,6 +20,33 @@ const travelTime = (ms) => {
   return rezult;
 };
 
+const formatWord = (time, words) => {
+    if (time.endsWith('11') || time.endsWith('12') || time.endsWith('13') || time.endsWith('14')) {
+      return words[2]
+  }
+  else if (time.endsWith('1') && Number(time) != 11) {
+     return words[0]
+  }
+  else if (time.endsWith('2') || time.endsWith('3') || time.endsWith('4')) {
+    return words[1]
+  }
+  else {
+    return words[2]
+  }
+}
+
+
+const travelTimeLong = (ms) => {
+
+  const timeStr = travelTime(ms)
+  
+  const [hour, minutes]= timeStr.split(':').map((el)=> el.trim())
+  let textHour = formatWord(hour, ['час', 'часа', 'часов'])
+  let textMinutes = formatWord(minutes, ['минута', 'минуты', 'минут'])
+  const rezult = [`${hour} ${textHour}`, `${minutes} ${textMinutes}`]
+  return rezult
+}
+
 const getCityId = async (name) => {
   const response = await fetch(
     `https://students.netoservices.ru/fe-diplom/routes/cities?name=${name}`,
@@ -101,4 +128,5 @@ export {
   findMinMax,
   filterPrice,
   getTrain,
+  travelTimeLong,
 };

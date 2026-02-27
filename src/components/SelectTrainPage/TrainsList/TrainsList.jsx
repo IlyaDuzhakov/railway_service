@@ -4,6 +4,8 @@ import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
 import { ShowTrainsContext } from "../../../helpers/context.js";
 import { Link } from 'react-router-dom'
+// import shared from '../../SelectSeatsPage/TrainInfo/shared.module.css'
+import TrainInfo from "../../SelectSeatsPage/TrainInfo/TrainInfo.jsx";
 
 const TrainsList = () => {
   const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
@@ -45,42 +47,7 @@ const TrainsList = () => {
               </div>
             </div>
             <div className={styles.train_info}>
-              <div className={styles.train_info_left}>
-                <div className={styles.train_item}>
-                  <div className={styles.train_item_from}>
-                    <p className={styles.departure_datetime}>
-                      {formatDate(el.departure.from.datetime)}
-                    </p>
-                    <p className={styles.landing_stations}>
-                      {el.departure.from.city.name}
-                    </p>
-                    <p className={styles.station_name}>
-                      {el.departure.from.railway_station_name} вокзал
-                    </p>
-                  </div>
-                  <div className={styles.train_item_arrow}>
-                    <p className={styles.travel_time}>
-                      {travelTime(el.departure.duration)}
-                    </p>
-                    <img
-                      className={styles.orange_arrow}
-                      src="/img/icons/arrow_right.svg"
-                      alt="arrow_right"
-                    />
-                  </div>
-                  <div className={styles.train_item_to}>
-                    <p className={styles.departure_datetime}>
-                      {formatDate(el.departure.to.datetime)}
-                    </p>
-                    <p className={styles.landing_stations}>
-                      {el.departure.to.city.name}
-                    </p>
-                    <p className={styles.station_name}>
-                      {el.departure.to.railway_station_name} вокзал
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <TrainInfo train={el} show={true}/>
               <div className={styles.train_info_right}>
                 {Object.entries(el.available_seats_info).map((item) => {
                   const seatClass = item[0];

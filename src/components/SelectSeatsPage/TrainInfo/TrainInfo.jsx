@@ -1,6 +1,9 @@
-import React from "react";
+import styles from './TrainInfo.module.css'
+import { formatDate, travelTime } from "../../../helpers/functions";
 
-const TrainInfo = () => {
+const TrainInfo = ({train, show}) => {
+
+  
   return (
     <div className={styles.train_item}>
       <div className={styles.train_item_from}>
@@ -15,9 +18,9 @@ const TrainInfo = () => {
         </p>
       </div>
       <div className={styles.train_item_arrow}>
-        <p className={styles.travel_time}>
+        {show === true ? <p className={styles.travel_time}>
           {travelTime(train?.departure.duration)}
-        </p>
+        </p> : ''}
         <img
           className={styles.orange_arrow}
           src="/img/icons/arrow_right.svg"
