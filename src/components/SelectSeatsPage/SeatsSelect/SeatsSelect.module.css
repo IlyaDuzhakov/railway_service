@@ -3,8 +3,8 @@
   justify-content: space-between;
   background-color: #f7f6f6;
   /* height: 123px; */
-  margin-left: -19px;
-  margin-right: -11px;
+  /* margin-left: -19px;
+  margin-right: -11px; */
   margin-top: 32px;
   padding-left: 35px;
   padding-top: 17px;
@@ -14,17 +14,19 @@
 
 .passengers_row {
   display: flex;
-  height: 192px;
-  margin-left: -19px;
-  margin-right: -11px;
+  /* height: 192px; */
 }
 
 .passengers_card {
   flex: 1;
   background-color: #f7f6f6;
-  padding: 10px;
+  padding: 10px 36px;
   border: 1px solid #f7f6f6;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .passengers_input {
@@ -52,8 +54,6 @@
   flex-direction: column;
   border: 1px solid #c4c4c4;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
-  padding-left: 19px;
-  padding-right: 11px;
   padding-top: 36px;
 }
 
@@ -85,6 +85,8 @@
 .choose_train_wrapper {
   display: flex;
   gap: 10px;
+  padding-left: 19px;
+  padding-right: 11px;
 }
 
 .train_text {
@@ -119,6 +121,7 @@
   color: #292929;
   margin-top: 40px;
   margin-bottom: 20px;
+  padding-left: 19px;
 }
 
 .card_line {

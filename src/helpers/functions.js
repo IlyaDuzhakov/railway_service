@@ -118,6 +118,12 @@ const getTrain = (trains, id) => {
   }
 };
 
+const randomSeats = (number) => {
+    const number1 = Math.floor(Math.random() * number)
+    const number2 = number - number1
+    return [number1, number2]
+}
+
 export {
   formatDate,
   travelTime,
@@ -129,4 +135,5 @@ export {
   filterPrice,
   getTrain,
   travelTimeLong,
+  randomSeats,
 };

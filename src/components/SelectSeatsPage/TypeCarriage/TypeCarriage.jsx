@@ -1,43 +1,31 @@
 import styles from '../SeatsSelect/SeatsSelect.module.css'
 
-const TypeCarriage = () => {
 
+const TypeCarriage = ({ train, chooseCarriage, selectCarriage }) => {
+    const trainTypes = Object.keys(train?.available_seats_info || {})
+    console.log(trainTypes)
 
     const carriages = [
-        {img: '/img/icons/seat_place.svg', name: 'fourth', title: 'Сидячий'},
-        {img: '/img/icons/train_compartment_place.svg', name: 'third', title: 'Плацкарт'},
-        {img: '/img/icons/cupe.svg', name: 'second', title: 'Купе'},
-        {img: '/img/icons/star.svg', name: 'first', title: 'Люкс'}
+        {img: '/img/icons/carriage_types/seat_place.svg', name: 'fourth', title: 'Сидячий', img_active: '/img/icons/carriage_types/seat_place_active.svg'},
+        {img: '/img/icons/carriage_types/train_compartment.svg', name: 'third', title: 'Плацкарт', img_active: '/img/icons/carriage_types/train_compartment_active.svg'},
+        {img: '/img/icons/carriage_types/kupe.svg', name: 'second', title: 'Купе', img_active: '/img/icons/carriage_types/kupe.svg'},
+        {img: '/img/icons/carriage_types/luxury.svg', name: 'first', title: 'Люкс', img_active: '/img/icons/carriage_types/luxury_active.svg'}
     ]
   return (
     <>
       <p className={styles.type_train}>Тип вагона</p>
       <div className={styles.icons_wrapper}>
-        {carriages.map((el)=> {
-            return <div className={styles.ico}>
-          <img src={el.img} alt="seat" />
+        {carriages.filter((type)=> {
+         return trainTypes.includes(type.name)
+        }).map((el)=> {
+            return <div className={styles.ico} onClick={()=> {
+              chooseCarriage(el.name)
+            }}>
+          <img src={selectCarriage === el.name ? el.img_active : el.img} alt="seat" />
           <p>{el.title}</p>
         </div>
         })}
-        {/* <div className={styles.ico}>
-          <img src="/img/icons/seat_place.svg" alt="seat" />
-          <p>Сидячий</p>
-        </div>
-        <div className={styles.ico}>
-          <img
-            src="/img/icons/train_compartment_place.svg"
-            alt="train compartment"
-          />
-          <p>Плацкарт</p>
-        </div>
-        <div className={styles.ico}>
-          <img src="/img/icons/reserved_seat_place.svg" alt="reserved seat" />
-          <p>Плацкарт</p>
-        </div>
-        <div className={styles.ico}>
-          <img src="/img/icons/star.svg" alt="star" />
-          <p>Плацкарт</p>
-        </div> */}
+        
       </div>
     </>
   );

@@ -12,6 +12,11 @@ const SelectSeats = () => {
   const {trainId} = useParams()
   const [trains, setTrains] = useContext(TrainContext)
   const [train, setTrain] = useState(getTrain(trains, trainId))
+  // сделать так, чтобы в train мы записывали значение из localstorage (если оно есть), а если его нет, вызывали функцию getTrain()
+
+  useEffect(()=> {
+    localStorage.setItem('train', JSON.stringify(train))
+  },[])
  
   return (
     <div>

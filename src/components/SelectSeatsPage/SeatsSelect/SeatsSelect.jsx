@@ -4,10 +4,15 @@ import TrainInfo from "../TrainInfo/TrainInfo.jsx";
 import { travelTimeLong } from "../../../helpers/functions.js";
 import CountTicket from "../CountTicket/CountTicket.jsx";
 import TypeCarriage from "../TypeCarriage/TypeCarriage.jsx";
+import Seats from "../Seats/Seats.jsx";
+import {useState} from 'react'
 
 
 const SeatsSelect = ({ train }) => {
-  // console.log(train.departure.from)
+  const [selectCarriage, setSelectCarriage] = useState(null) 
+  const chooseCarriage = (type) => {
+      setSelectCarriage(type)
+  }
   return (
     <main>
       <p className={styles.choose_text}>Выбор мест</p>
@@ -41,16 +46,17 @@ const SeatsSelect = ({ train }) => {
               src="/img/icons/clock_travel_time.svg"
               alt="clock"
             />
-            <p className={styles.train_time_text}>
+            <div className={styles.train_time_text}>
               {travelTimeLong(train?.departure.duration).map((el)=> {
                 return <p>{el}</p>
               })}
-              </p>
+              </div>
           </div>
         </div>
         <CountTicket />
         <div className={styles.card_line}></div>
-        <TypeCarriage />
+        <TypeCarriage selectCarriage={selectCarriage} chooseCarriage={chooseCarriage} train={train}/>
+        {selectCarriage !== null ? <Seats train={train} selectCarriage={selectCarriage}/> : ''}
       </div>
     </main>
   );
