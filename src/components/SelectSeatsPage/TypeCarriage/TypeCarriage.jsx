@@ -18,7 +18,7 @@ const TypeCarriage = ({ train, chooseCarriage, selectCarriage }) => {
         {carriages.filter((type)=> {
          return trainTypes.includes(type.name)
         }).map((el)=> {
-            return <div className={styles.ico} onClick={()=> {
+            return <div className={styles.icon} onClick={()=> {
               chooseCarriage(el.name)
             }}>
           <img src={selectCarriage === el.name ? el.img_active : el.img} alt="seat" />

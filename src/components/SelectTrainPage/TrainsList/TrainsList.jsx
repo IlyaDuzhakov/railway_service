@@ -3,7 +3,7 @@ import styles from "./TrainsList.module.css";
 import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
 import { ShowTrainsContext } from "../../../helpers/context.js";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 // import shared from '../../SelectSeatsPage/TrainInfo/shared.module.css'
 import TrainInfo from "../../SelectSeatsPage/TrainInfo/TrainInfo.jsx";
 
@@ -19,77 +19,81 @@ const TrainsList = () => {
   return (
     <div className={styles.page}>
       <div className={styles.list}>
-      {showTrains.map((el, index) => {
-        return (
-          <div className={styles.train} key={index}>
-            <div className={styles.train_direction}>
-              <img
-                className={styles.train_icon}
-                src="/img/icons/train.svg"
-                alt="train"
-              />
-              <div className={styles.train_number}>116С</div>
-              <div className={styles.directions}>
-                <div className={styles.from}>
-                  <p className={styles.from_text}>
-                    {el.departure.from.city.name}
-                  </p>
-                  <img
-                    src="/img/icons/arrow_direction_black.svg"
-                    alt="arrow_black"
-                  />
-                </div>
-                <div className={styles.to}>
-                  <p className={styles.from_text}>
-                    {el.departure.to.city.name}
-                  </p>
+        {showTrains.map((el, index) => {
+          return (
+            <div className={styles.train} key={index}>
+              <div className={styles.train_direction}>
+                <img
+                  className={styles.train_icon}
+                  src="/img/icons/train.svg"
+                  alt="train"
+                />
+                <div className={styles.train_number}>116С</div>
+                <div className={styles.directions}>
+                  <div className={styles.from}>
+                    <p className={styles.from_text}>
+                      {el.departure.from.city.name}
+                    </p>
+                    <img
+                      src="/img/icons/arrow_direction_black.svg"
+                      alt="arrow_black"
+                    />
+                  </div>
+                  <div className={styles.to}>
+                    <p className={styles.from_text}>
+                      {el.departure.to.city.name}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={styles.train_info}>
-              <TrainInfo train={el} show={true}/>
-              <div className={styles.train_info_right}>
-                {Object.entries(el.available_seats_info).map((item) => {
-                  const seatClass = item[0];
-                  const count = item[1];
+              <div className={styles.train_info}>
+                <TrainInfo train={el} show={true} />
+                <div className={styles.train_info_right}>
+                  {Object.entries(el.available_seats_info).map((item) => {
+                    const seatClass = item[0];
+                    const count = item[1];
 
-                  return (
-                    <div className={styles.seat_top}>
-                      <div key={seatClass} className={styles.seat_row}>
-                        <div className={styles.seat_name}>
-                          {seatsList[seatClass]}
-                        </div>
-                        <p className={styles.seat_count}>{count}</p>
-                        <div className={styles.seat_price_wrapper}>
-                          <span className={styles.seat_price_from}>от</span>
-                          <span className={styles.seat_price}>
-                            {el.min_price}
-                          </span>
-                          <img
-                            className={styles.seat_coin}
-                            src="/img/icons/coin.svg"
-                            alt="coin"
-                          />
+                    return (
+                      <div className={styles.seat_top}>
+                        <div key={seatClass} className={styles.seat_row}>
+                          <div className={styles.seat_name}>
+                            {seatsList[seatClass]}
+                          </div>
+                          <p className={styles.seat_count}>{count}</p>
+                          <div className={styles.seat_price_wrapper}>
+                            <span className={styles.seat_price_from}>от</span>
+                            <span className={styles.seat_price}>
+                              {el.min_price}
+                            </span>
+                            <img
+                              className={styles.seat_coin}
+                              src="/img/icons/coin.svg"
+                              alt="coin"
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-                <div className={styles.seat_bottom}>
-                  <img
-                    src="/img/icons/last_train_icons_grey.svg"
-                    alt="service"
-                  />
-                  <button className={styles.choose_seats}><Link to={`/select_seats/${el.departure._id}`}>Выбрать места</Link></button>
+                    );
+                  })}
+                  <div className={styles.seat_bottom}>
+                    <img
+                      src="/img/icons/last_train_icons_grey.svg"
+                      alt="service"
+                    />
+                    <button className={styles.choose_seats}>
+                      <Link to={`/select_seats/${el.departure._id}`}>
+                        Выбрать места
+                      </Link>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
       </div>
       <div className={styles.pagination_wrap}>
-      {showTrains.length !== 0 ? <TrainsPagination /> : ""}
+        {showTrains.length !== 0 ? <TrainsPagination /> : ""}
       </div>
     </div>
   );

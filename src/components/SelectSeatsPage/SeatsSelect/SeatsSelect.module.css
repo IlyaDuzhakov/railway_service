@@ -45,7 +45,6 @@
 .icons_wrapper {
   display: flex;
   justify-content: space-around;
-  /* flex-direction: column; */
 }
 
 .content_seats {
@@ -128,15 +127,13 @@
   border-bottom: 1px solid #C4C4C4;
   height: 1px;
   padding-top: 49px;
-  margin-left: -19px;
-  margin-right: -11px;
 }
 
 .type_train {
-  font-family: Roboto;
   font-weight: 700;
   font-size: 30px;
   padding-top: 27px;
   padding-bottom: 44px;
   color: #292929;
+  padding-left: 19px;
 }

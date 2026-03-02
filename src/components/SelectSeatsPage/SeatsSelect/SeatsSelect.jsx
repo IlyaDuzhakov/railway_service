@@ -6,6 +6,7 @@ import CountTicket from "../CountTicket/CountTicket.jsx";
 import TypeCarriage from "../TypeCarriage/TypeCarriage.jsx";
 import Seats from "../Seats/Seats.jsx";
 import {useState} from 'react'
+import { Link } from "react-router-dom";
 
 
 const SeatsSelect = ({ train }) => {
@@ -25,7 +26,8 @@ const SeatsSelect = ({ train }) => {
             alt="choose_train arrow"
           />
           <button className={styles.choose_train_btn}>
-            <span className={styles.btn_text}>Выбрать другой поезд</span>
+            {/* <span className={styles.btn_text}>Выбрать другой поезд</span> */}
+            <Link to='/select_train'>Выбрать другой поезд</Link>
           </button>
         </div>
         <div className={styles.cap}>

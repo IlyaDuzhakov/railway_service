@@ -1,5 +1,8 @@
 .top {
+    display: flex;
+    justify-content: space-between;
     background-color: rgba(255, 168, 0, 0.44);
+    margin-top: 26px;
 }
 
 .middle {
@@ -13,4 +16,38 @@
 
 .left {
     margin-right: 113px;
+}
+
+.choose_seats {
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    width: 199px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #292929;
+}
+
+.block_train {
+    background-color: #FFD98F;
+    width: 190px;
+    height: 160px;
+}
+
+.train_number {
+    font-size: 72px;
+    font-weight: 700;
+    color: #292929;
+   
+}
+
+.train_wrapper {
+     padding-left: 37px;
+    padding-top: 30px;
+    padding-bottom: 52px; 
+     padding-bottom: 64px; 
+}
+
+.train_name {
+    font-weight: 400;
+    font-size: 24px;
 }

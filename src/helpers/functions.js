@@ -124,6 +124,15 @@ const randomSeats = (number) => {
     return [number1, number2]
 }
 
+const getTicketPrice = async (carriages, type) => {
+    for (let carriage of carriages) {
+      if (carriage.coach.class_type === type) {
+        return {top_price: carriage.coach.top_price, bottom_price: carriage.coach.bottom_price}
+      }    
+    }
+    
+}
+
 export {
   formatDate,
   travelTime,
@@ -136,4 +145,5 @@ export {
   getTrain,
   travelTimeLong,
   randomSeats,
+  getTicketPrice,
 };
