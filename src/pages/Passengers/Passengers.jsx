@@ -1,9 +1,26 @@
-import React from 'react'
+import styles from "./Passengers.module.css";
+import HeaderSelectTrain from "../../components/Header/HeaderSelectTrain/HeaderSelectTrain";
+
+
+
+import PassengersList from "../../components/PassengersPage/PassengersList/PassengersList.jsx";
+import SideBarOrder from "../../components/SideBar/SideBarOrder/SideBarOrder.jsx";
 
 const Passengers = () => {
   return (
-    <div>Passengers</div>
-  )
-}
+    <div>
+      <HeaderSelectTrain />
+      <div className={styles.main}>
+        <div className="container">
+          <div className={styles.main_wrapper}>
+            <SideBarOrder />
 
-export default Passengers
+            <PassengersList />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Passengers;

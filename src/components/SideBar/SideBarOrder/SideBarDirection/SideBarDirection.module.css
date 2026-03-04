@@ -1,0 +1,54 @@
+/* .top p,
+.bottom p {
+    color: #ffffff;
+} */
+
+.direction_wrapper {
+    margin-top: 22px;
+}
+
+.btn_open_close {
+    background: none;
+    border: none;
+}
+
+.title {
+    margin-top: 50px;
+}
+
+.city {
+    margin-top: 22px;
+}
+
+.train_text {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(229, 229, 229, 1);
+}
+
+.direction_train {
+    text-align: right;
+}
+
+.city_from,
+.city_to {
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+}
+
+.train_number {
+    font-weight: 500;
+    font-size: 24px;
+    color: #fff;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.city {
+    display: flex;
+    justify-content: space-between;
+}

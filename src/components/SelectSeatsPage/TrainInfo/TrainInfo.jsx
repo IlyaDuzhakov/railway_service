@@ -1,7 +1,7 @@
 import styles from './TrainInfo.module.css'
 import { formatDate, travelTime } from "../../../helpers/functions";
 
-const TrainInfo = ({train, show}) => {
+const TrainInfo = ({train, show, showDate}) => {
 
   
   return (
@@ -10,6 +10,7 @@ const TrainInfo = ({train, show}) => {
         <p className={styles.departure_datetime}>
           {formatDate(train?.departure.from.datetime)}
         </p>
+        {showDate ? <p>30.03.2030</p> : ''}
         <p className={styles.landing_stations}>
           {train?.departure.from.city.name}
         </p>
@@ -31,6 +32,7 @@ const TrainInfo = ({train, show}) => {
         <p className={styles.departure_datetime}>
           {formatDate(train?.departure.to.datetime)}
         </p>
+        {showDate ? <p>30.03.3330</p> : ''}
         <p className={styles.landing_stations}>
           {train?.departure.to.city.name}
         </p>

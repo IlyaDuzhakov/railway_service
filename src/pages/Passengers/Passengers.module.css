@@ -1,0 +1,15 @@
+
+/* passenger */
+
+.main_wrapper {
+  display: flex;
+  gap: 84px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding-top: 95px;
+}
+
+

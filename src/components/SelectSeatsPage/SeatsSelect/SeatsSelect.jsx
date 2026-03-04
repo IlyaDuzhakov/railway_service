@@ -60,6 +60,7 @@ const SeatsSelect = ({ train }) => {
         <TypeCarriage selectCarriage={selectCarriage} chooseCarriage={chooseCarriage} train={train}/>
         {selectCarriage !== null ? <Seats train={train} selectCarriage={selectCarriage}/> : ''}
       </div>
+      <button className={styles.car}><Link to='/passengers'>Далее</Link></button>
     </main>
   );
 };

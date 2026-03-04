@@ -1,8 +1,10 @@
 import styles from "./ChooseDirection.module.css";
 import updateIcon from "../../../assets/icons/update.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TicketContext } from "../../../helpers/context";
 const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
+  const [showFrom, setShowFrom] = useState(false)
+  const [showTo, setShowTo] = useState(false)
   const [newTicket, setNewTicket] = useContext(TicketContext);
   return (
     <div className={styles.direction}>
@@ -17,9 +19,10 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
             placeholder="Откуда"
             onChange={(event) => {
               setNewTicket({ ...newTicket, from: event.target.value });
+              setShowFrom(true)
             }}
           />
-          {newTicket.from !== "" ? (
+          {newTicket.from !== "" && showFrom ? (
             <div className={styles.cities_box}>
               {newTicket.from !== ""
                 ? listCitiesFrom.map((el, index) => {
@@ -29,6 +32,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
                         key={index}
                         onClick={() => {
                           setNewTicket({ ...newTicket, from: el.name });
+                          setShowFrom(false)
                         }}
                       >
                         {el.name}
@@ -50,9 +54,10 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
             placeholder="Куда"
             onChange={(event) => {
               setNewTicket({ ...newTicket, to: event.target.value });
+              setShowTo(true)
             }}
           />
-          {newTicket.to !== "" ? (
+          {newTicket.to !== "" && showTo ? (
             <div className={styles.cities_box}>
               {newTicket.to !== ""
                 ? listCitiesTo.map((el, index) => {
@@ -62,6 +67,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
                         key={index}
                         onClick={() => {
                           setNewTicket({ ...newTicket, to: el.name });
+                          setShowTo(false)
                         }}
                       >
                         {el.name}

@@ -8,7 +8,7 @@ const TypeCarriage = ({ train, chooseCarriage, selectCarriage }) => {
     const carriages = [
         {img: '/img/icons/carriage_types/seat_place.svg', name: 'fourth', title: 'Сидячий', img_active: '/img/icons/carriage_types/seat_place_active.svg'},
         {img: '/img/icons/carriage_types/train_compartment.svg', name: 'third', title: 'Плацкарт', img_active: '/img/icons/carriage_types/train_compartment_active.svg'},
-        {img: '/img/icons/carriage_types/kupe.svg', name: 'second', title: 'Купе', img_active: '/img/icons/carriage_types/kupe.svg'},
+        {img: '/img/icons/carriage_types/kupe.svg', name: 'second', title: 'Купе', img_active: '/img/icons/carriage_types/kupe_active.svg'},
         {img: '/img/icons/carriage_types/luxury.svg', name: 'first', title: 'Люкс', img_active: '/img/icons/carriage_types/luxury_active.svg'}
     ]
   return (

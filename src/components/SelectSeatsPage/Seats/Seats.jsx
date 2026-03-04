@@ -9,9 +9,15 @@ const Seats = ({selectCarriage, train}) => {
   const [top, bottom] = randomSeats(train?.available_seats_info[selectCarriage])
 
   const getTrainInfo = async () => {
+    try{
+
       const response = await fetch('https://students.netoservices.ru/fe-diplom/routes/67ceb67d8c75f00047c91fcd/seats')
       const rezult = await response.json()
       setTicketPrice (await getTicketPrice(rezult, selectCarriage))
+    }
+    catch(error) {
+      console.log(error)
+    } 
   } 
   
   useEffect(()=> {

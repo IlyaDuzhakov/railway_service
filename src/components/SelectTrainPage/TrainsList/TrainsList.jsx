@@ -2,12 +2,15 @@ import { useState, useEffect, useContext } from "react";
 import styles from "./TrainsList.module.css";
 import { formatDate, travelTime } from "../../../helpers/functions";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
-import { ShowTrainsContext } from "../../../helpers/context.js";
+import { ShowTrainsContext, SelectTrainContext, TrainContext } from "../../../helpers/context.js";
 import { Link } from "react-router-dom";
+import { getTrain } from "../../../helpers/functions.js";
 // import shared from '../../SelectSeatsPage/TrainInfo/shared.module.css'
 import TrainInfo from "../../SelectSeatsPage/TrainInfo/TrainInfo.jsx";
 
 const TrainsList = () => {
+  const [trains, setTrains] = useContext(TrainContext);
+  const [train, setTrain] = useContext(SelectTrainContext)
   const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
   const seatsList = {
     first: "Люкс",
@@ -47,14 +50,14 @@ const TrainsList = () => {
                 </div>
               </div>
               <div className={styles.train_info}>
-                <TrainInfo train={el} show={true} />
+                <TrainInfo train={el} show={true} showDate={false} />
                 <div className={styles.train_info_right}>
-                  {Object.entries(el.available_seats_info).map((item) => {
+                  {Object.entries(el.available_seats_info).map((item, index) => {
                     const seatClass = item[0];
                     const count = item[1];
 
                     return (
-                      <div className={styles.seat_top}>
+                      <div className={styles.seat_top} key={index}>
                         <div key={seatClass} className={styles.seat_row}>
                           <div className={styles.seat_name}>
                             {seatsList[seatClass]}
@@ -80,7 +83,9 @@ const TrainsList = () => {
                       src="/img/icons/last_train_icons_grey.svg"
                       alt="service"
                     />
-                    <button className={styles.choose_seats}>
+                    <button className={styles.choose_seats} onClick={()=> {
+                      setTrain(getTrain(trains, el.departure._id))
+                    }}>
                       <Link to={`/select_seats/${el.departure._id}`}>
                         Выбрать места
                       </Link>

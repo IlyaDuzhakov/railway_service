@@ -2,7 +2,7 @@
 .train_item {
     display: flex;
     align-items: center;
-    
+    margin-top: 85px;
     padding-right: 36px;
 }
 

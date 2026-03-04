@@ -17,13 +17,16 @@ import {
   LoaderContext,
   MinMaxContext,
   SelectTrainContext,
+  CountTicketContext,
 } from "./helpers/context.js";
 
 function App() {
   const [train, setTrain] = useState(
     JSON.parse(localStorage.getItem("train")) || {},
   );
-  const [trains, setTrains] = useState([]);
+  const [trains, setTrains] = useState(
+    JSON.parse(localStorage.getItem("trains")) || [],
+  );
   const [showTrains, setshowTrains] = useState(trains);
   const [newTicket, setNewTicket] = useState({
     from: "",
@@ -33,7 +36,13 @@ function App() {
   });
 
   const [range, setRange] = useState({ min: 0, max: 1000 });
-
+  const [tickets, setTickets] = useState(
+    JSON.parse(localStorage.getItem("tickets_count")) || {
+      adult: 0,
+      children: 0,
+      child_no_seat: 0,
+    },
+  );
   const [isLoading, setIsLoading] = useState(false);
   const showLoader = () => {
     setIsLoading(true);
@@ -47,37 +56,44 @@ function App() {
     setshowTrains(trains);
     const rezultMinMax = findMinMax(trains);
     setRange(rezultMinMax);
+    localStorage.setItem("trains", JSON.stringify(trains));
   }, [trains]);
+
+  useEffect(() => {
+    localStorage.setItem('tickets_count', JSON.stringify(tickets));
+  }, [tickets]);
 
   return (
     <div className="App">
-      <SelectTrainContext.Provider value={[train, setTrain]}>
-        <MinMaxContext.Provider value={range}>
-          <LoaderContext.Provider value={[isLoading, showLoader, hideLoader]}>
-            <ShowTrainsContext.Provider value={[showTrains, setshowTrains]}>
-              <TicketContext.Provider value={[newTicket, setNewTicket]}>
-                <TrainContext.Provider value={[trains, setTrains]}>
-                  <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/confirm_order" element={<ConfirmOrder />} />
-                    <Route path="/passengers" element={<Passengers />} />
-                    <Route path="/payment" element={<Payment />} />
-                    <Route
-                      path="/select_seats/:trainId"
-                      element={<SelectSeats />}
-                    />
-                    <Route path="/select_train" element={<SelectTrain />} />
-                    <Route
-                      path="/successful_order"
-                      element={<SuccessfulOrder />}
-                    />
-                  </Routes>
-                </TrainContext.Provider>
-              </TicketContext.Provider>
-            </ShowTrainsContext.Provider>
-          </LoaderContext.Provider>
-        </MinMaxContext.Provider>
-      </SelectTrainContext.Provider>
+      <CountTicketContext.Provider value={[tickets, setTickets]}>
+        <SelectTrainContext.Provider value={[train, setTrain]}>
+          <MinMaxContext.Provider value={range}>
+            <LoaderContext.Provider value={[isLoading, showLoader, hideLoader]}>
+              <ShowTrainsContext.Provider value={[showTrains, setshowTrains]}>
+                <TicketContext.Provider value={[newTicket, setNewTicket]}>
+                  <TrainContext.Provider value={[trains, setTrains]}>
+                    <Routes>
+                      <Route path="/" element={<Main />} />
+                      <Route path="/confirm_order" element={<ConfirmOrder />} />
+                      <Route path="/passengers" element={<Passengers />} />
+                      <Route path="/payment" element={<Payment />} />
+                      <Route
+                        path="/select_seats/:trainId"
+                        element={<SelectSeats />}
+                      />
+                      <Route path="/select_train" element={<SelectTrain />} />
+                      <Route
+                        path="/successful_order"
+                        element={<SuccessfulOrder />}
+                      />
+                    </Routes>
+                  </TrainContext.Provider>
+                </TicketContext.Provider>
+              </ShowTrainsContext.Provider>
+            </LoaderContext.Provider>
+          </MinMaxContext.Provider>
+        </SelectTrainContext.Provider>
+      </CountTicketContext.Provider>
       <Footer />
     </div>
   );

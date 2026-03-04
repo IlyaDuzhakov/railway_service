@@ -130,7 +130,15 @@ const getTicketPrice = async (carriages, type) => {
         return {top_price: carriage.coach.top_price, bottom_price: carriage.coach.bottom_price}
       }    
     }
-    
+    return {top_price: 0, bottom_price: 0}
+}
+
+const countTickets = (passengers) => {
+    const adult = Number(passengers.adult)
+    const children = Number(passengers.children)
+    const child = +passengers.child_no_seat
+    const sum = adult + children + child
+    return sum
 }
 
 export {
@@ -146,4 +154,5 @@ export {
   travelTimeLong,
   randomSeats,
   getTicketPrice,
+  countTickets,
 };
