@@ -1,10 +1,12 @@
 
 .train_item {
     display: flex;
-    align-items: center;
-    margin-top: 85px;
+    margin-bottom: 53px;
+    padding-top: 54px;
     padding-right: 36px;
 }
+
+
 
 .station_name {
     font-family: Roboto;
@@ -14,17 +16,22 @@
 }
 
 .departure_datetime {
-    font-family: Roboto;
     font-weight: 700;
     font-size: 24px;
-    color: #000000;
+}
+
+.departure_date {
+    font-weight: 400;
+    font-size: 18px;
+    color: #928F94;
+    margin-bottom: 17px;
 }
 
 .landing_stations {
-    font-family: Roboto;
     font-weight: 400;
     font-size: 18px;
-    color: #292929;
+    /* color: #ffffff;
+    margin-top: 20px; */
 }
 
 .orange_arrow {

@@ -1,8 +1,3 @@
-/* .top p,
-.bottom p {
-    color: #ffffff;
-} */
-
 .direction_wrapper {
     margin-top: 22px;
 }
@@ -14,10 +9,6 @@
 
 .title {
     margin-top: 50px;
-}
-
-.city {
-    margin-top: 22px;
 }
 
 .train_text {
@@ -46,9 +37,24 @@
 .top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .city {
     display: flex;
     justify-content: space-between;
+    margin-top: 22px;
+    align-items: center;
+}
+
+.direction_text {
+    font-weight: 700;
+    font-size: 30px;
+    color: #fff;
+}
+
+.direction_date {
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
 }

@@ -12,6 +12,12 @@
   padding-bottom: 26px;
 }
 
+.train_number {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .passengers_row {
   display: flex;
   /* height: 192px; */

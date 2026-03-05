@@ -9,9 +9,9 @@ const SideBarPrice = () => {
       <div className={styles.top}>
         <div className={styles.passenger}>
           <img src="/img/icons/user.svg" alt="user" />
-          <h2>Пассажиры</h2>
+          <h2 className={styles.passenger_title}>Пассажиры</h2>
         </div>
-        <button
+        <button className={styles.passenger_btn}
           onClick={() => {
             setShowPrice((prev) => !prev);
           }}

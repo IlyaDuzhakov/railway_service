@@ -8,8 +8,8 @@ const SideBarDirection = ({ direction }) => {
     <div className={styles.direction_wrapper}>
       <div className={styles.top}>
         <img className={styles.direction_img} style={{transform: direction === 'Обратно' ? 'rotate(180deg)' : 'rotate(0)'}} src='/img/icons/arrow.svg' alt="" />
-        <p>{direction}</p>
-        <p>дата</p>
+        <p className={styles.direction_text}>{direction}</p>
+        <p className={styles.direction_date}>дата</p>
         <button className={styles.btn_open_close} onClick={()=> {
           setShow((prev)=> !prev)
         }}>

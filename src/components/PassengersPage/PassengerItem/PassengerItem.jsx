@@ -32,7 +32,7 @@ const PassengerItem = ({number}) => {
         </button> : ""}
        
       </div>
-      {open ? <PassengerInfo passenger={passenger}/> : ""}
+      {open ? <PassengerInfo passenger_info={passenger}/> : ""}
       
     </>
   );

@@ -32,7 +32,7 @@ const SeatsSelect = ({ train }) => {
         </div>
         <div className={styles.cap}>
           <img src="/img/icons/train_icon.svg" alt="train" />
-          <div>
+          <div className={styles.train_number}>
             <p className={styles.train_text}>116С</p>
             <p>
               <span>{train?.departure.from.city.name}</span>
