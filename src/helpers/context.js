@@ -1,9 +1,9 @@
 import { createContext } from "react";
 
 const CountTicketContext = createContext({
-  adult: 0,
-  children: 0,
-  child_no_seat: 0,
+  adult: {count: 0, koef: 1},
+  children: {count: 0, koef: 0.5},
+  child_no_seat: {count: 0, koef: 0},
 });
 const TrainContext = createContext([]);
 const SelectTrainContext = createContext({});

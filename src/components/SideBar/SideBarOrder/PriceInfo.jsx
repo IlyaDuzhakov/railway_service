@@ -5,10 +5,6 @@ import { SelectTrainContext } from "../../../helpers/context";
 
 const PriceInfo = () => {
   const [train, setTrain] = useContext(SelectTrainContext);
-  const [prices, setPrices] = useState([]);
-  const price = prices.reduce((acc, value) => {
-    return acc + value;
-  }, 0);
 
   const titles = {
     adult: "Взрослые",
@@ -18,62 +14,36 @@ const PriceInfo = () => {
   const [tickets, setTickets] = useContext(CountTicketContext);
 
   const entries = Object.entries(tickets).filter((el) => {
-    if (+el[1] > 0) {
+    if (+el[1].count > 0) {
       return el;
     }
   });
-  const btn = () => {
-    console.log('start')
-    entries.forEach((el) => {
-      const priceTicket =
-        el[0] === "adult"
-          ? train.departure.min_price * el[1]
-          : el[0] === "child_no_seat"
-            ? 0
-            : Math.floor(train.departure.min_price * 0.5 * el[1]);
-      setPrices([...prices, priceTicket]);
-
-    }); 
-    console.log('end')
-  };
 
   return (
     <>
       <div className={styles.price_wrapper}>
         {entries.map((el) => {
-          const priceTicket =
-            el[0] === "adult"
-              ? train.departure.min_price * el[1]
-              : el[0] === "child_no_seat"
-                ? 0
-                : Math.floor(train.departure.min_price * 0.5 * el[1]);
-          // setTickets({...tickets, el[0].price: priceTicket})
-          // setPrices([...prices])
-
+          const priceTicket = Math.floor(train.departure.min_price * el[1].koef * el[1].count);
+    
           return (
             <div className={styles.price}>
               <p className={styles.price_text}>
-                {el[1]} {titles[el[0]]}
+                {el[1].count} {titles[el[0]]}
               </p>
               <p className={styles.price_ticket}>
                 {priceTicket}
-                <img src="/img/icons/coin.svg" alt="coin" />
+                <img className={styles.coin} src="/img/icons/coin.svg" alt="coin" />
               </p>
             </div>
           );
         })}
       </div>
       <div className="sidebarDivider"></div>
-      <div>
-        <p>Итого: {price}</p>
-        <button
-          onClick={() => {
-            btn();
-            
-          }}
-        >
-          Жми
-        </button>
+      <div className={styles.sum_price}>
+        <p className={styles.sum}>Итог{entries.reduce((acc, value)=> {
+            // console.log(value)
+            return acc + Math.floor(value[1].count * value[1].koef * train.departure.min_price)
+        }, 0)}</p>
       </div>
     </>
   );

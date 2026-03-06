@@ -4,6 +4,7 @@ import PassengerDetails from "../PassengerDetails";
 
 const PassengerInfo = ({ passenger_info }) => {
   const [passenger, setPassenger] = useState({
+    type: "adult",
     name: "",
     secondName: "",
     surname: "",
@@ -15,12 +16,16 @@ const PassengerInfo = ({ passenger_info }) => {
     document_number: "",
   });
 
+
   return (
     <div className={styles.bottom}>
       <div className={styles.select_wrapper}>
-        <select className={styles.select_age}>
+        <select className={styles.select_age} value={passenger.type} onChange={(event)=> {
+          setPassenger({...passenger, type: event.target.value})
+        }}>
           <option value="adult">Взрослый</option>
-          <option value="child">Детский</option>
+          <option value="children">Детский</option>
+          <option value="child_no_seat">Детский без места</option>
         </select>
         <img
           src={passenger_info + "triangular_arrow.svg"}
@@ -112,9 +117,9 @@ const PassengerInfo = ({ passenger_info }) => {
           className={styles.checkbox_input}
           type="checkbox"
           value={passenger.checkbox}
-          onChange={(event)=> {
-            console.log(event.target.checked)
-            setPassenger({...passenger, checkbox: event.target.checked})
+          onChange={(event) => {
+            console.log(event.target.checked);
+            setPassenger({ ...passenger, checkbox: event.target.checked });
           }}
         />
         <p className={styles.checkbox_text}>ограниченная подвижность</p>

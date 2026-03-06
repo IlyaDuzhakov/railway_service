@@ -38,9 +38,9 @@ function App() {
   const [range, setRange] = useState({ min: 0, max: 1000 });
   const [tickets, setTickets] = useState(
     JSON.parse(localStorage.getItem("tickets_count")) || {
-      adult: 0,
-      children: 0,
-      child_no_seat: 0,
+      adult: { count: 0, koef: 1 },
+      children: { count: 0, koef: 0.5 },
+      child_no_seat: { count: 0, koef: 0 },
     },
   );
   const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +60,7 @@ function App() {
   }, [trains]);
 
   useEffect(() => {
-    localStorage.setItem('tickets_count', JSON.stringify(tickets));
+    localStorage.setItem("tickets_count", JSON.stringify(tickets));
   }, [tickets]);
 
   return (

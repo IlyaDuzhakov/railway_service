@@ -12,10 +12,10 @@ const PassengersCard = ({ el }) => {
       <input
         className={styles.passengers_input}
         type="number"
-        value={tickets[el.id]}
+        value={tickets[el.id].count}
         onChange={(event) => {
             const key = el.id
-          setTickets({...tickets, [key]: event.target.value})
+          setTickets({...tickets, [key]: {...tickets[key], count: event.target.value}})
         }}
       />
 

@@ -134,9 +134,9 @@ const getTicketPrice = async (carriages, type) => {
 }
 
 const countTickets = (passengers) => {
-    const adult = Number(passengers.adult)
-    const children = Number(passengers.children)
-    const child = +passengers.child_no_seat
+    const adult = Number(passengers.adult.count)
+    const children = Number(passengers.children.count)
+    const child = +passengers.child_no_seat.count
     const sum = adult + children + child
     return sum
 }
