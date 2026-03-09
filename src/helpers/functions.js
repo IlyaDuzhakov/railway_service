@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 const formatDate = (ms) => {
   const date = new Date(ms);
   let hours = (date.getHours() - 1).toString();
@@ -141,6 +143,47 @@ const countTickets = (passengers) => {
     return sum
 }
 
+const formatCity = (city) => {
+    if(city === '') {
+      return ''
+    }
+    const hasSpace = city.includes(' ')
+    const hasHyphen = city.includes('-')
+    const words = city.split(/[ -]/).map((el)=> {
+      return el[0].toUpperCase() + el.slice(1, el.length) 
+    }).join(hasHyphen ? '-' : ' ')
+    return words
+}
+
+const getTrainsDate = (ms) => {
+    const date = new Date(ms)
+    const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate().toString()
+    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`
+    const year = date.getFullYear()
+    const fullDate = `${day}.${month}.${year}`
+    return fullDate
+};
+
+
+const createUsers = (count) => {
+  const users = Array.from({ length: count }, () => {
+    return {
+      id: uuidv4(),
+      type: "adult",
+      name: "",
+      secondName: "",
+      surname: "",
+      date: "",
+      gender: "M",
+      checkbox: false,
+      document_type: "passport",
+      document_series: "",
+      document_number: "",
+    };
+  });
+  return users
+};
+
 export {
   formatDate,
   travelTime,
@@ -155,4 +198,7 @@ export {
   randomSeats,
   getTicketPrice,
   countTickets,
+  formatCity,
+  getTrainsDate,
+  createUsers,
 };

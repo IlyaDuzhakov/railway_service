@@ -1,5 +1,6 @@
 import styles from "./TrainInfo.module.css";
-import { formatDate, travelTime } from "../../../helpers/functions";
+import { formatDate, travelTime, formatCity, getTrainsDate } from "../../../helpers/functions";
+
 
 const TrainInfo = ({ train, show, showDate }) => {
 
@@ -12,9 +13,9 @@ const TrainInfo = ({ train, show, showDate }) => {
           <p className={styles.departure_datetime} style={{color: colorDate}}>
             {formatDate(train?.departure.from.datetime)}
           </p>
-          {showDate ? <p className={styles.departure_date}>30.03.2030</p> : ""}
+          {showDate ? <p className={styles.departure_date}>{getTrainsDate(train?.departure.to.datetime)}</p> : ""}
           <p className={styles.landing_stations} style={{color: colorCity}}>
-            {train?.departure.from.city.name}
+            {formatCity(train?.departure.from.city.name)}
           </p>
           <p className={styles.station_name}>
             {train?.departure.from.railway_station_name} вокзал
@@ -40,9 +41,9 @@ const TrainInfo = ({ train, show, showDate }) => {
           <p className={styles.departure_datetime} style={{color: colorDate}}>
             {formatDate(train?.departure.to.datetime)}
           </p>
-          {showDate ? <p className={styles.departure_date}>30.03.3330</p> : ""}
+          {showDate ? <p className={styles.departure_date}>{getTrainsDate(train?.departure.from.datetime)}</p> : ""}
           <p className={styles.landing_stations} style={{color: colorCity}}>
-            {train?.departure.to.city.name}
+            {formatCity(train?.departure.to.city.name)}
           </p>
           <p className={styles.station_name}>
             {train?.departure.to.railway_station_name} вокзал

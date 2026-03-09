@@ -1,5 +1,5 @@
 import styles from "./SeatsSelect.module.css";
-import { formatDate, travelTime } from "../../../helpers/functions.js";
+import { formatCity } from "../../../helpers/functions.js";
 import TrainInfo from "../TrainInfo/TrainInfo.jsx";
 import { travelTimeLong } from "../../../helpers/functions.js";
 import CountTicket from "../CountTicket/CountTicket.jsx";
@@ -35,11 +35,11 @@ const SeatsSelect = ({ train }) => {
           <div className={styles.train_number}>
             <p className={styles.train_text}>116С</p>
             <p>
-              <span>{train?.departure.from.city.name}</span>
+              <span>{formatCity(train?.departure.from.city.name)}</span>
               <img src="/img/icons/arrow_direction_black.svg" alt="" />
             </p>
 
-            <p>{train?.departure.to.city.name}</p>
+            <p>{formatCity(train?.departure.to.city.name)}</p>
           </div>
           <TrainInfo train={train} show={false} />
           <div className={styles.train_time}>

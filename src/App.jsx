@@ -8,8 +8,8 @@ import SelectSeats from "./pages/SelectSeats/SelectSeats.jsx";
 import SelectTrain from "./pages/SelectTrain/SelectTrain";
 import SuccessfulOrder from "./pages/SuccessfulOrder/SuccessfulOrder";
 import Footer from "./components/Footer/Footer.jsx";
-import { useEffect, useState } from "react";
-import { findMinMax } from "./helpers/functions.js";
+import { createContext, useEffect, useState } from "react";
+import { findMinMax, countTickets, createUsers } from "./helpers/functions.js";
 import {
   TrainContext,
   TicketContext,
@@ -18,6 +18,8 @@ import {
   MinMaxContext,
   SelectTrainContext,
   CountTicketContext,
+  PassengersContext,
+  OrderContext,
 } from "./helpers/context.js";
 
 function App() {
@@ -43,6 +45,9 @@ function App() {
       child_no_seat: { count: 0, koef: 0 },
     },
   );
+
+  const count = countTickets(tickets);
+  const [users, setUsers] = useState(() => createUsers(count));
   const [isLoading, setIsLoading] = useState(false);
   const showLoader = () => {
     setIsLoading(true);
@@ -51,6 +56,19 @@ function App() {
   const hideLoader = () => {
     setIsLoading(false);
   };
+
+  const [order, setOrder] = useState({
+  name: "",
+  surname: "",
+  secondName: "",
+  phone: "",
+  email: "",
+  payment_method: "",
+});
+
+useEffect(()=> {
+  localStorage.setItem('order', JSON.stringify(order))
+}, [order])
 
   useEffect(() => {
     setshowTrains(trains);
@@ -61,39 +79,57 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("tickets_count", JSON.stringify(tickets));
+    setUsers(() => createUsers(count));
   }, [tickets]);
 
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
   return (
     <div className="App">
-      <CountTicketContext.Provider value={[tickets, setTickets]}>
-        <SelectTrainContext.Provider value={[train, setTrain]}>
-          <MinMaxContext.Provider value={range}>
-            <LoaderContext.Provider value={[isLoading, showLoader, hideLoader]}>
-              <ShowTrainsContext.Provider value={[showTrains, setshowTrains]}>
-                <TicketContext.Provider value={[newTicket, setNewTicket]}>
-                  <TrainContext.Provider value={[trains, setTrains]}>
-                    <Routes>
-                      <Route path="/" element={<Main />} />
-                      <Route path="/confirm_order" element={<ConfirmOrder />} />
-                      <Route path="/passengers" element={<Passengers />} />
-                      <Route path="/payment" element={<Payment />} />
-                      <Route
-                        path="/select_seats/:trainId"
-                        element={<SelectSeats />}
-                      />
-                      <Route path="/select_train" element={<SelectTrain />} />
-                      <Route
-                        path="/successful_order"
-                        element={<SuccessfulOrder />}
-                      />
-                    </Routes>
-                  </TrainContext.Provider>
-                </TicketContext.Provider>
-              </ShowTrainsContext.Provider>
-            </LoaderContext.Provider>
-          </MinMaxContext.Provider>
-        </SelectTrainContext.Provider>
-      </CountTicketContext.Provider>
+      <OrderContext.Provider value={[order, setOrder]}>
+        <PassengersContext.Provider value={[users, setUsers]}>
+          <CountTicketContext.Provider value={[tickets, setTickets]}>
+            <SelectTrainContext.Provider value={[train, setTrain]}>
+              <MinMaxContext.Provider value={range}>
+                <LoaderContext.Provider
+                  value={[isLoading, showLoader, hideLoader]}
+                >
+                  <ShowTrainsContext.Provider
+                    value={[showTrains, setshowTrains]}
+                  >
+                    <TicketContext.Provider value={[newTicket, setNewTicket]}>
+                      <TrainContext.Provider value={[trains, setTrains]}>
+                        <Routes>
+                          <Route path="/" element={<Main />} />
+                          <Route
+                            path="/confirm_order"
+                            element={<ConfirmOrder />}
+                          />
+                          <Route path="/passengers" element={<Passengers />} />
+                          <Route path="/payment" element={<Payment />} />
+                          <Route
+                            path="/select_seats/:trainId"
+                            element={<SelectSeats />}
+                          />
+                          <Route
+                            path="/select_train"
+                            element={<SelectTrain />}
+                          />
+                          <Route
+                            path="/successful_order"
+                            element={<SuccessfulOrder />}
+                          />
+                        </Routes>
+                      </TrainContext.Provider>
+                    </TicketContext.Provider>
+                  </ShowTrainsContext.Provider>
+                </LoaderContext.Provider>
+              </MinMaxContext.Provider>
+            </SelectTrainContext.Provider>
+          </CountTicketContext.Provider>
+        </PassengersContext.Provider>
+      </OrderContext.Provider>
       <Footer />
     </div>
   );

@@ -1,8 +1,8 @@
 import styles from "../PassengersList/PassengersList.module.css";
 import { useState } from "react";
-import PassengerInfo from "./PassengerInfo";
+import PassengerInfo from "./PassengerInfo.jsx";
 
-const PassengerItem = ({number}) => {
+const PassengerItem = ({number, user, onUpdate}) => {
   const [open, setOpen] = useState(false);
   const passenger = "/img/icons/passenger/";
   
@@ -32,7 +32,7 @@ const PassengerItem = ({number}) => {
         </button> : ""}
        
       </div>
-      {open ? <PassengerInfo passenger_info={passenger}/> : ""}
+      {open ? <PassengerInfo passenger_info={passenger} passenger={user} onUpdate={onUpdate}/> : ""}
       
     </>
   );

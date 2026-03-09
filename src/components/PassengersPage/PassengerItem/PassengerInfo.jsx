@@ -2,27 +2,17 @@ import styles from "../PassengersList/PassengersList.module.css";
 import { useState } from "react";
 import PassengerDetails from "../PassengerDetails";
 
-const PassengerInfo = ({ passenger_info }) => {
-  const [passenger, setPassenger] = useState({
-    type: "adult",
-    name: "",
-    secondName: "",
-    surname: "",
-    date: "",
-    gender: "M",
-    checkbox: false,
-    document_type: "passport",
-    document_series: "",
-    document_number: "",
-  });
-
-
+const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
   return (
     <div className={styles.bottom}>
       <div className={styles.select_wrapper}>
-        <select className={styles.select_age} value={passenger.type} onChange={(event)=> {
-          setPassenger({...passenger, type: event.target.value})
-        }}>
+        <select
+          className={styles.select_age}
+          value={passenger.type}
+          onChange={(event) => {
+            onUpdate(passenger.id, { type: event.target.value });
+          }}
+        >
           <option value="adult">Взрослый</option>
           <option value="children">Детский</option>
           <option value="child_no_seat">Детский без места</option>
@@ -42,7 +32,7 @@ const PassengerInfo = ({ passenger_info }) => {
             placeholder="Мартынюк"
             value={passenger.secondName}
             onChange={(event) => {
-              setPassenger({ ...passenger, secondName: event.target.value });
+              onUpdate(passenger.id, { secondName: event.target.value });
             }}
           />
         </div>
@@ -54,7 +44,7 @@ const PassengerInfo = ({ passenger_info }) => {
             placeholder="Ирина"
             value={passenger.name}
             onChange={(event) => {
-              setPassenger({ ...passenger, name: event.target.value });
+              onUpdate(passenger.id, { name: event.target.value });
             }}
           />
         </div>
@@ -66,7 +56,7 @@ const PassengerInfo = ({ passenger_info }) => {
             placeholder="Эдуардовна"
             value={passenger.surname}
             onChange={(event) => {
-              setPassenger({ ...passenger, surname: event.target.value });
+              onUpdate(passenger.id, { surname: event.target.value });
             }}
           />
         </div>
@@ -81,7 +71,7 @@ const PassengerInfo = ({ passenger_info }) => {
               type="button"
               className={`${styles.segmentBtn} ${passenger.gender === "M" ? styles.active : ""}`}
               onClick={() => {
-                setPassenger({ ...passenger, gender: "M" });
+                onUpdate(passenger.id, { gender: "M" });
               }}
             >
               <span className={styles.btn_m}>М</span>
@@ -91,7 +81,7 @@ const PassengerInfo = ({ passenger_info }) => {
               type="button"
               className={`${styles.segmentBtn} ${passenger.gender === "F" ? styles.active : ""}`}
               onClick={() => {
-                setPassenger({ ...passenger, gender: "F" });
+                onUpdate(passenger.id, { gender: "F" });
               }}
             >
               <span className={styles.btn_g}>Ж</span>
@@ -107,7 +97,7 @@ const PassengerInfo = ({ passenger_info }) => {
             placeholder="ДД/ММ/ГГ"
             value={passenger.date}
             onChange={(event) => {
-              setPassenger({ ...passenger, date: event.target.value });
+              onUpdate(passenger.id, { date: event.target.value });
             }}
           />
         </div>
@@ -118,13 +108,12 @@ const PassengerInfo = ({ passenger_info }) => {
           type="checkbox"
           value={passenger.checkbox}
           onChange={(event) => {
-            console.log(event.target.checked);
-            setPassenger({ ...passenger, checkbox: event.target.checked });
+            onUpdate(passenger.id, { checkbox: event.target.checked });
           }}
         />
         <p className={styles.checkbox_text}>ограниченная подвижность</p>
       </div>
-      <PassengerDetails passenger={passenger} setPassenger={setPassenger} />
+      <PassengerDetails passenger={passenger} onUpdate={onUpdate} />
       <div className={styles.btn_next_wrapper}>
         <button className={styles.btn_next}>
           <p className={styles.next_text}>Следующий пассажир</p>

@@ -2,6 +2,7 @@ import styles from "./ChooseDirection.module.css";
 import updateIcon from "../../../assets/icons/update.svg";
 import { useContext, useState } from "react";
 import { TicketContext } from "../../../helpers/context";
+import { formatCity } from "../../../helpers/functions";
 const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
   const [showFrom, setShowFrom] = useState(false)
   const [showTo, setShowTo] = useState(false)
@@ -13,7 +14,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
       <div className={styles.choose_direction}>
         <div className={styles.input_container}>
           <input
-            value={newTicket.from}
+            value={formatCity(newTicket.from)}
             className={styles.input}
             type="text"
             placeholder="Откуда"
@@ -48,7 +49,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
         <img className={styles.update_icon} src={updateIcon} alt="swap" />
         <div className={styles.input_container}>
           <input
-            value={newTicket.to}
+            value={formatCity(newTicket.to)}
             className={styles.input}
             type="text"
             placeholder="Куда"

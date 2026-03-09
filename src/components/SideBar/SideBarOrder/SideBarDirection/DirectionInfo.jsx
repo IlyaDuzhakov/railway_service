@@ -2,6 +2,7 @@ import TrainInfo from "../../../SelectSeatsPage/TrainInfo/TrainInfo";
 import styles from "./SideBarDirection.module.css";
 import { SelectTrainContext } from "../../../../helpers/context";
 import { useContext } from "react";
+import { formatCity } from "../../../../helpers/functions";
 
 const DirectionInfo = () => {
 
@@ -16,8 +17,8 @@ const DirectionInfo = () => {
         <div className={styles.city}>
           <p className={styles.train_text}>Название</p>
           <div className={styles.direction_train}>
-            <p className={styles.city_from}>{train.departure.from.city.name}</p>
-            <p className={styles.city_to}>{train.departure.to.city.name}</p>
+            <p className={styles.city_from}>{formatCity(train.departure.from.city.name)}</p>
+            <p className={styles.city_to}>{formatCity(train.departure.to.city.name)}</p>
           </div>
         </div>
       </div>
