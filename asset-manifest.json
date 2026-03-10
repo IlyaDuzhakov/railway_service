@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/railway_service/static/css/main.ade3b046.css",
+    "main.js": "/railway_service/static/js/main.36a60c79.js",
+    "static/media/header-bg-success.png": "/railway_service/static/media/header-bg-success.25ff585e6a1d7e7832f3.png",
+    "static/media/header-bg.png": "/railway_service/static/media/header-bg.89d2d933ca9dfe1f46e5.png",
+    "static/media/how-works.png": "/railway_service/static/media/how-works.7df9e35bfc16bf9190b3.png",
+    "static/media/header2-bg.png": "/railway_service/static/media/header2-bg.7c10c4ebd86a7aaf3f15.png",
+    "static/media/railway_service.svg": "/railway_service/static/media/railway_service.fdfee593cbd4bc6f584fc471b6d2e260.svg",
+    "static/media/update.svg": "/railway_service/static/media/update.9272c3f16ee0e3593e6c9f1a9e963028.svg",
+    "static/media/google.svg": "/railway_service/static/media/google.30589544e8f01d174bda51733ca3c2f1.svg",
+    "static/media/twitter.svg": "/railway_service/static/media/twitter.935ee6e650fd8b2b376a8924f788b191.svg",
+    "static/media/postbox.svg": "/railway_service/static/media/postbox.4701958975986a6e9797bd981b82ec40.svg",
+    "static/media/phone.svg": "/railway_service/static/media/phone.a14a18b3d296e2341ed8b24242a315b6.svg",
+    "static/media/location.svg": "/railway_service/static/media/location.08fbb43a0862cb1fd22a1aeeeb6740b2.svg",
+    "static/media/arrow.svg": "/railway_service/static/media/arrow.4f1ff38f0f2c94d99acfffe0d04e2703.svg",
+    "index.html": "/railway_service/index.html",
+    "main.ade3b046.css.map": "/railway_service/static/css/main.ade3b046.css.map",
+    "main.36a60c79.js.map": "/railway_service/static/js/main.36a60c79.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ade3b046.css",
+    "static/js/main.36a60c79.js"
+  ]
+}
