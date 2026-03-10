@@ -16,7 +16,7 @@ const ConfirmOrderPage = () => {
     }
   });
 
-  
+
 
   return (
     <div>
@@ -46,9 +46,13 @@ const ConfirmOrderPage = () => {
         </div>
         
         <div className={styles.total_sum}>
-          Всего: {entries.reduce((acc, value )=> {
+            <div className={styles.total_sum_wrapper}>
+         <span className={styles.all_price}>Всего:</span>  {entries.reduce((acc, value )=> {
             return acc + Math.floor(value[1].count * value[1].koef * train.departure.min_price)
+          
           }, 0)}
+          <img className={styles.img_coin} src="/img/icons/coin.svg" alt="coin" />
+          </div>
           <button className={styles.btn_change}>
             <Link to="/passengers">Изменить</Link>
           </button>
@@ -57,10 +61,11 @@ const ConfirmOrderPage = () => {
       </div>
 
       <ConfirmPayment />
-
-      <button>
-        <Link to="/successful_order">Подтвердить</Link>
+      <div className={styles.btn_confirm_wrapper}>
+      <button className={styles.btn_confirm}>
+        <Link to="/successful_order">ПОДТВЕРДИТЬ</Link>
       </button>
+      </div>
     </div>
   );
 };

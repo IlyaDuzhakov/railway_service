@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from '../SeatsSelect/SeatsSelect.module.css'
 import PassengersCard from './PassengersCard';
 
@@ -9,7 +8,6 @@ const CountTicket = () => {
     {title: 'Детских «без места» —  ', text: '', id: 'child_no_seat'}
   ]
 
-  // const [tickets, setTickets] = useState({adult: 0, children: 0, child_no_seat: 0})
   return (
     <>
       <p className={styles.number_tickets}>Количество билетов</p>

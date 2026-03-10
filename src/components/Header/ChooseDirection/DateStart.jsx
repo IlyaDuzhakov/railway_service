@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import styles from "./ChooseDirection.module.css";
 import DatePicker from "react-datepicker";
 import { TicketContext } from "../../../helpers/context";
 

@@ -2,7 +2,11 @@ import styles from "./ChooseDirection.module.css";
 import { useState, useEffect, useContext } from "react";
 import Inputs from "./Inputs.jsx";
 import { getCityId } from "../../../helpers/functions.js";
-import { TrainContext, TicketContext, LoaderContext } from "../../../helpers/context.js";
+import {
+  TrainContext,
+  TicketContext,
+  LoaderContext,
+} from "../../../helpers/context.js";
 import { Link } from "react-router-dom";
 
 const ChooseDirection = () => {
@@ -10,11 +14,11 @@ const ChooseDirection = () => {
   const [newTicket, setNewTicket] = useContext(TicketContext);
   const [listCitiesFrom, setListCitiesFrom] = useState([]);
   const [listCitiesTo, setListCitiesTo] = useState([]);
-  const [isLoading, showLoader, hideLoader] = useContext(LoaderContext)
+  const [isLoading, showLoader, hideLoader] = useContext(LoaderContext);
   // https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78d&to_city_id=67ceb6548c75f00047c8f78e
 
   const findTrains = async () => {
-    showLoader()
+    showLoader();
     try {
       const cityFrom = await getCityId(newTicket.from);
       const cityTo = await getCityId(newTicket.to);
@@ -24,20 +28,15 @@ const ChooseDirection = () => {
         newTicket.dateStart !== "" && newTicket.dateEnd !== ""
           ? longLink
           : shortLink;
-      
+
       fetch(url).then((response) =>
         response.json().then((data) => {
           setTrains(data.items);
-          console.log(data.items);
-          // console.log(data.total_count);
         }),
       );
     } catch (error) {
-      console.log(error.message) 
-    }
-    finally {
-      hideLoader()
-      console.log(trains.length)
+    } finally {
+      hideLoader();
     }
   };
 
@@ -56,9 +55,7 @@ const ChooseDirection = () => {
           setListCitiesTo(data);
         }
       }
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

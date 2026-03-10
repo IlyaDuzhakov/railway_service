@@ -1,29 +1,27 @@
 .filter {
-    display: flex;
-    justify-content: space-between;
-    
-    padding-top: 35px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 35px;
+  align-items: center;
 }
 
 .filter_wrapper {
-
   padding-left: 40px;
 }
 
-
 .train_place {
-    font-family: Roboto;
-    font-weight: 400;
-    font-size: 18px;
-    color: #ffffff;
-    text-align: left;
-    width: 90px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: left;
+  width: 90px;
 }
 
 .filter_border {
-    border-bottom: 1px solid #E5E5E5;
-    margin-left: -68px;
-    margin-right: -36px;
-    margin-top: 23px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-left: -68px;
+  margin-right: -36px;
+  margin-top: 23px;
 }

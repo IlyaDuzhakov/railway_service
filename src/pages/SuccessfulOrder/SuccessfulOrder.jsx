@@ -10,7 +10,7 @@ const SuccessfulOrder = () => {
       <div className={classes.header_wrapper}>
         <HeaderLogo />
         <NavBar />
-        <h1>Благодарим Вас за заказ!</h1>
+        
       </div>
       <div className={styles.main}>
         <div className="container">

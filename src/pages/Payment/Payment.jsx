@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PaymentPage from "../../components/PaymentPage/PaymentPage.jsx";
 import HeaderSelectTrain from "../../components/Header/HeaderSelectTrain/HeaderSelectTrain";
 import SideBarOrder from "../../components/SideBar/SideBarOrder/SideBarOrder";

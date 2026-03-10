@@ -29,7 +29,7 @@ const formatWord = (time, words) => {
     time.endsWith("14")
   ) {
     return words[2];
-  } else if (time.endsWith("1") && Number(time) != 11) {
+  } else if (time.endsWith("1") && Number(time) !== 11) {
     return words[0];
   } else if (time.endsWith("2") || time.endsWith("3") || time.endsWith("4")) {
     return words[1];

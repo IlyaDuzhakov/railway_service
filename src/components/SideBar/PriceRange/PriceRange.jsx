@@ -43,15 +43,11 @@ const PriceRange = () => {
       </div>
       <Slider
         className="price"
-        // aria-label="Always visible"
-        // defaultValue={80}
-        // getAriaValueText={valuetext}
         step={10}
         marks={marks}
         min={range.min}
         middle={middle}
         max={range.max}
-        // valueLabelDisplay="on"
         valueLabelDisplay="auto"
         value={price}
         onChange={changePrice}

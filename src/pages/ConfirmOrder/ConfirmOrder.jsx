@@ -3,9 +3,7 @@ import ConfirmOrderPage from "../../components/ConfirmOrderPage/ConfirmOrderPage
 import HeaderSelectTrain from "../../components/Header/HeaderSelectTrain/HeaderSelectTrain";
 import SideBarOrder from "../../components/SideBar/SideBarOrder/SideBarOrder";
 
-
 const ConfirmOrder = () => {
-
   return (
     <div>
       <div>
@@ -25,5 +23,3 @@ const ConfirmOrder = () => {
 };
 
 export default ConfirmOrder;
-
-/* <button><Link to='/successful_order'>Подтвердить</Link></button> */

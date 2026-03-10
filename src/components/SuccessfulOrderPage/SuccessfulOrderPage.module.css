@@ -1,22 +1,136 @@
 .order_info_wrapper {
   display: flex;
+  justify-content: center;
+  gap: 145px;
+  background-color: #f4f3f6;
 }
 
 .order_info {
   display: flex;
 }
 
+.order_text {
+  text-align: center;
+  width: 180px;
+  height: 67px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #292929;
+}
+
+.ord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 .order_container {
-  border: 3px solid #000;
+  border: 1px solid #c4c4c4;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 .order_wrapper {
-    width: 100%;
-    position: absolute;
-    top: -170px;
-    
+  width: 100%;
+  position: absolute;
+  top: -380px;
 }
 
-.o {
-    background-color: aqua;
+.grade {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grade_text {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.grade_wrapper {
+  padding-left: 82px;
+  padding-right: 79px;
+}
+
+.big_text {
+  font-weight: 700;
+  font-size: 72px;
+  color: #ffffff;
+}
+
+.grade_wrapper {
+  background-color: #ffa800e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 161px;
+}
+.successfull_wrapper {
+  margin-left: 205px;
+  margin-right: 111px;
+}
+
+.customer_text {
+  margin-top: 95px;
+  margin-bottom: 51px;
+  font-weight: 700;
+  font-size: 36px;
+  color: #292929;
+}
+
+.successfull_order {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.successfull_order_bold {
+  margin-top: 70px;
+  margin-bottom: 129px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #292929;
+}
+
+.btn_return {
+  font-weight: 700;
+  font-size: 24px;
+  padding: 12px 16px;
+  border-radius: 5px;
+  background: none;
+}
+
+.btn_return a {
+  text-decoration: none;
+}
+
+.order_number_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 161px;
+  padding-left: 82px;
+  padding-right: 79px;
+  background-color: #ffffff;
+}
+
+.number {
+  font-weight: 700;
+  font-size: 36px;
+  color: #3e3c41;
+}
+
+.sum_wrapper {
+    display: flex;
+}
+
+.sum {
+    font-weight: 400;
+    font-size: 36px;
+    color: #928F94;
+}
+
+.bold {
+    font-weight: 500;
+    font-size: 18px;
 }

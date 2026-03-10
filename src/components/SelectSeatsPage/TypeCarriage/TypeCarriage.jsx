@@ -3,7 +3,6 @@ import styles from '../SeatsSelect/SeatsSelect.module.css'
 
 const TypeCarriage = ({ train, chooseCarriage, selectCarriage }) => {
     const trainTypes = Object.keys(train?.available_seats_info || {})
-    console.log(trainTypes)
 
     const carriages = [
         {img: '/img/icons/carriage_types/seat_place.svg', name: 'fourth', title: 'Сидячий', img_active: '/img/icons/carriage_types/seat_place_active.svg'},

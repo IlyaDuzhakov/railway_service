@@ -2,9 +2,6 @@
   display: flex;
   justify-content: space-between;
   background-color: #f7f6f6;
-  /* height: 123px; */
-  /* margin-left: -19px;
-  margin-right: -11px; */
   margin-top: 32px;
   padding-left: 35px;
   padding-top: 17px;
@@ -79,12 +76,35 @@
   width: 325px;
 }
 
+.choose_train_btn a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
+}
+
 .btn_text {
-  font-family: Roboto;
   font-weight: 700;
   font-size: 24px;
   color: #292929;
   text-align: center;
+}
+
+.btn_next {
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  background-color: #FFA800;
+  border: none;
+  border-radius: 5px;
+  padding-left: 74px;
+  padding-right: 69px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.btn_next_wrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .choose_train_wrapper {

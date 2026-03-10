@@ -27,7 +27,6 @@ const SeatsSelect = ({ train }) => {
             alt="choose_train arrow"
           />
           <button className={styles.choose_train_btn}>
-            {/* <span className={styles.btn_text}>Выбрать другой поезд</span> */}
             <Link to='/select_train'>Выбрать другой поезд</Link>
           </button>
         </div>
@@ -61,9 +60,11 @@ const SeatsSelect = ({ train }) => {
         <TypeCarriage selectCarriage={selectCarriage} chooseCarriage={chooseCarriage} train={train}/>
         {selectCarriage !== null ? <Seats train={train} selectCarriage={selectCarriage}/> : ''}
       </div>
-      <button className={styles.car}onClick={()=> {
+      <div className={styles.btn_next_wrapper}>
+      <button className={styles.btn_next}onClick={()=> {
         selectCarriage !== null ? navigate('/passengers') : alert('Выберите тип вагона')
-      }}>Далее</button>
+      }}>ДАЛЕЕ</button>
+      </div>
     </main>
   );
 };

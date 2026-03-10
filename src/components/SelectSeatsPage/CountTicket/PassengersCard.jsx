@@ -1,11 +1,10 @@
 import styles from "../SeatsSelect/SeatsSelect.module.css";
 import { useContext, useState } from "react";
-import {CountTicketContext} from '../../../helpers/context.js'
+import { CountTicketContext } from "../../../helpers/context.js";
 
 const PassengersCard = ({ el }) => {
-    const [tickets, setTickets] = useContext(CountTicketContext)
-    console.log(tickets)
-  // const [countPlace, setCountPlace] = useState('')
+  const [tickets, setTickets] = useContext(CountTicketContext);
+
   return (
     <div className={styles.passengers_card}>
       <label htmlFor="">{el.title}</label>
@@ -14,8 +13,11 @@ const PassengersCard = ({ el }) => {
         type="number"
         value={tickets[el.id].count}
         onChange={(event) => {
-            const key = el.id
-          setTickets({...tickets, [key]: {...tickets[key], count: event.target.value}})
+          const key = el.id;
+          setTickets({
+            ...tickets,
+            [key]: { ...tickets[key], count: event.target.value },
+          });
         }}
       />
 

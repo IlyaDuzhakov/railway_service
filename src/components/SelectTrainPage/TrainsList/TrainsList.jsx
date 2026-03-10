@@ -1,12 +1,7 @@
 import {  useContext } from "react";
 import styles from "./TrainsList.module.css";
-
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
-import { ShowTrainsContext, SelectTrainContext, TrainContext } from "../../../helpers/context.js";
-
-
-// import shared from '../../SelectSeatsPage/TrainInfo/shared.module.css'
-
+import { ShowTrainsContext } from "../../../helpers/context.js";
 import TrainItem from "./TrainItem.jsx";
 
 const TrainsList = () => {

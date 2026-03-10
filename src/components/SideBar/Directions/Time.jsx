@@ -7,9 +7,8 @@ const Time = ({ text }) => {
     setTime(newValue);
   };
 
-  const addClass =  text === "Время отбытия"
-            ? "arrival_time departure_time"
-            : "arrival_time"
+  const addClass =
+    text === "Время отбытия" ? "arrival_time departure_time" : "arrival_time";
 
   const marks = [
     {
@@ -28,23 +27,16 @@ const Time = ({ text }) => {
 
   return (
     <div className="time_band">
-      <h3
-        className={addClass}
-      >
-        {text}
-      </h3>
+      <h3 className={addClass}>{text}</h3>
       <div className="direction_text_bottom"></div>
       <Slider
         className="time"
-        // aria-label="Always visible"
         defaultValue={10}
-        // getAriaValueText={valuetext}
         step={1}
         marks={marks}
         min={0.0}
         middle={11.0}
         max={24.0}
-        // valueLabelDisplay="on"
         valueLabelDisplay="auto"
         value={time}
         onChange={changeTime}

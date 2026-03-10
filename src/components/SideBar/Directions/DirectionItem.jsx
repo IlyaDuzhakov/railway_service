@@ -22,7 +22,6 @@ const DirectionItem = ({ forward }) => {
             className={styles.btns}
             onClick={() => {
               showTime === false ? setShowTime(true) : setShowTime(false);
-              // setShowTime((prev)=> !prev) // получаем доступ к прошлому значению и меняем его на противоположный
             }}
           >
             {showTime === false ? (

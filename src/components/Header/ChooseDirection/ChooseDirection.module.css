@@ -6,7 +6,6 @@
     position: absolute;
     width: 100%;
     background-color: #F5F4F6;
-    /* overflow: hidden; */
     z-index: 1;
     margin-top: 5px;
     border-radius: 3px;
@@ -48,9 +47,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  /* opacity: 0.8; */
-  
-  
   color: #000;
   flex: 1;
   height: 574px;
@@ -94,7 +90,6 @@
 .submit_btn {
   height: 60px;
   width: 322px;
-  /* position: absolute; */
   right: 0;
   color: #292929;
   font-size: 24px;
