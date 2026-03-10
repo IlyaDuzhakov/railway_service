@@ -1,0 +1,22 @@
+.order_info_wrapper {
+  display: flex;
+}
+
+.order_info {
+  display: flex;
+}
+
+.order_container {
+  border: 3px solid #000;
+}
+
+.order_wrapper {
+    width: 100%;
+    position: absolute;
+    top: -170px;
+    
+}
+
+.o {
+    background-color: aqua;
+}

@@ -1,20 +1,29 @@
 import styles from "./TrainInfo.module.css";
-import { formatDate, travelTime, formatCity, getTrainsDate } from "../../../helpers/functions";
-
+import {
+  formatDate,
+  travelTime,
+  formatCity,
+  getTrainsDate,
+} from "../../../helpers/functions";
 
 const TrainInfo = ({ train, show, showDate }) => {
-
-  const colorDate = showDate ? '#ffffff' : '#000000'
-  const colorCity = showDate ? '#ffffff' : '#292929'
+  const colorDate = showDate ? "#ffffff" : "#000000";
+  const colorCity = showDate ? "#ffffff" : "#292929";
   return (
     <>
       <div className={styles.train_item}>
         <div className={styles.train_item_from}>
-          <p className={styles.departure_datetime} style={{color: colorDate}}>
+          <p className={styles.departure_datetime} style={{ color: colorDate }}>
             {formatDate(train?.departure.from.datetime)}
           </p>
-          {showDate ? <p className={styles.departure_date}>{getTrainsDate(train?.departure.to.datetime)}</p> : ""}
-          <p className={styles.landing_stations} style={{color: colorCity}}>
+          {showDate ? (
+            <p className={styles.departure_date}>
+              {getTrainsDate(train?.departure.from.datetime)}
+            </p>
+          ) : (
+            ""
+          )}
+          <p className={styles.landing_stations} style={{ color: colorCity }}>
             {formatCity(train?.departure.from.city.name)}
           </p>
           <p className={styles.station_name}>
@@ -38,11 +47,17 @@ const TrainInfo = ({ train, show, showDate }) => {
         </div>
 
         <div>
-          <p className={styles.departure_datetime} style={{color: colorDate}}>
+          <p className={styles.departure_datetime} style={{ color: colorDate }}>
             {formatDate(train?.departure.to.datetime)}
           </p>
-          {showDate ? <p className={styles.departure_date}>{getTrainsDate(train?.departure.from.datetime)}</p> : ""}
-          <p className={styles.landing_stations} style={{color: colorCity}}>
+          {showDate ? (
+            <p className={styles.departure_date}>
+              {getTrainsDate(train?.departure.to.datetime)}
+            </p>
+          ) : (
+            ""
+          )}
+          <p className={styles.landing_stations} style={{ color: colorCity }}>
             {formatCity(train?.departure.to.city.name)}
           </p>
           <p className={styles.station_name}>
@@ -56,5 +71,3 @@ const TrainInfo = ({ train, show, showDate }) => {
 };
 
 export default TrainInfo;
-
-

@@ -7,6 +7,28 @@ import { Link } from "react-router-dom";
 
 const PassengersList = () => {
   const [users, setUsers] = useContext(PassengersContext);
+  const checkFillForm = () => {
+    let countCheck = 0;
+    for (let user of users) {
+      if (
+        user.date !== "" &&
+        user.document_number !== "" &&
+        user.name !== "" &&
+        user.surname !== "" &&
+        user.secondName !== ""
+      ) {
+        if (user.document_type === "passport" && user.document_series !== "") {
+          countCheck = countCheck + 1;
+        } else if (
+          user.document_type !== "passport" &&
+          user.document_series === ""
+        ) {
+          countCheck = countCheck + 1;
+        }
+      }
+    }
+    return countCheck === users.length
+  };
 
   const updateUser = (id, fields) => {
     setUsers((prev) =>
@@ -28,8 +50,14 @@ const PassengersList = () => {
           );
         })}
       </div>
-      <button className={styles.to_next_page}>
-        <Link to="/payment">Далее</Link>
+      <button
+        className={styles.to_next_page}
+        onClick={() => {
+          checkFillForm();
+        }}
+      >
+        Далее
+        {/* <Link to="/payment">Далее</Link> */}
       </button>
     </main>
   );

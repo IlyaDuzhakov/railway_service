@@ -2,6 +2,7 @@
     background-color: #3E3C41;
     height: fit-content;
     width: 364px;
+    min-width: 364px; /*  вот тут менял */
     padding-left: 28px;
     padding-top: 43px;
     padding-right: 36px;

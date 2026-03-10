@@ -19,7 +19,7 @@ const TrainsList = () => {
       <div className={styles.list}>
         {showTrains.map((el, index) => {
           return (
-            <TrainItem el={el} index={index}/>
+            <TrainItem el={el} index={index} type_btn="select"/>
           );
         })}
       </div>

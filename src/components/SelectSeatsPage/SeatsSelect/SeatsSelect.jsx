@@ -6,10 +6,11 @@ import CountTicket from "../CountTicket/CountTicket.jsx";
 import TypeCarriage from "../TypeCarriage/TypeCarriage.jsx";
 import Seats from "../Seats/Seats.jsx";
 import {useState} from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const SeatsSelect = ({ train }) => {
+  const navigate = useNavigate()
   const [selectCarriage, setSelectCarriage] = useState(null) 
   const chooseCarriage = (type) => {
       setSelectCarriage(type)
@@ -60,7 +61,9 @@ const SeatsSelect = ({ train }) => {
         <TypeCarriage selectCarriage={selectCarriage} chooseCarriage={chooseCarriage} train={train}/>
         {selectCarriage !== null ? <Seats train={train} selectCarriage={selectCarriage}/> : ''}
       </div>
-      <button className={styles.car}><Link to='/passengers'>Далее</Link></button>
+      <button className={styles.car}onClick={()=> {
+        selectCarriage !== null ? navigate('/passengers') : alert('Выберите тип вагона')
+      }}>Далее</button>
     </main>
   );
 };

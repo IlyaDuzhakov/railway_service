@@ -189,6 +189,9 @@
     margin-top: 18px;
 }
 
+.choose_seats a {
+    text-decoration: none;
+}
 
 .pagination_wrap {
   margin-top: auto;           /* прижать вниз */

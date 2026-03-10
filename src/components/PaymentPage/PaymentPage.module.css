@@ -1,10 +1,20 @@
+.payment_main {
+    border: 1px solid #c4c4c4;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
 .payment_top {
     background-color: #F9F9F9;
+    padding-left: 35px;
+    border-bottom: 1px dashed #928F94;
 }
 
 .payment_top_text {
     padding-top: 34px;
     padding-bottom: 36px;
+    font-size: 30px;
+    font-weight: 400;
+    
 }
 
 
@@ -26,16 +36,16 @@
 
 .payment_initials_wrapper {
   display: flex;
-  /* padding-right: 36px;
-  padding-left: 36px; */
   gap: 25px;
   margin-top: 45px;
+  padding: 0 35px;
 }
 
 .payment_initials {
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin-bottom: 54px;
 }
 
 .payment_initials_input {
@@ -48,4 +58,34 @@
   padding-left: 15px;
 }
 
+.email,
+.phone {
+  width: 360px;
+  font-weight: 400;
+  font-size: 24px;
+  padding-left: 15;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #C4C4C4;
+}
 
+/* .phone {
+  width: 360px;
+} */
+
+.contact_details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_details_wrapper {
+  padding: 0 35px;
+}
+.online_payments {
+  padding-left: 35px;
+}
+.online_bottom {
+  display: flex;
+  gap: 50px;
+  
+}

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { SelectTrainContext, TrainContext } from "../../../helpers/context.js";
 import { useContext } from "react";
 
-const TrainItem = ({ el, index }) => {
+const TrainItem = ({ el, index, type_btn }) => {
   const [trains, setTrains] = useContext(TrainContext);
   const [train, setTrain] = useContext(SelectTrainContext);
   const seatsList = {
@@ -70,9 +70,16 @@ const TrainItem = ({ el, index }) => {
                 setTrain(getTrain(trains, el.departure._id));
               }}
             >
-              <Link to={`/select_seats/${el.departure._id}`}>
+              {type_btn === "select" ? (
+                <Link to={`/select_seats/${el.departure._id}`}>
                 Выбрать места
               </Link>
+              ) : (
+                <Link to="select_train">
+                Изменить
+              </Link>
+              )}
+              
             </button>
           </div>
         </div>

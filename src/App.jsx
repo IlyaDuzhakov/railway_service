@@ -47,7 +47,9 @@ function App() {
   );
 
   const count = countTickets(tickets);
-  const [users, setUsers] = useState(() => createUsers(count));
+  const [users, setUsers] = useState(
+    JSON.parse(localStorage.getItem("users")) || createUsers(count),
+  );
   const [isLoading, setIsLoading] = useState(false);
   const showLoader = () => {
     setIsLoading(true);
@@ -57,18 +59,20 @@ function App() {
     setIsLoading(false);
   };
 
-  const [order, setOrder] = useState({
-  name: "",
-  surname: "",
-  secondName: "",
-  phone: "",
-  email: "",
-  payment_method: "",
-});
+  const [order, setOrder] = useState(
+    JSON.parse(localStorage.getItem("order")) || {
+      name: "",
+      surname: "",
+      secondName: "",
+      phone: "",
+      email: "",
+      payment_method: "",
+    },
+  );
 
-useEffect(()=> {
-  localStorage.setItem('order', JSON.stringify(order))
-}, [order])
+  useEffect(() => {
+    localStorage.setItem("order", JSON.stringify(order));
+  }, [order]);
 
   useEffect(() => {
     setshowTrains(trains);
@@ -78,6 +82,7 @@ useEffect(()=> {
   }, [trains]);
 
   useEffect(() => {
+    console.log("меняется количество билетов");
     localStorage.setItem("tickets_count", JSON.stringify(tickets));
     setUsers(() => createUsers(count));
   }, [tickets]);

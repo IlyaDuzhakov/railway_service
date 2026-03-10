@@ -51,10 +51,10 @@ const PaymentPage = () => {
             />
           </div>
         </div>
-        <div>
-          <div>
+        <div className={styles.contact_details_wrapper}>
+          <div className={styles.contact_details}>
             <label>Контактный телефон</label>
-            <input
+            <input className={styles.phone}
               type="tel"
               placeholder="+7 __ __ _ _ "
               value={order.phone}
@@ -63,9 +63,9 @@ const PaymentPage = () => {
               }}
             />
           </div>
-          <div>
+          <div className={styles.contact_details}>
             <label>E-mail</label>
-            <input
+            <input className={styles.email}
               type="email"
               placeholder="inbox@gmail.ru"
               value={order.email}

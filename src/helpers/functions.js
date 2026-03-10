@@ -15,39 +15,38 @@ const formatDate = (ms) => {
 };
 
 const travelTime = (ms) => {
-  const date = new Date(ms);
-  let hours = (date.getHours() - 1).toString();
-  let minutes = date.getMinutes().toString();
-  const rezult = `${hours} : ${minutes}`;
-  return rezult;
+  let min = Math.round(ms / 1000 / 60);
+  const hours = Math.floor(min / 60);
+  min = min - hours * 60;
+  return `${hours} : ${min}`;
 };
 
 const formatWord = (time, words) => {
-    if (time.endsWith('11') || time.endsWith('12') || time.endsWith('13') || time.endsWith('14')) {
-      return words[2]
+  if (
+    time.endsWith("11") ||
+    time.endsWith("12") ||
+    time.endsWith("13") ||
+    time.endsWith("14")
+  ) {
+    return words[2];
+  } else if (time.endsWith("1") && Number(time) != 11) {
+    return words[0];
+  } else if (time.endsWith("2") || time.endsWith("3") || time.endsWith("4")) {
+    return words[1];
+  } else {
+    return words[2];
   }
-  else if (time.endsWith('1') && Number(time) != 11) {
-     return words[0]
-  }
-  else if (time.endsWith('2') || time.endsWith('3') || time.endsWith('4')) {
-    return words[1]
-  }
-  else {
-    return words[2]
-  }
-}
-
+};
 
 const travelTimeLong = (ms) => {
+  const timeStr = travelTime(ms);
 
-  const timeStr = travelTime(ms)
-  
-  const [hour, minutes]= timeStr.split(':').map((el)=> el.trim())
-  let textHour = formatWord(hour, ['час', 'часа', 'часов'])
-  let textMinutes = formatWord(minutes, ['минута', 'минуты', 'минут'])
-  const rezult = [`${hour} ${textHour}`, `${minutes} ${textMinutes}`]
-  return rezult
-}
+  const [hour, minutes] = timeStr.split(":").map((el) => el.trim());
+  let textHour = formatWord(hour, ["час", "часа", "часов"]);
+  let textMinutes = formatWord(minutes, ["минута", "минуты", "минут"]);
+  const rezult = [`${hour} ${textHour}`, `${minutes} ${textMinutes}`];
+  return rezult;
+};
 
 const getCityId = async (name) => {
   const response = await fetch(
@@ -121,49 +120,58 @@ const getTrain = (trains, id) => {
 };
 
 const randomSeats = (number) => {
-    const number1 = Math.floor(Math.random() * number)
-    const number2 = number - number1
-    return [number1, number2]
-}
-
-const getTicketPrice = async (carriages, type) => {
-    for (let carriage of carriages) {
-      if (carriage.coach.class_type === type) {
-        return {top_price: carriage.coach.top_price, bottom_price: carriage.coach.bottom_price}
-      }    
-    }
-    return {top_price: 0, bottom_price: 0}
-}
-
-const countTickets = (passengers) => {
-    const adult = Number(passengers.adult.count)
-    const children = Number(passengers.children.count)
-    const child = +passengers.child_no_seat.count
-    const sum = adult + children + child
-    return sum
-}
-
-const formatCity = (city) => {
-    if(city === '') {
-      return ''
-    }
-    const hasSpace = city.includes(' ')
-    const hasHyphen = city.includes('-')
-    const words = city.split(/[ -]/).map((el)=> {
-      return el[0].toUpperCase() + el.slice(1, el.length) 
-    }).join(hasHyphen ? '-' : ' ')
-    return words
-}
-
-const getTrainsDate = (ms) => {
-    const date = new Date(ms)
-    const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate().toString()
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`
-    const year = date.getFullYear()
-    const fullDate = `${day}.${month}.${year}`
-    return fullDate
+  const number1 = Math.floor(Math.random() * number);
+  const number2 = number - number1;
+  return [number1, number2];
 };
 
+const getTicketPrice = async (carriages, type) => {
+  for (let carriage of carriages) {
+    if (carriage.coach.class_type === type) {
+      return {
+        top_price: carriage.coach.top_price,
+        bottom_price: carriage.coach.bottom_price,
+      };
+    }
+  }
+  return { top_price: 0, bottom_price: 0 };
+};
+
+const countTickets = (passengers) => {
+  const adult = Number(passengers.adult.count);
+  const children = Number(passengers.children.count);
+  const child = +passengers.child_no_seat.count;
+  const sum = adult + children + child;
+  return sum;
+};
+
+const formatCity = (city) => {
+  if (city === "") {
+    return "";
+  }
+  const hasSpace = city.includes(" ");
+  const hasHyphen = city.includes("-");
+  const words = city
+    .split(/[ -]/)
+    .map((el) => {
+      return el[0].toUpperCase() + el.slice(1, el.length);
+    })
+    .join(hasHyphen ? "-" : " ");
+  return words;
+};
+
+const getTrainsDate = (ms) => {
+  const date = new Date(ms);
+  const day =
+    date.getDate() < 10 ? "0" + date.getDate() : date.getDate().toString();
+  const month =
+    date.getMonth() + 1 < 10
+      ? `0${date.getMonth() + 1}`
+      : `${date.getMonth() + 1}`;
+  const year = date.getFullYear();
+  const fullDate = `${day}.${month}.${year}`;
+  return fullDate;
+};
 
 const createUsers = (count) => {
   const users = Array.from({ length: count }, () => {
@@ -181,7 +189,7 @@ const createUsers = (count) => {
       document_number: "",
     };
   });
-  return users
+  return users;
 };
 
 export {
