@@ -32,7 +32,7 @@ const PriceInfo = () => {
               </p>
               <p className={styles.price_ticket}>
                 {priceTicket}
-                <img className={styles.coin} src="/img/icons/coin.svg" alt="coin" />
+                <img className={styles.coin} src={process.env.PUBLIC_URL + "/img/icons/coin.svg"} alt="coin" />
               </p>
             </div>
           );

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SuccessfulOrderPage = () => {
+  const iconsPath = process.env.PUBLIC_URL+ '/img/icons'
   const arrStar = [1, 2, 3, 4, 5];
   const [raiting, setRaiting] = useState(0);
   return (
@@ -13,26 +14,26 @@ const SuccessfulOrderPage = () => {
           <p className={styles.number}>№Заказа 285АА</p>
           <div className={styles.sum_wrapper}>
           <p className={styles.sum}>cумма</p>
-          <img src="/img/icons/coin.svg" alt="coin" />
+          <img src={iconsPath + "/coin.svg"} alt="coin" />
           </div>
         </div>
         <div className={styles.order_info_wrapper}>
           <div className={styles.ord}>
-            <img src="/img/icons/computer.svg" alt="" />
+            <img src={iconsPath + "/computer.svg"} alt="computer" />
             <p className={styles.order_text}>
               билеты будут отправлены на ваш
               <span className={styles.bold}> e-mail</span>
             </p>
           </div>
           <div className={styles.ord}>
-            <img src="/img/icons/conductor.svg" alt="" />
+            <img src={iconsPath + "/conductor.svg"} alt="" />
             <p className={styles.order_text}>
               <span className={styles.bold}>распечатайте</span><br />
               и сохраняйте билеты до даты поездки
             </p>
           </div>
           <div className={styles.ord}>
-            <img src="/img/icons/ticket_printing.svg" alt="" />
+            <img src={iconsPath + "/ticket_printing.svg"} alt="" />
             <p className={styles.order_text}>
               <span className={styles.bold}>предьявите</span><br />
               распечатанные билеты при посадке
@@ -56,8 +57,8 @@ const SuccessfulOrderPage = () => {
                 <img
                   src={
                     raiting >= el
-                      ? "/img/icons/active_star.svg"
-                      : "/img/icons/star.svg"
+                      ? iconsPath + "/active_star.svg"
+                      : iconsPath + "/star.svg"
                   }
                   onClick={() => {
                     setRaiting(el);

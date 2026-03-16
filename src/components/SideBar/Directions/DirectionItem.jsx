@@ -12,7 +12,7 @@ const DirectionItem = ({ forward }) => {
         <div className={styles.forward_left}>
           <img
             style={{ transform: rotate }}
-            src="/img/icons/arrow.svg"
+            src={process.env.PUBLIC_URL + "/img/icons/arrow.svg"}
             alt=""
           />
           <p className={styles.forward_text}>{forward}</p>
@@ -27,13 +27,13 @@ const DirectionItem = ({ forward }) => {
             {showTime === false ? (
               <img
                 className={styles.btn}
-                src="/img/icons/plus.svg"
+                src={process.env.PUBLIC_URL + "/img/icons/plus.svg"}
                 alt="plus"
               />
             ) : (
               <img
                 className={styles.btn}
-                src="/img/icons/minus.svg"
+                src={process.env.PUBLIC_URL + "/img/icons/minus.svg"}
                 alt="minus"
               />
             )}

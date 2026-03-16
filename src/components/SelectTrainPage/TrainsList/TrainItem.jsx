@@ -19,7 +19,7 @@ const TrainItem = ({ el, index, type_btn }) => {
       <div className={styles.train_direction}>
         <img
           className={styles.train_icon}
-          src="/img/icons/train.svg"
+          src={process.env.PUBLIC_URL + "/img/icons/train.svg"}
           alt="train"
         />
         <div className={styles.train_number}>116С</div>
@@ -28,7 +28,7 @@ const TrainItem = ({ el, index, type_btn }) => {
             <p className={styles.from_text}>
               {formatCity(el.departure.from.city.name)}
             </p>
-            <img src="/img/icons/arrow_direction_black.svg" alt="arrow_black" />
+            <img src={process.env.PUBLIC_URL + "/img/icons/arrow_direction_black.svg"} alt="arrow_black" />
           </div>
           <div className={styles.to}>
             <p className={styles.from_text}>
@@ -54,7 +54,7 @@ const TrainItem = ({ el, index, type_btn }) => {
                     <span className={styles.seat_price}>{el.min_price}</span>
                     <img
                       className={styles.seat_coin}
-                      src="/img/icons/coin.svg"
+                      src={process.env.PUBLIC_URL + "/img/icons/coin.svg"}
                       alt="coin"
                     />
                   </div>
@@ -63,7 +63,7 @@ const TrainItem = ({ el, index, type_btn }) => {
             );
           })}
           <div className={styles.seat_bottom}>
-            <img src="/img/icons/last_train_icons_grey.svg" alt="service" />
+            <img src={process.env.PUBLIC_URL + "/img/icons/last_train_icons_grey.svg"} alt="service" />
             <button
               className={styles.choose_seats}
               onClick={() => {

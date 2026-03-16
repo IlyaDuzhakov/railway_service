@@ -54,14 +54,14 @@ const LastTrains = () => {
             </div>
             <div className={styles.bottom}>
               <div className={styles.bottom_right}>
-                <img src="/img/icons/last_train_icons.svg" alt="wi-fi" />
+                <img src={process.env.PUBLIC_URL + "/img/icons/last_train_icons.svg"} alt="wi-fi" />
               </div>
               <div className={styles.bottom_left}>
                 <p className={styles.price_text}>
                   oт <span className={styles.price}>{el.min_price} </span>{" "}
                   <img
                     className={styles.coin}
-                    src="/img/icons/coin.svg"
+                    src={process.env.PUBLIC_URL + "/img/icons/coin.svg"}
                     alt="coin"
                   />
                 </p>

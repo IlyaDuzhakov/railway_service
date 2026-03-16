@@ -8,7 +8,7 @@ const SideBarPrice = () => {
     <div>
       <div className={styles.top}>
         <div className={styles.passenger}>
-          <img src="/img/icons/user.svg" alt="user" />
+          <img src={process.env.PUBLIC_URL + "/img/icons/user.svg"} alt="user" />
           <h2 className={styles.passenger_title}>Пассажиры</h2>
         </div>
         <button className={styles.passenger_btn}
@@ -17,7 +17,7 @@ const SideBarPrice = () => {
           }}
         >
           <img
-            src={showPrice ? "/img/icons/minus.svg" : "/img/icons/plus.svg"}
+            src={showPrice ? process.env.PUBLIC_URL + "/img/icons/minus.svg" : process.env.PUBLIC_URL + "/img/icons/plus.svg"}
             alt=""
           />
         </button>

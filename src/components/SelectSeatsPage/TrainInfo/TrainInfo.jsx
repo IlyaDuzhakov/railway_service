@@ -41,7 +41,7 @@ const TrainInfo = ({ train, show, showDate }) => {
           )}
           <img
             className={styles.orange_arrow}
-            src="/img/icons/arrow_right.svg"
+            src={process.env.PUBLIC_URL + "/img/icons/arrow_right.svg"}
             alt="arrow_right"
           />
         </div>

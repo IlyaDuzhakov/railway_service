@@ -5,7 +5,7 @@ import FilterItem from "./FilterItem";
 
 const Filters = () => {
   const [activeFilters, setActiveFilters] = useState([]);
-  const way = "/img/icons";
+  const way = `${process.env.PUBLIC_URL}/img/icons`;
 
   const filtersList = [
     {
