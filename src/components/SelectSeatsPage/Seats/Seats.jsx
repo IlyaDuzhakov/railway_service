@@ -5,7 +5,8 @@ import {getTicketPrice} from '../../../helpers/functions.js'
 
 const Seats = ({selectCarriage, train}) => {
   const [ticketPrice, setTicketPrice] = useState({top_price: 0, bottom_price: 0})
-  const path = "/img/icons/service/";
+  // const path = "/img/icons/service/";
+  const path = process.env.PUBLIC_URL + "/img/icons/service";
   const [top, bottom] = randomSeats(train?.available_seats_info[selectCarriage])
 
   const getTrainInfo = async () => {
@@ -62,16 +63,16 @@ const Seats = ({selectCarriage, train}) => {
             <span>ФПК</span>
           </p>
           <div>
-            <img src={`${path}air_conditioner.svg`} alt="air_conditioner" />
-            <img src={path + "air_conditioner.svg"} alt="air_conditioner" />
-            <img src={`${path}air_conditioner.svg`} alt="air_conditioner" />
-            <img src={`${path}air_conditioner.svg`} alt="air_conditioner" />
+            <img src={path + "/air_conditioner.svg"} alt="air_conditioner" />
+            <img src={path + "/wi-fi.svg"} alt="wi-fi" />
+            <img src={path + "/books.svg"} alt="books" />
+            <img src={path + "/cup.svg"} alt="cup" />
           </div>
           <p className={styles.choose_seats}>11 человек выбирают места в этом поезде</p>
         </div>
       </div>
       <div className={styles.bottom}>
-            <img src="/img/icons/seats.png" alt="seats" />
+            <img src={process.env.PUBLIC_URL + "/img/icons/seats.png"} alt="seats" />
       </div>
     </div>
   );

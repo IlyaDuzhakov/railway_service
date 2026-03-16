@@ -23,7 +23,7 @@ const SeatsSelect = ({ train }) => {
         <div className={styles.choose_train_wrapper}>
           <img
             className={styles.choose_train_arrow}
-            src="/img/icons/choose_train.svg"
+            src={process.env.PUBLIC_URL + "/img/icons/choose_train.svg"}
             alt="choose_train arrow"
           />
           <button className={styles.choose_train_btn}>
@@ -31,12 +31,12 @@ const SeatsSelect = ({ train }) => {
           </button>
         </div>
         <div className={styles.cap}>
-          <img src="/img/icons/train_icon.svg" alt="train" />
+          <img src={process.env.PUBLIC_URL + "/img/icons/train_icon.svg"} alt="train" />
           <div className={styles.train_number}>
             <p className={styles.train_text}>116С</p>
             <p>
               <span>{formatCity(train?.departure.from.city.name)}</span>
-              <img src="/img/icons/arrow_direction_black.svg" alt="" />
+              <img src={process.env.PUBLIC_URL + "/img/icons/arrow_direction_black.svg"} alt="" />
             </p>
 
             <p>{formatCity(train?.departure.to.city.name)}</p>
@@ -45,7 +45,7 @@ const SeatsSelect = ({ train }) => {
           <div className={styles.train_time}>
             <img
               className={styles.clock_travel}
-              src="/img/icons/clock_travel_time.svg"
+              src={process.env.PUBLIC_URL + "/img/icons/clock_travel_time.svg"}
               alt="clock"
             />
             <div className={styles.train_time_text}>

@@ -4,7 +4,7 @@ import PassengerInfo from "./PassengerInfo.jsx";
 
 const PassengerItem = ({number, user, onUpdate}) => {
   const [open, setOpen] = useState(false);
-  const passenger = "/img/icons/passenger/";
+  const passenger = process.env.PUBLIC_URL + "/img/icons/passenger"
   
   return (
     <>
@@ -15,7 +15,7 @@ const PassengerItem = ({number, user, onUpdate}) => {
           }}>
             <img
               className={styles.minus}
-              src={open === true ? passenger + "minus.svg" : passenger + "plus_active.svg"}
+              src={open === true ? passenger + "/minus.svg" : passenger + "/plus_active.svg"}
               alt="minus"
             />
           </button>
@@ -26,7 +26,7 @@ const PassengerItem = ({number, user, onUpdate}) => {
         }}>
           <img
             className={styles.delete}
-            src={passenger + "delete.svg"}
+            src={passenger + "/delete.svg"}
             alt="delete"
           />
         </button> : ""}

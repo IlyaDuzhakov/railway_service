@@ -41,7 +41,7 @@ const PriceInfo = () => {
       <div className="sidebarDivider"></div>
       <div className={styles.sum_price}>
         <p className={styles.sum}>Итог{entries.reduce((acc, value)=> {
-            // console.log(value)
+            
             return acc + Math.floor(value[1].count * value[1].koef * train.departure.min_price)
         }, 0)}</p>
       </div>

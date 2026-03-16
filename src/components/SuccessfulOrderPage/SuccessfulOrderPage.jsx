@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SuccessfulOrderPage = () => {
-  const iconsPath = process.env.PUBLIC_URL+ '/img/icons'
+  const iconsPath = process.env.PUBLIC_URL + '/img/icons'
   const arrStar = [1, 2, 3, 4, 5];
   const [raiting, setRaiting] = useState(0);
   return (

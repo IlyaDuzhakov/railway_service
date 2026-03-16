@@ -32,7 +32,7 @@ const ConfirmOrderPage = () => {
           {users.map((user) => {
             return <div className={styles.user_avatar_wrapper}>
                 <div className={styles.user_avatar}>
-                    <img src="/img/icons/passenger.svg" alt="avatar" />
+                    <img src={process.env.PUBLIC_URL + "/img/icons/passenger.svg"} alt="avatar" />
                     {user.type==="adult" ? <p>Взрослый</p> : <p>Детский</p>}
                 </div>
                 <div className={styles.user_info}>
@@ -51,7 +51,7 @@ const ConfirmOrderPage = () => {
             return acc + Math.floor(value[1].count * value[1].koef * train.departure.min_price)
           
           }, 0)}
-          <img className={styles.img_coin} src="/img/icons/coin.svg" alt="coin" />
+          <img className={styles.img_coin} src={process.env.PUBLIC_URL + "/img/icons/coin.svg"} alt="coin" />
           </div>
           <button className={styles.btn_change}>
             <Link to="/passengers">Изменить</Link>

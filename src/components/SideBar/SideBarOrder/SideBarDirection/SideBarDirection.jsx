@@ -10,7 +10,7 @@ const SideBarDirection = ({ direction }) => {
   return (
     <div className={styles.direction_wrapper}>
       <div className={styles.top}>
-        <img className={styles.direction_img} style={{transform: direction === 'Обратно' ? 'rotate(180deg)' : 'rotate(0)'}} src='/img/icons/arrow.svg' alt="" />
+        <img className={styles.direction_img} style={{transform: direction === 'Обратно' ? 'rotate(180deg)' : 'rotate(0)'}} src={process.env.PUBLIC_URL + "/img/icons/arrow.svg"} alt="" />
         <p className={styles.direction_text}>{direction}</p>
         <p className={styles.direction_date}>
            {getTrainsDate(train?.departure.from.datetime)}
@@ -18,7 +18,7 @@ const SideBarDirection = ({ direction }) => {
         <button className={styles.btn_open_close} onClick={()=> {
           setShow((prev)=> !prev)
         }}>
-          <img src={show ? '/img/icons/minus.svg' : '/img/icons/plus.svg'} alt="" />
+          <img src={show ? process.env.PUBLIC_URL + '/img/icons/minus.svg' : process.env.PUBLIC_URL + '/img/icons/plus.svg'} alt="" />
         </button>
       </div>
       {show ? <DirectionInfo /> : ''}

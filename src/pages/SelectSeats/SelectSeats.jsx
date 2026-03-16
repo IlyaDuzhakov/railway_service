@@ -9,8 +9,7 @@ import SeatsSelect from "../../components/SelectSeatsPage/SeatsSelect/SeatsSelec
 
 const SelectSeats = () => {
   const [train, setTrain] = useContext(SelectTrainContext)
-  // сделать так, чтобы в train мы записывали значение из localstorage (если оно есть), а если его нет, вызывали функцию getTrain()
-
+ 
   useEffect(() => {
     localStorage.setItem("train", JSON.stringify(train));
   }, [train]);

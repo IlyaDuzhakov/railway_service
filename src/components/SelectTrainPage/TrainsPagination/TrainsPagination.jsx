@@ -8,7 +8,7 @@ const TrainsPagination = () => {
   return (
     <div className={styles.caret_wrapper}>
         <button className={styles.caret_left}>
-            <img src="/img/icons/caret_left.svg" alt="caret left" />
+            <img src={process.env.PUBLIC_URL + "/img/icons/caret_left.svg"} alt="caret left" />
         </button>
         {pages.map((p)=> (
           <button 
@@ -22,7 +22,7 @@ const TrainsPagination = () => {
         </button>
         ))}
         <button className={styles.caret_left}>
-            <img src="/img/icons/caret_right.svg" alt="caret right" />
+            <img src={process.env.PUBLIC_URL + "/img/icons/caret_right.svg"} alt="caret right" />
         </button>
     </div>
   )

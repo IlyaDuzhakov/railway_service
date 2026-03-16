@@ -9,7 +9,7 @@ const InstructionsText = () => {
         </h2>
         <img
           className={styles.ticket_icon}
-          src="/img/icons/train_ticket.svg"
+          src={process.env.PUBLIC_URL + "/img/icons/train_ticket.svg"}
           alt="ticket"
         />
       </div>
