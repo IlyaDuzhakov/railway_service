@@ -119,3 +119,20 @@
   height: 1px;
   border-top: 1px solid #E5E5E5;
 }
+
+.social_item {
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+}
+
+.social_item:hover {
+  transform: scale(1.2);
+}
+
+.social_item:active {
+  transform: scale(0.95);
+}
+
+.social_item_active {
+  filter: #FFCA62;
+}

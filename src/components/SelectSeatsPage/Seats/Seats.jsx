@@ -2,10 +2,14 @@ import styles from "./Seats.module.css";
 import {randomSeats} from '../../../helpers/functions.js'
 import { useEffect, useState } from "react";
 import {getTicketPrice} from '../../../helpers/functions.js'
+import Books from '../../icons/Books.jsx'
+import WiFi from '../../icons/WiFi.jsx'
+import Air from '../../icons/Air.jsx'
+import Cup from '../../icons/Cup.jsx'
+// import {ReactComponent as Cup} from '../../icons/cup.svg'
 
 const Seats = ({selectCarriage, train}) => {
   const [ticketPrice, setTicketPrice] = useState({top_price: 0, bottom_price: 0})
-  // const path = "/img/icons/service/";
   const path = process.env.PUBLIC_URL + "/img/icons/service";
   const [top, bottom] = randomSeats(train?.available_seats_info[selectCarriage])
 
@@ -58,15 +62,15 @@ const Seats = ({selectCarriage, train}) => {
 
         <div className={styles.seats_end}>
           <p>
-            {" "}
+           
             Обслуживание
-            <span>ФПК</span>
+            <span> ФПК</span>
           </p>
-          <div>
-            <img src={path + "/air_conditioner.svg"} alt="air_conditioner" />
-            <img src={path + "/wi-fi.svg"} alt="wi-fi" />
-            <img src={path + "/books.svg"} alt="books" />
-            <img src={path + "/cup.svg"} alt="cup" />
+          <div className={styles.seats_service}>
+            <Air />
+            <WiFi />
+            <Books />
+            <Cup />
           </div>
           <p className={styles.choose_seats}>11 человек выбирают места в этом поезде</p>
         </div>

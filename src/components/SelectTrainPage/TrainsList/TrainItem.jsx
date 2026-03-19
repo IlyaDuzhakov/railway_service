@@ -4,6 +4,7 @@ import TrainInfo from "../../SelectSeatsPage/TrainInfo/TrainInfo.jsx";
 import { Link } from "react-router-dom";
 import { SelectTrainContext, TrainContext } from "../../../helpers/context.js";
 import { useContext } from "react";
+import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
 
 const TrainItem = ({ el, index, type_btn }) => {
   const [trains, setTrains] = useContext(TrainContext);
@@ -28,7 +29,12 @@ const TrainItem = ({ el, index, type_btn }) => {
             <p className={styles.from_text}>
               {formatCity(el.departure.from.city.name)}
             </p>
-            <img src={process.env.PUBLIC_URL + "/img/icons/arrow_direction_black.svg"} alt="arrow_black" />
+            <img
+              src={
+                process.env.PUBLIC_URL + "/img/icons/arrow_direction_black.svg"
+              }
+              alt="arrow_black"
+            />
           </div>
           <div className={styles.to}>
             <p className={styles.from_text}>
@@ -63,8 +69,13 @@ const TrainItem = ({ el, index, type_btn }) => {
             );
           })}
           <div className={styles.seat_bottom}>
-            <img src={process.env.PUBLIC_URL + "/img/icons/last_train_icons_grey.svg"} alt="service" />
-            <button
+            <img
+              src={
+                process.env.PUBLIC_URL + "/img/icons/last_train_icons_grey.svg"
+              }
+              alt="service"
+            />
+            {/* <button
               className={styles.choose_seats}
               onClick={() => {
                 setTrain(getTrain(trains, el.departure._id));
@@ -80,7 +91,21 @@ const TrainItem = ({ el, index, type_btn }) => {
               </Link>
               )}
               
-            </button>
+            </button> */}
+            <CustomButton
+              className={styles.choose_seats}
+              onClick={() => {
+                setTrain(getTrain(trains, el.departure._id));
+              }}
+            >
+              {type_btn === "select" ? (
+                <Link to={`/select_seats/${el.departure._id}`}>
+                  Выбрать места
+                </Link>
+              ) : (
+                <Link to="select_train">Изменить</Link>
+              )}
+            </CustomButton>
           </div>
         </div>
       </div>

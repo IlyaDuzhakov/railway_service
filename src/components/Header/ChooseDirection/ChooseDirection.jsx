@@ -8,6 +8,7 @@ import {
   LoaderContext,
 } from "../../../helpers/context.js";
 import { Link } from "react-router-dom";
+import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
 
 const ChooseDirection = () => {
   const [trains, setTrains] = useContext(TrainContext);
@@ -71,7 +72,7 @@ const ChooseDirection = () => {
       <div className={styles.form_container}>
         <Inputs listCitiesFrom={listCitiesFrom} listCitiesTo={listCitiesTo} />
 
-        <button
+        {/* <button
           className={styles.submit_btn}
           type="submit"
           onClick={(e) => {
@@ -80,7 +81,16 @@ const ChooseDirection = () => {
           }}
         >
           <Link to="/select_train">НАЙТИ БИЛЕТЫ</Link>
-        </button>
+        </button> */}
+        <CustomButton
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            findTrains();
+          }}
+        >
+          <Link to="/select_train">НАЙТИ БИЛЕТЫ</Link>
+        </CustomButton>
       </div>
     </form>
   );

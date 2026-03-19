@@ -1,17 +1,29 @@
 import styles from "./Footer.module.css";
+import { useState } from "react";
 import phoneIcon from "../../assets/icons/phone.svg";
 import postboxIcon from "../../assets/icons/postbox.svg";
 import skypeIcon from "../../assets/icons/skype.svg";
 import locationIcon from "../../assets/icons/location.svg";
 import youtubeIcon from "../../assets/icons/youtube.svg";
+import youtubeActiveIcon from "../../assets/icons/youtube_color.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
+import linkedinActiveIcon from "../../assets/icons/linkedin_color.svg";
 import googleIcon from "../../assets/icons/google.svg";
+import googleActiveIcon from "../../assets/icons/google_color.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
+import facebookActiveIcon from "../../assets/icons/facebook_color.svg";
+// import Facebook  from "../icons/Facebook.jsx";
 import twitterIcon from "../../assets/icons/twitter.svg";
+import twitterActiveIcon from "../../assets/icons/twitter_color.svg";
 import arrowIcon from "../../assets/icons/arrow.svg";
 import trainIcon from "../../assets/icons/railway_service.svg";
 
 const Footer = () => {
+  const [facebookActive, setFacebookActive] = useState(false);
+  const [twitterActive, setTwitterActive] = useState(false);
+  const [googleActive, setGoogleActive] = useState(false);
+  const [linkedinActive, setLinkedinActive] = useState(false);
+  const [youtubeActive, setYoutubeActive] = useState(false);
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -90,28 +102,33 @@ const Footer = () => {
                 <h3 className={styles.footer_title}>Подписывайтесь на нас</h3>
                 <div className={styles.social_icon}>
                   <img
-                    className={styles.youtube_icon}
-                    src={youtubeIcon}
+                    className={styles.social_item}
+                    src={youtubeActive ? youtubeActiveIcon : youtubeIcon}
+                    onClick={() => setYoutubeActive((prev) => !prev)}
                     alt="youtube"
                   />
                   <img
-                    className={styles.linkedin_icon}
-                    src={linkedinIcon}
+                    className={styles.social_item}
+                    src={linkedinActive ? linkedinActiveIcon : linkedinIcon}
+                    onClick={() => setLinkedinActive((prev) => !prev)}
                     alt="linkedin"
                   />
                   <img
-                    className={styles.google_icon}
-                    src={googleIcon}
+                    className={styles.social_item}
+                    src={googleActive ? googleActiveIcon : googleIcon}
+                    onClick={() => setGoogleActive((prev) => !prev)}
                     alt="google"
                   />
                   <img
-                    className={styles.facebook_icon}
-                    src={facebookIcon}
+                    className={styles.social_item}
+                    src={facebookActive ? facebookActiveIcon : facebookIcon}
                     alt="facebook"
+                    onClick={() => setFacebookActive((prev) => !prev)}
                   />
                   <img
-                    className={styles.twitter_icon}
-                    src={twitterIcon}
+                    className={styles.social_item}
+                    src={twitterActive ? twitterActiveIcon : twitterIcon}
+                    onClick={() => setTwitterActive((prev) => !prev)}
                     alt="twitter"
                   />
                 </div>
