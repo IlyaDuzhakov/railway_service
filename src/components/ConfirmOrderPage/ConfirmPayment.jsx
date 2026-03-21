@@ -1,9 +1,11 @@
 import styles from './ConfirmOrderPage.module.css'
 import {OrderContext} from '../../helpers/context.js'
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import CustomButton from '../ui/CustomButton/CustomButton.jsx';
 
 const ConfirmPayment = () => {
+  const navigate = useNavigate()
     const [order, setOrder] = useContext(OrderContext)
   
   return (
@@ -13,7 +15,12 @@ const ConfirmPayment = () => {
       </div>
       <div className={styles.coin_wrapper}>
         <p className={styles.coin_text}>{order.payment_method === 'online' ? 'Онлайн' : 'Наличными'}</p>
-        <button className={styles.btn_change}><Link to='/payment'>Изменить</Link></button>
+        <CustomButton 
+        variant="dark"
+        className={styles.btn_change}
+        onClick={() => navigate("/payment")}
+        >Изменить
+        </CustomButton>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
 import styles from './ConfirmOrderPage.module.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TrainItem from "../SelectTrainPage/TrainsList/TrainItem";
 import { SelectTrainContext, PassengersContext, CountTicketContext } from "../../helpers/context";
 import { useContext } from "react";
 import ConfirmPayment from './ConfirmPayment';
+import CustomButton from '../ui/CustomButton/CustomButton';
 const ConfirmOrderPage = () => {
+  const navigate = useNavigate()
   const [train, setTrain] = useContext(SelectTrainContext);
   const [users, setUsers] = useContext(PassengersContext);
     
@@ -53,18 +55,24 @@ const ConfirmOrderPage = () => {
           }, 0)}
           <img className={styles.img_coin} src={process.env.PUBLIC_URL + "/img/icons/coin.svg"} alt="coin" />
           </div>
-          <button className={styles.btn_change}>
-            <Link to="/passengers">Изменить</Link>
-          </button>
+          <CustomButton 
+          variant="dark"
+          className={styles.btn_change}
+          onClick={() => navigate("/passengers")}
+          >Изменить
+          </CustomButton>
         </div>
         </div>
       </div>
 
       <ConfirmPayment />
       <div className={styles.btn_confirm_wrapper}>
-      <button className={styles.btn_confirm}>
-        <Link to="/successful_order">ПОДТВЕРДИТЬ</Link>
-      </button>
+      <CustomButton 
+      variant="secondary"
+      className={styles.btn_confirm}
+      onClick={() => navigate("/successful_order")}
+      >ПОДТВЕРДИТЬ
+      </CustomButton>
       </div>
     </div>
   );

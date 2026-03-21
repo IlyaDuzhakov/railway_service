@@ -1,41 +1,114 @@
-.submit_btn {
-  height: 60px;
-  width: 322px;
-  right: 0;
+/* .button {
+  background-color: #FFA800;
   color: #292929;
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 79px;
-  background: #ffb800;
-  border: none;
-  border-radius: 4px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.submit_btn a {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 24px;
-  color: #292929;
-}
-
-.choose_seats {
-  font-family: Roboto;
-  font-weight: 700;
-  font-size: 24px;
-  color: #ffffff;
-  background-color: #ffa800;
   border: none;
   border-radius: 5px;
-  padding-left: 9px;
-  padding-top: 6px;
-  padding-bottom: 9px;
-  padding-right: 14px;
-  width: 100%;
-  margin-top: 18px;
+  padding: 16px 24px;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.choose_seats a {
-  text-decoration: none;
+.button:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button:active {
+  background-color: #ffffff;
+  color: #FFA800;
+  border: 1px solid #FFA800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+
+.button {
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+/* 1. Найти билеты */
+.primary {
+  background-color: #FFA800;
+  color: #292929;
+}
+
+.primary:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.primary:active {
+  background-color: #ffffff;
+  color: #FFA800;
+  border: 1px solid #FFA800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* 2. Далее / Подтвердить */
+.secondary {
+  background-color: #FFA800;
+  color: #ffffff;
+}
+
+.secondary:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.secondary:active {
+  background-color: #ffffff;
+  color: #FFA800;
+  border: 1px solid #FFA800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* 3. Choose plase */
+.outline {
+  background-color: #FFA800;
+  color: #ffffff;
+  border: 1px solid #FFA800;
+}
+
+.outline:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.outline:active {
+  background-color: #ffffff;
+  border: 1px solid #FFA800;
+ 
+}
+
+.outline a:active {
+   color: #FFA800;
+}
+
+/* 4. Изменить */
+.dark {
+  background-color: #ffffff;
+  color: #292929;
+  border: 1px solid #292929;
+}
+
+.dark:hover {
+  color: #FFA800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dark:active {
+  background-color: #FFA800;
+  color: #292929;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* disabled */
+.button:disabled {
+  background-color: #918F94;
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: none;
+  cursor: not-allowed;
 }

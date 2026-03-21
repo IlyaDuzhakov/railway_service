@@ -3,6 +3,7 @@ import PaymentInfo from "./PaymentInfo.jsx";
 import styles from "./PaymentPage.module.css";
 import { Link } from "react-router-dom";
 import { OrderContext } from "../../helpers/context.js";
+import CustomButton from "../ui/CustomButton/CustomButton.jsx";
 
 const PaymentPage = () => {
   const [order, setOrder] = useContext(OrderContext);
@@ -54,7 +55,8 @@ const PaymentPage = () => {
         <div className={styles.contact_details_wrapper}>
           <div className={styles.contact_details}>
             <label>Контактный телефон</label>
-            <input className={styles.phone}
+            <input
+              className={styles.phone}
               type="tel"
               placeholder="+7 __ __ _ _ "
               value={order.phone}
@@ -65,7 +67,8 @@ const PaymentPage = () => {
           </div>
           <div className={styles.contact_details}>
             <label>E-mail</label>
-            <input className={styles.email}
+            <input
+              className={styles.email}
               type="email"
               placeholder="inbox@gmail.ru"
               value={order.email}
@@ -86,7 +89,7 @@ const PaymentPage = () => {
                 setOnline(event.target.checked);
                 if (event.target.checked === true) {
                   setCash(false);
-                  setOrder({...order, payment_method: 'online'})
+                  setOrder({ ...order, payment_method: "online" });
                 }
               }}
             />
@@ -106,7 +109,7 @@ const PaymentPage = () => {
                 setCash(event.target.checked);
                 if (event.target.checked === true) {
                   setOnline(false);
-                  setOrder({...order, payment_method: 'cash'})
+                  setOrder({ ...order, payment_method: "cash" });
                 }
               }}
             />
@@ -114,9 +117,11 @@ const PaymentPage = () => {
           </div>
         </div>
       </div>
-      <button>
-        <Link to="/confirm_order">Купить билеты</Link>
-      </button>
+      <CustomButton 
+      variant="outline"
+      className="btn_payment">
+        <Link to="/confirm_order">КУПИТЬ БИЛЕТЫ</Link>
+      </CustomButton>
     </div>
   );
 };

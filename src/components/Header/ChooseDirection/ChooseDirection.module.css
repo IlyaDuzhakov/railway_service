@@ -87,4 +87,6 @@
   background-color: #fff;
 }
 
-
+.btn_active {
+  background-color: rgb(10, 58, 179);
+}

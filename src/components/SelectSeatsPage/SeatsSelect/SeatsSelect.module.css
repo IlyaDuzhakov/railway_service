@@ -89,18 +89,6 @@
   text-align: center;
 }
 
-.btn_next {
-  font-weight: 700;
-  font-size: 24px;
-  color: #fff;
-  background-color: #FFA800;
-  border: none;
-  border-radius: 5px;
-  padding-left: 74px;
-  padding-right: 69px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
 
 .btn_next_wrapper {
   display: flex;

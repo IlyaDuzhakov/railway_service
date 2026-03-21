@@ -5,16 +5,18 @@ import { travelTimeLong } from "../../../helpers/functions.js";
 import CountTicket from "../CountTicket/CountTicket.jsx";
 import TypeCarriage from "../TypeCarriage/TypeCarriage.jsx";
 import Seats from "../Seats/Seats.jsx";
-import {useState} from 'react'
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
 
 const SeatsSelect = ({ train }) => {
-  const navigate = useNavigate()
-  const [selectCarriage, setSelectCarriage] = useState(null) 
+  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
+  const [selectCarriage, setSelectCarriage] = useState(null);
   const chooseCarriage = (type) => {
-      setSelectCarriage(type)
-  }
+    setSelectCarriage(type);
+    setActive(true)
+  };
   return (
     <main>
       <p className={styles.choose_text}>Выбор мест</p>
@@ -27,16 +29,25 @@ const SeatsSelect = ({ train }) => {
             alt="choose_train arrow"
           />
           <button className={styles.choose_train_btn}>
-            <Link to='/select_train'>Выбрать другой поезд</Link>
+            <Link to="/select_train">Выбрать другой поезд</Link>
           </button>
         </div>
         <div className={styles.cap}>
-          <img src={process.env.PUBLIC_URL + "/img/icons/train_icon.svg"} alt="train" />
+          <img
+            src={process.env.PUBLIC_URL + "/img/icons/train_icon.svg"}
+            alt="train"
+          />
           <div className={styles.train_number}>
             <p className={styles.train_text}>116С</p>
             <p>
               <span>{formatCity(train?.departure.from.city.name)}</span>
-              <img src={process.env.PUBLIC_URL + "/img/icons/arrow_direction_black.svg"} alt="" />
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/img/icons/arrow_direction_black.svg"
+                }
+                alt=""
+              />
             </p>
 
             <p>{formatCity(train?.departure.to.city.name)}</p>
@@ -49,21 +60,39 @@ const SeatsSelect = ({ train }) => {
               alt="clock"
             />
             <div className={styles.train_time_text}>
-              {travelTimeLong(train?.departure.duration).map((el)=> {
-                return <p>{el}</p>
+              {travelTimeLong(train?.departure.duration).map((el) => {
+                return <p>{el}</p>;
               })}
-              </div>
+            </div>
           </div>
         </div>
         <CountTicket />
         <div className={styles.card_line}></div>
-        <TypeCarriage selectCarriage={selectCarriage} chooseCarriage={chooseCarriage} train={train}/>
-        {selectCarriage !== null ? <Seats train={train} selectCarriage={selectCarriage}/> : ''}
+        <TypeCarriage
+          selectCarriage={selectCarriage}
+          chooseCarriage={chooseCarriage}
+          train={train}
+        />
+        {selectCarriage !== null ? (
+          <Seats train={train} selectCarriage={selectCarriage} />
+        ) : (
+          ""
+        )}
       </div>
       <div className={styles.btn_next_wrapper}>
-      <button className={styles.btn_next}onClick={()=> {
-        selectCarriage !== null ? navigate('/passengers') : alert('Выберите тип вагона')
-      }}>ДАЛЕЕ</button>
+        <CustomButton
+          // active={active}
+          variant="secondary"
+          className="btn_next"
+          disabled={selectCarriage === null}
+          onClick={() => {
+            selectCarriage !== null
+              ? navigate("/passengers")
+              : alert("Выберите тип вагона");
+          }}
+        >
+          ДАЛЕЕ
+        </CustomButton>
       </div>
     </main>
   );

@@ -1,3 +1,9 @@
+.payment_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .payment_main {
     border: 1px solid #c4c4c4;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);

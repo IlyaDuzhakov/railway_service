@@ -2,14 +2,16 @@ import styles from "./PassengersList.module.css";
 import { useContext, useState } from "react";
 import PassengerItem from "../PassengerItem/PassengerItem";
 import { PassengersContext } from "../../../helpers/context.js";
-import { countTickets, createUsers } from "../../../helpers/functions";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
 
 const PassengersList = () => {
+  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
   const [users, setUsers] = useContext(PassengersContext);
-  const checkFillForm = () => {
+  const checkFillForm = (usersList) => {
     let countCheck = 0;
-    for (let user of users) {
+    for (let user of usersList) {
       if (
         user.date !== "" &&
         user.document_number !== "" &&
@@ -27,14 +29,24 @@ const PassengersList = () => {
         }
       }
     }
-    return countCheck === users.length
+    return countCheck === usersList.length;
   };
 
   const updateUser = (id, fields) => {
-    setUsers((prev) =>
-      prev.map((user) => (user.id === id ? { ...user, ...fields } : user)),
-    );
+    setUsers((prev) => {
+      const rezult = prev.map((user) =>
+        user.id === id ? { ...user, ...fields } : user,
+      );
+      if (checkFillForm(rezult) === true) {
+        setActive(true);
+      } else {
+        setActive(false);
+      }
+      return rezult;
+    });
   };
+
+  const isFormValid = checkFillForm(users);
 
   return (
     <main className={styles.passengers_container}>
@@ -50,15 +62,19 @@ const PassengersList = () => {
           );
         })}
       </div>
-      <button
-        className={styles.to_next_page}
+      <CustomButton
+        active={active}
+        // variant="outline"
+        variant="secondary"
+        className="btn_next"
+        disabled={!isFormValid}
         onClick={() => {
-          checkFillForm();
+          checkFillForm(users) === true
+            ? navigate("/payment")
+            : alert("заполните все поля");
         }}
-      >
-        Далее
-        {/* <Link to="/payment">Далее</Link> */}
-      </button>
+      >ДАЛЕЕ
+      </CustomButton>
     </main>
   );
 };

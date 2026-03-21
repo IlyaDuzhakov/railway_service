@@ -185,3 +185,67 @@
   visibility: visible;
 }
 
+.submit_btn {
+  height: 60px;
+  width: 322px;
+  right: 0;
+  color: #292929;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 79px;
+  background: #ffb800;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit_btn a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
+  color: #292929;
+}
+
+.choose_seats {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ffffff;
+  background-color: #ffa800;
+  border: none;
+  border-radius: 5px;
+  padding-left: 9px;
+  padding-top: 6px;
+  padding-bottom: 9px;
+  padding-right: 14px;
+  width: 100%;
+  margin-top: 18px;
+}
+
+.choose_seats a,
+.btn_next a,
+.btn_payment a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.btn_next {
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  background-color: #FFA800;
+  border: none;
+  border-radius: 5px;
+  padding-left: 74px;
+  padding-right: 69px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  width: 222px;
+  align-self: flex-end;
+}
+
+.btn_active {
+  background-color: aquamarine;
+}

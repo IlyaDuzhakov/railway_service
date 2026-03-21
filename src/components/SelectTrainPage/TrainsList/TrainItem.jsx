@@ -93,6 +93,7 @@ const TrainItem = ({ el, index, type_btn }) => {
               
             </button> */}
             <CustomButton
+              variant="outline"
               className={styles.choose_seats}
               onClick={() => {
                 setTrain(getTrain(trains, el.departure._id));
@@ -103,7 +104,9 @@ const TrainItem = ({ el, index, type_btn }) => {
                   Выбрать места
                 </Link>
               ) : (
-                <Link to="select_train">Изменить</Link>
+               
+                <Link to="/select_train">Изменить</Link>
+                
               )}
             </CustomButton>
           </div>
