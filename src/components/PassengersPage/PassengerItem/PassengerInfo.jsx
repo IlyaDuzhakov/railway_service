@@ -1,28 +1,64 @@
 import styles from "../PassengersList/PassengersList.module.css";
 import { useState } from "react";
-import PassengerDetails from "../PassengerDetails";
+import PassengerDetails from "../PassengerDetails.jsx";
+import PassengerStatus from "../PassengersList/PassengerStatus.jsx";
+import { getAge } from "../../../helpers/functions.js";
+import CustomSelect from "../../ui/CustomSelect/CustomSelect.jsx";
 
 const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
+  const nameRegex = /^[A-Za-zА-Яа-яЁё-]+$/;
+  const [documentCheckStarted, setDocumentCheckStarted] = useState(false);
+  const [documentValid, setDocumentValid] = useState(null);
+  const [surnameError, setSurnameError] = useState(false);
+  const [secondNameError, setSecondNameError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+  const [dateError, setDateError] = useState(false);
+
+  const validateAge = (date, documentType) => {
+    if (!date) return false;
+
+    const age = getAge(date);
+
+    if (documentType === "passport") {
+      return age >= 14;
+    }
+
+    if (documentType === "document_child") {
+      return age < 14;
+    }
+
+    return false;
+  };
+
   return (
     <div className={styles.bottom}>
       <div className={styles.select_wrapper}>
-        <select
+        {/* <select
           className={styles.select_age}
           value={passenger.type}
           onChange={(event) => {
             onUpdate(passenger.id, { type: event.target.value });
           }}
         >
-          <option value="adult">Взрослый</option>
+          <option className={styles.option} value="adult">
+            Взрослый
+          </option>
           <option value="children">Детский</option>
           <option value="child_no_seat">Детский без места</option>
-        </select>
+        </select> */}
+        <CustomSelect
+  value={passenger.type}
+  onChange={(newValue) => {
+    onUpdate(passenger.id, { type: newValue });
+  }}
+/>
         <img
           src={passenger_info + "triangular_arrow.svg"}
           className={styles.arrow}
           alt=""
         />
       </div>
+
       <div className={styles.initials_wrapper}>
         <div className={styles.initials}>
           <p className={styles.initials_text}>Фамилия</p>
@@ -31,11 +67,26 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             type="text"
             placeholder="Мартынюк"
             value={passenger.secondName}
+            // onChange={(event) => {
+            //   onUpdate(passenger.id, { secondName: event.target.value });
+            // }}
             onChange={(event) => {
-              onUpdate(passenger.id, { secondName: event.target.value });
+              const value = event.target.value;
+
+              onUpdate(passenger.id, { secondName: value });
+
+              if (value === "") {
+                setSecondNameError(false);
+              } else {
+                setSecondNameError(!nameRegex.test(value));
+              }
             }}
           />
+          {secondNameError && (
+            <p style={{ color: "red" }}>Допустимы только буквы (рус/анг)</p>
+          )}
         </div>
+
         <div className={styles.initials}>
           <p className={styles.initials_text}>Имя</p>
           <input
@@ -43,11 +94,28 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             type="text"
             placeholder="Ирина"
             value={passenger.name}
+            // onChange={(event) => {
+            //   onUpdate(passenger.id, { name: event.target.value });
+            // }}
             onChange={(event) => {
-              onUpdate(passenger.id, { name: event.target.value });
+              const value = event.target.value;
+
+              onUpdate(passenger.id, { name: value });
+
+              if (value === "") {
+                setNameError(false);
+              } else {
+                setNameError(!nameRegex.test(value));
+              }
             }}
           />
+          {nameError && (
+            <p style={{ color: "red" }}>Допустимы только буквы (рус/анг)</p>
+          )}
         </div>
+        {/* /> */}
+        {/* </div> */}
+
         <div className={styles.initials}>
           <p className={styles.initials_text}>Отчество</p>
           <input
@@ -55,10 +123,24 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             type="text"
             placeholder="Эдуардовна"
             value={passenger.surname}
+            // onChange={(event) => {
+            //   onUpdate(passenger.id, { surname: event.target.value });
+            // }}
             onChange={(event) => {
-              onUpdate(passenger.id, { surname: event.target.value });
+              const value = event.target.value;
+
+              onUpdate(passenger.id, { surname: value });
+
+              if (value === "") {
+                setSurnameError(false);
+              } else {
+                setSurnameError(!nameRegex.test(value));
+              }
             }}
           />
+          {surnameError && (
+            <p style={{ color: "red" }}>Допустимы только буквы (рус/анг)</p>
+          )}
         </div>
       </div>
 
@@ -69,7 +151,9 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
           <div className={styles.segment}>
             <button
               type="button"
-              className={`${styles.segmentBtn} ${passenger.gender === "M" ? styles.active : ""}`}
+              className={`${styles.segmentBtn} ${
+                passenger.gender === "M" ? styles.active : ""
+              }`}
               onClick={() => {
                 onUpdate(passenger.id, { gender: "M" });
               }}
@@ -79,7 +163,9 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
 
             <button
               type="button"
-              className={`${styles.segmentBtn} ${passenger.gender === "F" ? styles.active : ""}`}
+              className={`${styles.segmentBtn} ${
+                passenger.gender === "F" ? styles.active : ""
+              }`}
               onClick={() => {
                 onUpdate(passenger.id, { gender: "F" });
               }}
@@ -94,31 +180,84 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
           <input
             className={styles.input}
             type="date"
-            placeholder="ДД/ММ/ГГ"
             value={passenger.date}
             onChange={(event) => {
-              onUpdate(passenger.id, { date: event.target.value });
+              const value = event.target.value;
+
+              onUpdate(passenger.id, { date: value });
+
+              if (value === "") {
+                setDateError(false);
+              } else {
+                setDateError(!validateAge(value, passenger.document_type));
+              }
             }}
           />
         </div>
+          {dateError && (
+            <p style={{ color: "red" }}>
+              {passenger.document_type === "passport"
+                ? "Для паспорта возраст должен быть не меньше 14 лет"
+                : "Для свидетельства возраст должен быть меньше 14 лет"}
+            </p>
+          )}
       </div>
+
       <div className={styles.checkbox}>
         <input
           className={styles.checkbox_input}
           type="checkbox"
-          value={passenger.checkbox}
+          checked={!!passenger.checkbox}
           onChange={(event) => {
             onUpdate(passenger.id, { checkbox: event.target.checked });
           }}
         />
         <p className={styles.checkbox_text}>ограниченная подвижность</p>
       </div>
-      <PassengerDetails passenger={passenger} onUpdate={onUpdate} />
-      <div className={styles.btn_next_wrapper}>
-        <button className={styles.btn_next}>
-          <p className={styles.next_text}>Следующий пассажир</p>
-        </button>
-      </div>
+
+      <PassengerDetails
+        passenger={passenger}
+        onUpdate={onUpdate}
+        onValidationChange={(isValid) => {
+          setDocumentCheckStarted(true);
+          setDocumentValid(isValid);
+        }}
+        onResetValidation={() => {
+          setDocumentCheckStarted(false);
+          setDocumentValid(null);
+        }}
+      />
+
+      {!documentCheckStarted ? (
+        <div className={styles.btn_next_wrapper}>
+          <button className={styles.btn_next}>
+            <p className={styles.next_text}>Следующий пассажир</p>
+          </button>
+        </div>
+      ) : documentValid === false ? (
+        <PassengerStatus
+          type="error"
+          text={
+            passenger.document_type === "passport"
+              ? "Номер или серия паспорта указаны некорректно"
+              : "Номер свидетельства о рождении указан некорректно"
+          }
+          hint={
+            passenger.document_type === "passport"
+              ? "Серия: 4 цифры, номер: 6 цифр"
+              : "Пример: VIII-ЫП-123456"
+          }
+        />
+      ) : (
+        <PassengerStatus
+          type="success"
+          text="Готово"
+          buttonText="Следующий пассажир"
+          onButtonClick={() => {
+            console.log("next passenger");
+          }}
+        />
+      )}
     </div>
   );
 };

@@ -8,7 +8,7 @@ import SelectSeats from "./pages/SelectSeats/SelectSeats.jsx";
 import SelectTrain from "./pages/SelectTrain/SelectTrain";
 import SuccessfulOrder from "./pages/SuccessfulOrder/SuccessfulOrder";
 import Footer from "./components/Footer/Footer.jsx";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { findMinMax, countTickets, createUsers } from "./helpers/functions.js";
 import {
   TrainContext,

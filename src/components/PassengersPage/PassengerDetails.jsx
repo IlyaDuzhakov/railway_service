@@ -1,95 +1,102 @@
 import styles from "./PassengerDetails.module.css";
-import { useState } from "react";
 
-const PassengerDetails = ({ passenger, onUpdate }) => {
-  const [showPassportSeries, setShowPassportSeries] = useState(false);
-  const [showPassportNumber, setShowPassportNumber] = useState(false);
+const PassengerDetails = ({
+  passenger,
+  onUpdate,
+  onValidationChange,
+  onResetValidation,
+}) => {
+  const validatePassportSeries = (value) => /^\d{4}$/.test(value.trim());
+  const validatePassportNumber = (value) => /^\d{6}$/.test(value.trim());
+  const validateBirthCertificate = (value) =>
+    /^[IVXLCDM]+-[А-ЯЁ]{2}-\d{6}$/.test(value.trim().toUpperCase());
 
-  const checkPassportSeries = (event) => {
-    const regExp = /^\d{4}$/;
-    if (regExp.test(event.target.value)) {
-      setShowPassportSeries(false);
-    } else {
-      setShowPassportSeries(true);
-    }
+  const handleDocumentTypeChange = (event) => {
+    onUpdate(passenger.id, {
+      document_type: event.target.value,
+      document_series: "",
+      document_number: "",
+    });
+
+    onResetValidation();
   };
 
-  const checkPassportNumber = (event) => {
-    const regExpPassport = /^\d{6}$/;
+  const handleSeriesChange = (event) => {
+    const cleanValue = event.target.value.replace(/\D/g, "").slice(0, 4);
+
+    onUpdate(passenger.id, { document_series: cleanValue });
+
+    const isSeriesValid = validatePassportSeries(cleanValue);
+    const isNumberValid = validatePassportNumber(
+      passenger.document_number || "",
+    );
+
+    onValidationChange(isSeriesValid && isNumberValid);
+  };
+
+  const handleNumberChange = (event) => {
+    let value = event.target.value;
+
     if (passenger.document_type === "passport") {
-      if (regExpPassport.test(event.target.value)) {
-        setShowPassportNumber(false);
-      } else {
-        setShowPassportNumber(true);
-      }
+      value = value.replace(/\D/g, "").slice(0, 6);
+
+      const isSeriesValid = validatePassportSeries(
+        passenger.document_series || "",
+      );
+      const isNumberValid = validatePassportNumber(value);
+
+      onUpdate(passenger.id, { document_number: value });
+      onValidationChange(isSeriesValid && isNumberValid);
+    } else {
+      value = value.toUpperCase();
+
+      const isBirthValid = validateBirthCertificate(value);
+
+      onUpdate(passenger.id, { document_number: value });
+      onValidationChange(isBirthValid);
     }
   };
 
   return (
-    <>
-      <div className={styles.document_row}>
-        <div className={styles.document_field}>
-          <div className={styles.label}>Тип документа</div>
-          <select
-            className={styles.select}
-            value={passenger.document_type}
-            onChange={(event) => {
-              onUpdate(passenger.id, { document_type: event.target.value });
-            }}
-          >
-            <option value="passport">Паспорт РФ</option>
-            <option value="document_child">Свидетельство о рождении</option>
-          </select>
-        </div>
-        {passenger.document_type === "passport" ? (
-          <div className={styles.document_field}>
-            <div className={styles.label}>Серия</div>
-            <input
-              className={styles.input}
-              placeholder="__  __  __  __ "
-              value={passenger.series}
-              onChange={(event) => {
-                onUpdate(passenger.id, { document_series: event.target.value });
-                checkPassportSeries(event);
-              }}
-            />
-            {showPassportSeries ? (
-              <p style={{ color: "red" }}>Серия должна состоять из 4 цифр</p>
-            ) : (
-              ""
-            )}
-          </div>
-        ) : (
-          ""
-        )}
+    <div className={styles.document_row}>
+      <div className={styles.document_field}>
+        <div className={styles.label}>Тип документа</div>
+        <select
+          className={styles.select}
+          value={passenger.document_type}
+          onChange={handleDocumentTypeChange}
+        >
+          <option value="passport">Паспорт РФ</option>
+          <option value="document_child">Свидетельство о рождении</option>
+        </select>
+      </div>
 
+      {passenger.document_type === "passport" ? (
         <div className={styles.document_field}>
-          <div className={styles.label}>Номер</div>
+          <div className={styles.label}>Серия</div>
           <input
             className={styles.input}
-            placeholder="__  __  __  __  __  __"
-            value={passenger.document_number}
-            onChange={(event) => {
-              onUpdate(passenger.id, { document_number: event.target.value });
-              checkPassportNumber(event);
-            }}
+            placeholder="__ __ __ __"
+            value={passenger.document_series || ""}
+            onChange={handleSeriesChange}
           />
-          {passenger.document_type === "passport" && showPassportNumber ? (
-            <p style={{ color: "red" }}>
-              Номер паспорта дожен содержать 6 цифр
-            </p>
-          ) : passenger.document_type === "document_child" &&
-            showPassportNumber ? (
-            <p style={{ color: "red" }}>
-              Номер свидетельства о Рождении должен быть в формате VIII УН
-              256319
-            </p>
-          ) : (
-            ""
-          )}
         </div>
+      ) : null}
+
+      <div className={styles.document_field}>
+        <div className={styles.label}>Номер</div>
+        <input
+          className={styles.input}
+          placeholder={
+            passenger.document_type === "passport"
+              ? "__ __ __ __ __ __"
+              : "VIII-ЫП-123456"
+          }
+          value={passenger.document_number || ""}
+          onChange={handleNumberChange}
+        />
       </div>
-    </>
+    </div>
   );
 };
 

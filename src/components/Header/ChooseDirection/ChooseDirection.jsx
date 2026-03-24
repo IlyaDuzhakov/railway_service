@@ -7,7 +7,7 @@ import {
   TicketContext,
   LoaderContext,
 } from "../../../helpers/context.js";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
 
 const ChooseDirection = () => {
@@ -20,7 +20,6 @@ const ChooseDirection = () => {
   // https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78d&to_city_id=67ceb6548c75f00047c8f78e
 
   const findTrains = async () => {
-    
     showLoader();
     try {
       const cityFrom = await getCityId(newTicket.from);
@@ -37,10 +36,10 @@ const ChooseDirection = () => {
       //     setTrains(data.items);
       //   }),
       // );
-       const response = await fetch(url);
-       const data = await response.json();
+      const response = await fetch(url);
+      const data = await response.json();
 
-       setTrains(data.items);
+      setTrains(data.items);
     } catch (error) {
     } finally {
       hideLoader();
@@ -92,14 +91,18 @@ const ChooseDirection = () => {
           // active={true}
           variant="primary"
           type="submit"
-          className='submit_btn'
+          className="submit_btn"
           onClick={async (e) => {
             e.preventDefault();
-            await findTrains();
-            navigate("/select_train");
-            
+            if (newTicket.to !== "" && newTicket.from !== "") {
+              await findTrains();
+              navigate("/select_train");
+            } else {
+              alert("Выберите направление");
+            }
           }}
-        >НАЙТИ БИЛЕТЫ
+        >
+          НАЙТИ БИЛЕТЫ
           {/* <Link to="/select_train"></Link> */}
         </CustomButton>
       </div>

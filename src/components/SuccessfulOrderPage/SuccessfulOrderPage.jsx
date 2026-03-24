@@ -1,11 +1,27 @@
 import styles from "./SuccessfulOrderPage.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import {
+  OrderContext,
+  CountTicketContext,
+  SelectTrainContext,
+} from "../../helpers/context";
+import { formatCity } from "../../helpers/functions";
 
 const SuccessfulOrderPage = () => {
-  const iconsPath = process.env.PUBLIC_URL + '/img/icons'
+  const [order, setOrder] = useContext(OrderContext);
+  const iconsPath = process.env.PUBLIC_URL + "/img/icons";
   const arrStar = [1, 2, 3, 4, 5];
   const [raiting, setRaiting] = useState(0);
+  const [tickets, setTickets] = useContext(CountTicketContext);
+  const [train, setTrain] = useContext(SelectTrainContext);
+
+  const entries = Object.entries(tickets).filter((el) => {
+    if (+el[1].count > 0) {
+      return el;
+    }
+  });
+
   return (
     <div className={styles.order_wrapper}>
       <h1 className={styles.big_text}>Благодарим Вас за заказ!</h1>
@@ -13,8 +29,22 @@ const SuccessfulOrderPage = () => {
         <div className={styles.order_number_wrapper}>
           <p className={styles.number}>№Заказа 285АА</p>
           <div className={styles.sum_wrapper}>
-          <p className={styles.sum}>cумма</p>
-          <img src={iconsPath + "/coin.svg"} alt="coin" />
+            <p className={styles.sum}>
+              сумма{" "}
+              <span>
+                {entries.reduce((acc, value) => {
+                  return (
+                    acc +
+                    Math.floor(
+                      value[1].count *
+                        value[1].koef *
+                        train.departure.min_price,
+                    )
+                  );
+                }, 0)}
+              </span>
+            </p>
+            <img src={iconsPath + "/coin.svg"} alt="coin" />
           </div>
         </div>
         <div className={styles.order_info_wrapper}>
@@ -28,26 +58,30 @@ const SuccessfulOrderPage = () => {
           <div className={styles.ord}>
             <img src={iconsPath + "/conductor.svg"} alt="" />
             <p className={styles.order_text}>
-              <span className={styles.bold}>распечатайте</span><br />
-              и сохраняйте билеты до даты поездки
+              <span className={styles.bold}>распечатайте</span>
+              <br />и сохраняйте билеты до даты поездки
             </p>
           </div>
           <div className={styles.ord}>
             <img src={iconsPath + "/ticket_printing.svg"} alt="" />
             <p className={styles.order_text}>
-              <span className={styles.bold}>предьявите</span><br />
+              <span className={styles.bold}>предьявите</span>
+              <br />
               распечатанные билеты при посадке
             </p>
           </div>
         </div>
         <div className={styles.successfull_wrapper}>
-          <p className={styles.customer_text}>Ирина Эдуардовна!</p>
+          <p
+            className={styles.customer_text}
+          >{`${formatCity(order.name)} ${formatCity(order.secondName)}!`}</p>
           <p className={styles.successfull_order}>
-            Ваш заказ успешно оформлен. <br />
-            В ближайшее время с вами свяжется наш
-            оператор для подтверждения.
+            Ваш заказ успешно оформлен. <br />В ближайшее время с вами свяжется
+            наш оператор для подтверждения.
           </p>
-          <p className={styles.successfull_order_bold}>Благодарим Вас за оказанное доверие и желаем приятного путешествия!</p>
+          <p className={styles.successfull_order_bold}>
+            Благодарим Вас за оказанное доверие и желаем приятного путешествия!
+          </p>
         </div>
         <div className={styles.grade_wrapper}>
           <div className={styles.grade}>
@@ -67,7 +101,9 @@ const SuccessfulOrderPage = () => {
               );
             })}
           </div>
-          <button className={styles.btn_return}><Link to='/'>ВЕРНУТЬСЯ НА ГЛАВНУЮ</Link></button>
+          <button className={styles.btn_return}>
+            <Link to="/">ВЕРНУТЬСЯ НА ГЛАВНУЮ</Link>
+          </button>
         </div>
       </div>
     </div>

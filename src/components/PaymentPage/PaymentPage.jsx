@@ -7,8 +7,8 @@ import CustomButton from "../ui/CustomButton/CustomButton.jsx";
 
 const PaymentPage = () => {
   const [order, setOrder] = useContext(OrderContext);
-  const [online, setOnline] = useState(false);
-  const [cash, setCash] = useState(false);
+  const [online, setOnline] = useState(order.payment_method === 'online' ? true : false);
+  const [cash, setCash] = useState(order.payment_method === 'cash' ? true : false);
 
   return (
     <div className={styles.payment_wrapper}>
