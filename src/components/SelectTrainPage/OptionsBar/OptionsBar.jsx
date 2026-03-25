@@ -1,19 +1,17 @@
-import styles from './OptionsBar.module.css'
-import {useState, useContext, useEffect} from 'react'
-import { sortTrains } from '../../../helpers/functions.js'
-import {TrainContext, ShowTrainsContext} from '../../../helpers/context.js'
-
+import styles from "./OptionsBar.module.css";
+import { useState, useContext, useEffect } from "react";
+import { sortTrains } from "../../../helpers/functions.js";
+import { TrainContext, ShowTrainsContext } from "../../../helpers/context.js";
 
 const OptionsBar = () => {
   const [selectedSort, setSelectedSort] = useState("min_price");
-  const [trains, setTrains] = useContext(TrainContext)
-  const [showTrains, setshowTrains] = useContext(ShowTrainsContext)
-  
+  const [trains] = useContext(TrainContext);
+  const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
 
- useEffect(()=> {
-    const rezult = sortTrains(trains, "min_price")
-    setshowTrains(rezult)
- },[])
+  useEffect(() => {
+    const rezult = sortTrains(trains, "min_price");
+    setshowTrains(rezult);
+  }, [setshowTrains, trains]);
 
   return (
     <div className={styles.button_choose}>
@@ -22,17 +20,17 @@ const OptionsBar = () => {
       </div>
       <div className={styles.button_select}>
         <p className={styles.select_text}>сортировать по:</p>
-        <select className={styles.select}
+        <select
+          className={styles.select}
           name=""
           id=""
           value={selectedSort}
           onChange={(event) => {
             setSelectedSort(event.target.value);
-            const rezultSort = sortTrains(trains ,event.target.value)
-            setshowTrains(rezultSort)
+            const rezultSort = sortTrains(trains, event.target.value);
+            setshowTrains(rezultSort);
           }}
         >
-          
           <option value="min_price">стоимости</option>
           <option value="duration">времени в пути</option>
         </select>

@@ -149,7 +149,7 @@ const formatCity = (city) => {
   if (city === "") {
     return "";
   }
-  const hasSpace = city.includes(" ");
+
   const hasHyphen = city.includes("-");
   const words = city
     .split(/[ -]/)
@@ -224,5 +224,5 @@ export {
   formatCity,
   getTrainsDate,
   createUsers,
-  getAge
+  getAge,
 };

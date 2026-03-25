@@ -1,3 +1,4 @@
+import CustomSelect from "../ui/CustomSelect/CustomSelect";
 import styles from "./PassengerDetails.module.css";
 
 const PassengerDetails = ({
@@ -57,18 +58,25 @@ const PassengerDetails = ({
     }
   };
 
+  const documentOptions = [
+    { value: "passport", label: "Паспорт РФ" },
+    { value: "document_child", label: "Свидетельство о рождении" },
+  ];
+
   return (
     <div className={styles.document_row}>
       <div className={styles.document_field}>
         <div className={styles.label}>Тип документа</div>
-        <select
-          className={styles.select}
+
+        <CustomSelect
           value={passenger.document_type}
-          onChange={handleDocumentTypeChange}
-        >
-          <option value="passport">Паспорт РФ</option>
-          <option value="document_child">Свидетельство о рождении</option>
-        </select>
+          options={documentOptions}
+          onChange={(value) => {
+            handleDocumentTypeChange({
+              target: { value },
+            });
+          }}
+        />
       </div>
 
       {passenger.document_type === "passport" ? (

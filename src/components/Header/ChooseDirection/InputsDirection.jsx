@@ -4,8 +4,8 @@ import { useContext, useState } from "react";
 import { TicketContext } from "../../../helpers/context";
 import { formatCity } from "../../../helpers/functions";
 const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
-  const [showFrom, setShowFrom] = useState(false)
-  const [showTo, setShowTo] = useState(false)
+  const [showFrom, setShowFrom] = useState(false);
+  const [showTo, setShowTo] = useState(false);
   const [newTicket, setNewTicket] = useContext(TicketContext);
   return (
     <div className={styles.direction}>
@@ -20,7 +20,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
             placeholder="Откуда"
             onChange={(event) => {
               setNewTicket({ ...newTicket, from: event.target.value });
-              setShowFrom(true)
+              setShowFrom(true);
             }}
           />
           {newTicket.from !== "" && showFrom ? (
@@ -33,7 +33,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
                         key={index}
                         onClick={() => {
                           setNewTicket({ ...newTicket, from: el.name });
-                          setShowFrom(false)
+                          setShowFrom(false);
                         }}
                       >
                         {el.name}
@@ -55,7 +55,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
             placeholder="Куда"
             onChange={(event) => {
               setNewTicket({ ...newTicket, to: event.target.value });
-              setShowTo(true)
+              setShowTo(true);
             }}
           />
           {newTicket.to !== "" && showTo ? (
@@ -68,7 +68,7 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
                         key={index}
                         onClick={() => {
                           setNewTicket({ ...newTicket, to: el.name });
-                          setShowTo(false)
+                          setShowTo(false);
                         }}
                       >
                         {el.name}

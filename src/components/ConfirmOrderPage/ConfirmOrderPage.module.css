@@ -3,7 +3,7 @@
   font-size: 30px;
   padding-top: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid #C4C4C4;
+  border-bottom: 1px solid #c4c4c4;
   padding-left: 32px;
 }
 
@@ -16,7 +16,7 @@
   display: flex;
   margin-top: 61px;
   padding-bottom: 34px;
-  border-bottom: 1px solid #C4C4C4;
+  border-bottom: 1px solid #c4c4c4;
   width: 678px;
   padding-left: 30px;
 }
@@ -72,7 +72,7 @@
 }
 
 .confirm_text_train {
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   font-weight: 400;
   font-size: 30px;
   padding-top: 32px;
@@ -104,46 +104,50 @@
 }
 
 .all_price {
-    font-weight: 400;
-    font-size: 30px;
+  font-weight: 400;
+  font-size: 30px;
 }
 
 .total_sum {
-    display: flex;
-    font-weight: 700;
-    font-size: 36px;
-    
+  display: flex;
+  font-weight: 700;
+  font-size: 36px;
 }
 
 .img_coin {
-    width: 20px;
-    height: 24px;
+  width: 20px;
+  height: 24px;
 }
 
 .total_sum_wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
 }
 
 .btn_confirm_wrapper {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .btn_confirm {
-    font-weight: 700;
-    font-size: 24px;
-    padding: 16px 58px;
-    background-color: #FFA800;
-    border-radius: 5px;
-    margin-top: 123px;
-    border: none;
-    
+  font-weight: 700;
+  font-size: 24px;
+  padding: 16px 58px;
+  background-color: #ffa800;
+  border-radius: 5px;
+  margin-top: 123px;
+  border: none;
 }
 
 .btn_confirm a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
+}
+
+.mobility_text {
+  margin-top: 10px;
+  color: #ffa800;
+  font-weight: 500;
 }

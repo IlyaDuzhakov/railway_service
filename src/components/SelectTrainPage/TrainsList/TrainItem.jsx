@@ -75,23 +75,7 @@ const TrainItem = ({ el, index, type_btn }) => {
               }
               alt="service"
             />
-            {/* <button
-              className={styles.choose_seats}
-              onClick={() => {
-                setTrain(getTrain(trains, el.departure._id));
-              }}
-            >
-              {type_btn === "select" ? (
-                <Link to={`/select_seats/${el.departure._id}`}>
-                Выбрать места
-              </Link>
-              ) : (
-                <Link to="select_train">
-                Изменить
-              </Link>
-              )}
-              
-            </button> */}
+
             <CustomButton
               variant="outline"
               className={styles.choose_seats}
@@ -104,9 +88,7 @@ const TrainItem = ({ el, index, type_btn }) => {
                   Выбрать места
                 </Link>
               ) : (
-               
                 <Link to="/select_train">Изменить</Link>
-                
               )}
             </CustomButton>
           </div>

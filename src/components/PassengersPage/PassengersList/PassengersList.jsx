@@ -62,10 +62,9 @@ const PassengersList = () => {
           );
         })}
       </div>
-      
+
       <CustomButton
-        active={active}
-        // variant="outline"
+        // active={active}
         variant="secondary"
         className="btn_next"
         disabled={!isFormValid}
@@ -74,7 +73,8 @@ const PassengersList = () => {
             ? navigate("/payment")
             : alert("заполните все поля");
         }}
-      >ДАЛЕЕ
+      >
+        ДАЛЕЕ
       </CustomButton>
     </main>
   );

@@ -1,21 +1,17 @@
-import {  useContext } from "react";
+import { useContext } from "react";
 import styles from "./TrainsList.module.css";
 import TrainsPagination from "../TrainsPagination/TrainsPagination";
 import { ShowTrainsContext } from "../../../helpers/context.js";
 import TrainItem from "./TrainItem.jsx";
 
 const TrainsList = () => {
- 
-  const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
-
+  const [showTrains] = useContext(ShowTrainsContext);
 
   return (
     <div className={styles.page}>
       <div className={styles.list}>
         {showTrains.map((el, index) => {
-          return (
-            <TrainItem el={el} index={index} type_btn="select"/>
-          );
+          return <TrainItem el={el} index={index} type_btn="select" />;
         })}
       </div>
       <div className={styles.pagination_wrap}>

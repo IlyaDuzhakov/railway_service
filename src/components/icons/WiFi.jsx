@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import styles from '../../App.css'
 
 const WiFi = () => {
   const [selectWiFi, setSelectWiFi] = useState(false);

@@ -30,28 +30,20 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
     return false;
   };
 
+  const passengerTypeOptions = [
+    { value: "adult", label: "Взрослый" },
+    { value: "children", label: "Детский" },
+    { value: "child_no_seat", label: "Детский без места" },
+  ];
+
   return (
     <div className={styles.bottom}>
       <div className={styles.select_wrapper}>
-        {/* <select
-          className={styles.select_age}
-          value={passenger.type}
-          onChange={(event) => {
-            onUpdate(passenger.id, { type: event.target.value });
-          }}
-        >
-          <option className={styles.option} value="adult">
-            Взрослый
-          </option>
-          <option value="children">Детский</option>
-          <option value="child_no_seat">Детский без места</option>
-        </select> */}
         <CustomSelect
-  value={passenger.type}
-  onChange={(newValue) => {
-    onUpdate(passenger.id, { type: newValue });
-  }}
-/>
+          value={passenger.type}
+          options={passengerTypeOptions}
+          onChange={(value) => onUpdate(passenger.id, { type: value })}
+        />
         <img
           src={passenger_info + "triangular_arrow.svg"}
           className={styles.arrow}
@@ -67,9 +59,6 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             type="text"
             placeholder="Мартынюк"
             value={passenger.secondName}
-            // onChange={(event) => {
-            //   onUpdate(passenger.id, { secondName: event.target.value });
-            // }}
             onChange={(event) => {
               const value = event.target.value;
 
@@ -94,9 +83,6 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             type="text"
             placeholder="Ирина"
             value={passenger.name}
-            // onChange={(event) => {
-            //   onUpdate(passenger.id, { name: event.target.value });
-            // }}
             onChange={(event) => {
               const value = event.target.value;
 
@@ -113,8 +99,6 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             <p style={{ color: "red" }}>Допустимы только буквы (рус/анг)</p>
           )}
         </div>
-        {/* /> */}
-        {/* </div> */}
 
         <div className={styles.initials}>
           <p className={styles.initials_text}>Отчество</p>
@@ -123,9 +107,6 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             type="text"
             placeholder="Эдуардовна"
             value={passenger.surname}
-            // onChange={(event) => {
-            //   onUpdate(passenger.id, { surname: event.target.value });
-            // }}
             onChange={(event) => {
               const value = event.target.value;
 
@@ -194,16 +175,16 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             }}
           />
         </div>
-          {dateError && (
-            <p style={{ color: "red" }}>
-              {passenger.document_type === "passport"
-                ? "Для паспорта возраст должен быть не меньше 14 лет"
-                : "Для свидетельства возраст должен быть меньше 14 лет"}
-            </p>
-          )}
+        {dateError && (
+          <p style={{ color: "red" }}>
+            {passenger.document_type === "passport"
+              ? "Для паспорта возраст должен быть не меньше 14 лет"
+              : "Для свидетельства возраст должен быть меньше 14 лет"}
+          </p>
+        )}
       </div>
 
-      <div className={styles.checkbox}>
+      <label className={styles.checkbox_label}>
         <input
           className={styles.checkbox_input}
           type="checkbox"
@@ -212,8 +193,9 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             onUpdate(passenger.id, { checkbox: event.target.checked });
           }}
         />
-        <p className={styles.checkbox_text}>ограниченная подвижность</p>
-      </div>
+        <span className={styles.custom_checkbox}></span>
+        <span className={styles.checkbox_text}>ограниченная подвижность</span>
+      </label>
 
       <PassengerDetails
         passenger={passenger}

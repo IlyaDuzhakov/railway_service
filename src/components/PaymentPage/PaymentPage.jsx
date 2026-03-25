@@ -7,8 +7,12 @@ import CustomButton from "../ui/CustomButton/CustomButton.jsx";
 
 const PaymentPage = () => {
   const [order, setOrder] = useContext(OrderContext);
-  const [online, setOnline] = useState(order.payment_method === 'online' ? true : false);
-  const [cash, setCash] = useState(order.payment_method === 'cash' ? true : false);
+  const [online, setOnline] = useState(
+    order.payment_method === "online" ? true : false,
+  );
+  const [cash, setCash] = useState(
+    order.payment_method === "cash" ? true : false,
+  );
 
   return (
     <div className={styles.payment_wrapper}>
@@ -54,7 +58,7 @@ const PaymentPage = () => {
         </div>
         <div className={styles.contact_details_wrapper}>
           <div className={styles.contact_details}>
-            <label>Контактный телефон</label>
+            <label className={styles.label}>Контактный телефон</label>
             <input
               className={styles.phone}
               type="tel"
@@ -66,7 +70,7 @@ const PaymentPage = () => {
             />
           </div>
           <div className={styles.contact_details}>
-            <label>E-mail</label>
+            <label className={styles.label_email}>E-mail</label>
             <input
               className={styles.email}
               type="email"
@@ -81,45 +85,53 @@ const PaymentPage = () => {
         <PaymentInfo text="Способ оплаты" />
         <div className={styles.online_payments}>
           <div className={styles.online_top}>
-            <input
-              type="checkbox"
-              id="online"
-              checked={online}
-              onChange={(event) => {
-                setOnline(event.target.checked);
-                if (event.target.checked === true) {
-                  setCash(false);
-                  setOrder({ ...order, payment_method: "online" });
-                }
-              }}
-            />
-            <label htmlFor="online">Онлайн</label>
+            <label className={styles.payment_label}>
+              <input
+                type="checkbox"
+                className={styles.payment_input}
+                checked={online}
+                onChange={(event) => {
+                  setOnline(event.target.checked);
+                  if (event.target.checked === true) {
+                    setCash(false);
+                    setOrder({ ...order, payment_method: "online" });
+                  }
+                }}
+              />
+              <span className={styles.payment_box}></span>
+              <span className={styles.payment_text}>Онлайн</span>
+            </label>
           </div>
+
           <div className={styles.online_bottom}>
-            <p>Банковской картой</p>
+            <p>
+              Банковской <br /> картой
+            </p>
             <p>PayPal</p>
             <p>Visa QIWI Wallet</p>
           </div>
-          <div>
-            <input
-              type="checkbox"
-              id="cash"
-              checked={cash}
-              onChange={(event) => {
-                setCash(event.target.checked);
-                if (event.target.checked === true) {
-                  setOnline(false);
-                  setOrder({ ...order, payment_method: "cash" });
-                }
-              }}
-            />
-            <label htmlFor="cash">Наличными</label>
+
+          <div className={styles.cash_block}>
+            <label className={styles.payment_label}>
+              <input
+                type="checkbox"
+                className={styles.payment_input}
+                checked={cash}
+                onChange={(event) => {
+                  setCash(event.target.checked);
+                  if (event.target.checked === true) {
+                    setOnline(false);
+                    setOrder({ ...order, payment_method: "cash" });
+                  }
+                }}
+              />
+              <span className={styles.payment_box}></span>
+              <span className={styles.payment_text}>Наличными</span>
+            </label>
           </div>
         </div>
       </div>
-      <CustomButton 
-      variant="outline"
-      className="btn_payment">
+      <CustomButton variant="outline" className="btn_payment">
         <Link to="/confirm_order">КУПИТЬ БИЛЕТЫ</Link>
       </CustomButton>
     </div>

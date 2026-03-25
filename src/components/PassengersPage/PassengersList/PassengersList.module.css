@@ -8,8 +8,7 @@
 .one_passenger_wrapper {
   display: flex;
   flex-direction: column;
-  /* border: 1px dashed #c4c4c4; */
-  margin-bottom: 44px; 
+  margin-bottom: 44px;
 }
 
 .passenger_top {
@@ -22,11 +21,8 @@
   border-bottom: 1px solid #928f94;
   background-color: #f9f9f9;
   justify-content: space-between;
-  
-  /* box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);  */
-  /* margin-top: 44px; */
-  border: 1px solid #C4C4C4;
-  border-bottom: 1px dashed #928F94;
+  border: 1px solid #c4c4c4;
+  border-bottom: 1px dashed #928f94;
 }
 
 .delete {
@@ -35,9 +31,9 @@
 }
 
 .btn_delete {
-   margin-right: 42px;
-   background: none;
-   border: none;
+  margin-right: 42px;
+  background: none;
+  border: none;
 }
 
 .btn_next {
@@ -82,7 +78,6 @@
 }
 
 .passengers_container {
-  /* border: 1px dashed #c4c4c4; */
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -92,8 +87,6 @@
 .bottom {
   border: 1px solid #c4c4c4;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
-  /* padding-left: 36px;
-  padding-right: 15px; */
 }
 
 .select_wrapper {
@@ -101,7 +94,7 @@
   position: relative;
   width: 30%;
   margin-top: 45px;
-  margin-left: 36px; 
+  padding-left: 36px;
 }
 
 .document_wrapper {
@@ -137,16 +130,15 @@
 
 .initials_wrapper {
   display: flex;
-  gap: 25px;
   margin-top: 45px;
   margin-right: 15px;
+  margin-left: 36px;
 }
 
 .initials {
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin-left: 36px;
 }
 
 .initials_input {
@@ -163,7 +155,7 @@
   display: flex;
   gap: 24px;
   align-items: flex-end;
-  margin-left: 36px;
+  padding-left: 36px;
   margin-top: 62px;
 }
 
@@ -185,30 +177,57 @@
   color: #000000;
 }
 
-.checkbox {
+.checkbox_label {
   display: flex;
-  margin-left: 36px;
+  align-items: center;
+  gap: 18px;
+  cursor: pointer;
+  padding-left: 36px;
   align-items: center;
   gap: 20px;
   margin-top: 45px;
 }
 
 .checkbox_input {
-  color: #928f94;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom_checkbox {
   width: 28px;
   height: 28px;
   border: 1px solid #928f94;
   border-radius: 5px;
+  background-color: #fff;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.checkbox_input:checked + .custom_checkbox {
+  border-color: #ffa800;
+}
+
+.checkbox_input:checked + .custom_checkbox::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  width: 8px;
+  height: 15px;
+  border: solid #ffa800;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
 }
 
 .checkbox_text {
-  font-weight: 400;
-  font-size: 18px;
+  font-size: 30px;
+  color: #292929;
 }
 
 .segment {
   display: flex;
-  width: 180px; 
+  width: 180px;
   height: 44px;
   border: 1px solid #cfcfcf;
   border-radius: 8px;
@@ -217,7 +236,7 @@
 }
 
 .segmentBtn {
-  flex: 1; 
+  flex: 1;
   border: none;
   background: transparent;
   font-size: 18px;
@@ -244,23 +263,19 @@
 }
 
 .to_next_page {
-    position: absolute;
-    bottom: 0;
-    right: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
 }
 
 /*.  PassengerStatus*/
 .status {
-  /* width: 100%; */
   min-height: 119px;
   display: flex;
-  align-items: center;          /* по вертикали по центру */
+  align-items: center; /* по вертикали по центру */
   justify-content: space-between;
   padding: 24px 40px;
   box-sizing: border-box;
-  /* margin-top: 24px; */
-  /* margin-left: -36px;
-  margin-right: -15px; */
 }
 
 .status_error {
@@ -321,7 +336,6 @@
   width: 320px;
   height: 52px;
   flex-shrink: 0;
-  
 }
 
 .select_age .option {

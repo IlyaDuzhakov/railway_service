@@ -12,7 +12,6 @@ import googleIcon from "../../assets/icons/google.svg";
 import googleActiveIcon from "../../assets/icons/google_color.svg";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import facebookActiveIcon from "../../assets/icons/facebook_color.svg";
-// import Facebook  from "../icons/Facebook.jsx";
 import twitterIcon from "../../assets/icons/twitter.svg";
 import twitterActiveIcon from "../../assets/icons/twitter_color.svg";
 import arrowIcon from "../../assets/icons/arrow.svg";

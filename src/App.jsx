@@ -82,10 +82,9 @@ function App() {
   }, [trains]);
 
   useEffect(() => {
-    console.log("меняется количество билетов");
     localStorage.setItem("tickets_count", JSON.stringify(tickets));
     setUsers(() => createUsers(count));
-  }, [tickets]);
+  }, [tickets, count]);
 
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));

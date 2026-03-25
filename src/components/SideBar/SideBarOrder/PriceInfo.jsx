@@ -1,30 +1,30 @@
 import { CountTicketContext } from "../../../helpers/context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styles from "./SideBarOrder.module.css";
 import { SelectTrainContext } from "../../../helpers/context";
 
 const PriceInfo = () => {
-  const [train, setTrain] = useContext(SelectTrainContext);
+  const [train] = useContext(SelectTrainContext);
 
   const titles = {
     adult: "Взрослые",
     children: "Дети",
     child_no_seat: "Дети без места",
   };
-  const [tickets, setTickets] = useContext(CountTicketContext);
+  const [tickets] = useContext(CountTicketContext);
 
   const entries = Object.entries(tickets).filter((el) => {
-    if (+el[1].count > 0) {
-      return el;
-    }
+    return +el[1].count > 0
   });
 
   return (
     <>
       <div className={styles.price_wrapper}>
         {entries.map((el) => {
-          const priceTicket = Math.floor(train.departure.min_price * el[1].koef * el[1].count);
-    
+          const priceTicket = Math.floor(
+            train.departure.min_price * el[1].koef * el[1].count,
+          );
+
           return (
             <div className={styles.price}>
               <p className={styles.price_text}>
@@ -32,7 +32,11 @@ const PriceInfo = () => {
               </p>
               <p className={styles.price_ticket}>
                 {priceTicket}
-                <img className={styles.coin} src={process.env.PUBLIC_URL + "/img/icons/coin.svg"} alt="coin" />
+                <img
+                  className={styles.coin}
+                  src={process.env.PUBLIC_URL + "/img/icons/coin.svg"}
+                  alt="coin"
+                />
               </p>
             </div>
           );
@@ -40,10 +44,24 @@ const PriceInfo = () => {
       </div>
       <div className="sidebarDivider"></div>
       <div className={styles.sum_price}>
-        <p className={styles.sum}>Итог{entries.reduce((acc, value)=> {
-            
-            return acc + Math.floor(value[1].count * value[1].koef * train.departure.min_price)
-        }, 0)}</p>
+        <p className={styles.sum}>ИТОГ </p>
+        <div className={styles.sum_wrapper}>
+          <span className={styles.sum_rezult}>
+            {entries.reduce((acc, value) => {
+              return (
+                acc +
+                Math.floor(
+                  value[1].count * value[1].koef * train.departure.min_price,
+                )
+              );
+            }, 0)}
+          </span>
+          <img
+            className={styles.coin_img}
+            src={process.env.PUBLIC_URL + "/img/icons/coin_white.svg"}
+            alt="coin_white"
+          />
+        </div>
       </div>
     </>
   );

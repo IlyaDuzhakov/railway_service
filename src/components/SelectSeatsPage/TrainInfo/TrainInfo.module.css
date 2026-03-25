@@ -1,54 +1,53 @@
-
 .train_item {
-    display: flex;
-    margin-bottom: 53px;
-    padding-top: 54px;
-    padding-right: 36px;
+  display: flex;
+  margin-bottom: 53px;
+  padding-top: 54px;
 }
 
-
-
 .station_name {
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 400;
-    color: #928F94;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  color: #928f94;
 }
 
 .departure_datetime {
-    font-weight: 700;
-    font-size: 24px;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .departure_date {
-    font-weight: 400;
-    font-size: 18px;
-    color: #928F94;
-    margin-bottom: 17px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #928f94;
+  margin-bottom: 17px;
 }
 
 .landing_stations {
-    font-weight: 400;
-    font-size: 18px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .orange_arrow {
-    width: 30px;
-    height: 20px;
-    
+  width: 30px;
+  height: 20px;
 }
 
 .train_item_arrow {
-    margin-left: 23px;
-    margin-right: 51px;
+  margin-left: 23px;
+  margin-right: 51px;
 }
 
 .travel_time {
-    color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 .train_info_left,
 .train_info_right {
-    padding-top: 54px;
-    padding-bottom: 23px;
+  padding-top: 54px;
+  padding-bottom: 23px;
+}
+
+.departure_left {
+  text-align: right;
 }

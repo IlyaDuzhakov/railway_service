@@ -1,60 +1,56 @@
 .stages {
-    background-color: #3E3C41;
-    display: flex;
-    justify-content: center;
-    
-    align-items: center;
+  background-color: #3e3c41;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
 }
 
 .stages_btns {
-    display: flex;
-    height: 98px;
+  display: flex;
+  height: 98px;
 }
 
 .stages_btn {
-    display: flex;
-    position: relative;
-    flex: 1;
-    align-items: center;
-    padding-left: 13px;
-    padding-top: 23px;
-    padding-bottom: 19px;
-    background-color: #3E3C41;
-    overflow: hidden;
-    border: none;
+  display: flex;
+  position: relative;
+  flex: 1;
+  align-items: center;
+  padding-left: 13px;
+  padding-top: 23px;
+  padding-bottom: 19px;
+  background-color: #3e3c41;
+  overflow: hidden;
+  border: none;
 }
 
 .number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #ffffff;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 36px;
 }
 
 .title {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 700;
-    margin-left: 32px;
-}
-
-.stages_text {
-
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  margin-left: 32px;
 }
 
 .arrow {
-    position: absolute;
-    right: 20px;
-    border-right: 1px solid #E5E5E5;
-    border-top: 1px solid #E5E5E5;
+  position: absolute;
+  right: 20px;
+  border-right: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
 
-    height: 98px;
-    width: 98px;
-    transform: rotate(45deg);
+  height: 98px;
+  width: 98px;
+  transform: rotate(45deg);
 }

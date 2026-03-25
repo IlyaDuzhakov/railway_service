@@ -2,14 +2,14 @@ import HeaderSelectTrain from "../../components/Header/HeaderSelectTrain/HeaderS
 import TrainsList from "../../components/SelectTrainPage/TrainsList/TrainsList";
 import SideBar from "../../components/SideBar/SideBar";
 import styles from "./SelectTrain.module.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TrainContext, LoaderContext } from "../../helpers/context.js";
 import OptionsBar from "../../components/SelectTrainPage/OptionsBar/OptionsBar.jsx";
 import Loader from "../../components/SelectTrainPage/Loader/Loader.jsx";
 import InstructionsText from "../../components/SelectTrainPage/TrainsList/InstructionsText.jsx";
 
 const SelectTrain = () => {
-  const [trains, setTrains] = useContext(TrainContext);
+  const [trains] = useContext(TrainContext);
   const [isLoading] = useContext(LoaderContext);
 
   return (

@@ -46,7 +46,7 @@ const TrainInfo = ({ train, show, showDate }) => {
           />
         </div>
 
-        <div>
+        <div className={styles.departure_left}>
           <p className={styles.departure_datetime} style={{ color: colorDate }}>
             {formatDate(train?.departure.to.datetime)}
           </p>

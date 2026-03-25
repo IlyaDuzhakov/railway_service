@@ -7,17 +7,16 @@ import {
   TicketContext,
   LoaderContext,
 } from "../../../helpers/context.js";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
 
 const ChooseDirection = () => {
   const navigate = useNavigate();
-  const [trains, setTrains] = useContext(TrainContext);
-  const [newTicket, setNewTicket] = useContext(TicketContext);
+  const [setTrains] = useContext(TrainContext);
+  const [newTicket] = useContext(TicketContext);
   const [listCitiesFrom, setListCitiesFrom] = useState([]);
   const [listCitiesTo, setListCitiesTo] = useState([]);
   const [isLoading, showLoader, hideLoader] = useContext(LoaderContext);
-  // https://students.netoservices.ru/fe-diplom/routes?from_city_id=67ceb6548c75f00047c8f78d&to_city_id=67ceb6548c75f00047c8f78e
 
   const findTrains = async () => {
     showLoader();
@@ -31,11 +30,6 @@ const ChooseDirection = () => {
           ? longLink
           : shortLink;
 
-      // fetch(url).then((response) =>
-      //   response.json().then((data) => {
-      //     setTrains(data.items);
-      //   }),
-      // );
       const response = await fetch(url);
       const data = await response.json();
 
@@ -77,18 +71,7 @@ const ChooseDirection = () => {
       <div className={styles.form_container}>
         <Inputs listCitiesFrom={listCitiesFrom} listCitiesTo={listCitiesTo} />
 
-        {/* <button
-          className={styles.submit_btn}
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            findTrains();
-          }}
-        >
-          <Link to="/select_train">НАЙТИ БИЛЕТЫ</Link>
-        </button> */}
         <CustomButton
-          // active={true}
           variant="primary"
           type="submit"
           className="submit_btn"
@@ -103,7 +86,6 @@ const ChooseDirection = () => {
           }}
         >
           НАЙТИ БИЛЕТЫ
-          {/* <Link to="/select_train"></Link> */}
         </CustomButton>
       </div>
     </form>

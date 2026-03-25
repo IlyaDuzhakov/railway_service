@@ -1,13 +1,7 @@
 import { useState } from "react";
 import styles from "./CustomSelect.module.css";
 
-const options = [
-  { value: "adult", label: "Взрослый" },
-  { value: "children", label: "Детский" },
-  { value: "child_no_seat", label: "Детский без места" },
-];
-
-const CustomSelect = ({ value, onChange }) => {
+const CustomSelect = ({ value, onChange, options }) => {
   const [open, setOpen] = useState(false);
 
   const selectedOption = options.find((option) => option.value === value);

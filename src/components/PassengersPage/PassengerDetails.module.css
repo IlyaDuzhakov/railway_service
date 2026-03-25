@@ -1,4 +1,3 @@
-
 /* PassengerDetails */
 
 .document_row {
@@ -6,8 +5,8 @@
   gap: 24px;
   align-items: flex-end;
   padding-left: 36px;
-  border-top: 1px dashed #928F94;
-  border-bottom: 1px dashed #928F94;
+  border-top: 1px dashed #928f94;
+  border-bottom: 1px dashed #928f94;
   margin-top: 30px;
 }
 
@@ -42,7 +41,7 @@
 /*  NewPassenger*/
 
 .new_passenger_wrapper {
-  display: flex; 
+  display: flex;
   margin-top: 90px;
   height: 97px;
   border: 1px solid #c4c4c4;
@@ -50,14 +49,13 @@
 }
 
 .new_passenger_text {
-    padding-left: 16px;
-    font-size: 30px;
-    font-weight: 400;
+  padding-left: 16px;
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .new_passenger {
-    padding-left: 16px;
-        display: flex;
-    align-items: center;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
 }
-

@@ -9,22 +9,18 @@ const Stages = () => {
             <div className={styles.number}>1</div>
             <span className={styles.title}>Билеты</span>
             <div className={styles.arrow}></div>
-            
           </button>
           <button className={styles.stages_btn}>
-
             <div className={styles.number}>2</div>
             <span className={styles.title}>Пассажиры</span>
             <div className={styles.arrow}></div>
           </button>
           <button className={styles.stages_btn}>
-
             <div className={styles.number}>3</div>
             <span className={styles.title}>Оплата</span>
             <div className={styles.arrow}></div>
           </button>
           <button className={styles.stages_btn}>
-
             <div className={styles.number}>4</div>
             <span className={styles.title}>Проверка</span>
           </button>

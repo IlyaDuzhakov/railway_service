@@ -17,7 +17,6 @@
 
 .passengers_row {
   display: flex;
-  /* height: 192px; */
 }
 
 .passengers_card {
@@ -29,7 +28,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .passengers_input {
@@ -90,7 +88,6 @@
   text-align: center;
 }
 
-
 .btn_next_wrapper {
   display: flex;
   justify-content: flex-end;
@@ -122,7 +119,6 @@
 }
 
 .train_time_text {
-  /* width: 156px; */
   font-family: Roboto;
   font-size: 18px;
   font-weight: 400;
@@ -139,7 +135,7 @@
 }
 
 .card_line {
-  border-bottom: 1px solid #C4C4C4;
+  border-bottom: 1px solid #c4c4c4;
   height: 1px;
   padding-top: 49px;
 }

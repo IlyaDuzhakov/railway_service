@@ -9,17 +9,15 @@ import {
 import { formatCity } from "../../helpers/functions";
 
 const SuccessfulOrderPage = () => {
-  const [order, setOrder] = useContext(OrderContext);
+  const [order] = useContext(OrderContext);
   const iconsPath = process.env.PUBLIC_URL + "/img/icons";
   const arrStar = [1, 2, 3, 4, 5];
   const [raiting, setRaiting] = useState(0);
-  const [tickets, setTickets] = useContext(CountTicketContext);
-  const [train, setTrain] = useContext(SelectTrainContext);
+  const [tickets] = useContext(CountTicketContext);
+  const [train] = useContext(SelectTrainContext);
 
   const entries = Object.entries(tickets).filter((el) => {
-    if (+el[1].count > 0) {
-      return el;
-    }
+    return +el[1].count > 0;
   });
 
   return (
@@ -94,6 +92,7 @@ const SuccessfulOrderPage = () => {
                       ? iconsPath + "/active_star.svg"
                       : iconsPath + "/star.svg"
                   }
+                  alt="star"
                   onClick={() => {
                     setRaiting(el);
                   }}

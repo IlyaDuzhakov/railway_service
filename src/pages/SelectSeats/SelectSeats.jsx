@@ -1,14 +1,13 @@
 import styles from "../SelectTrain/SelectTrain.module.css";
 import HeaderSelectTrain from "../../components/Header/HeaderSelectTrain/HeaderSelectTrain";
 import SideBar from "../../components/SideBar/SideBar";
-import { useParams } from "react-router-dom";
-import { TrainContext, SelectTrainContext } from "../../helpers/context.js";
-import { useContext, useEffect, useState } from "react";
+import { SelectTrainContext } from "../../helpers/context.js";
+import { useContext, useEffect } from "react";
 
 import SeatsSelect from "../../components/SelectSeatsPage/SeatsSelect/SeatsSelect.jsx";
 
 const SelectSeats = () => {
-  const [train, setTrain] = useContext(SelectTrainContext)
+  const [train] = useContext(SelectTrainContext)
  
   useEffect(() => {
     localStorage.setItem("train", JSON.stringify(train));
