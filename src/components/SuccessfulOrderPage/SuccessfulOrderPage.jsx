@@ -7,6 +7,7 @@ import {
   SelectTrainContext,
 } from "../../helpers/context";
 import { formatCity } from "../../helpers/functions";
+import { formatPrice } from "../../helpers/formatPrice.js";
 
 const SuccessfulOrderPage = () => {
   const [order] = useContext(OrderContext);
@@ -19,6 +20,16 @@ const SuccessfulOrderPage = () => {
   const entries = Object.entries(tickets).filter((el) => {
     return +el[1].count > 0;
   });
+  const totalPrice = entries.reduce((acc, value) => {
+  return (
+    acc +
+    Math.floor(
+      value[1].count *
+        value[1].koef *
+        train.departure.min_price
+    )
+  );
+}, 0);
 
   return (
     <div className={styles.order_wrapper}>
@@ -29,8 +40,8 @@ const SuccessfulOrderPage = () => {
           <div className={styles.sum_wrapper}>
             <p className={styles.sum}>
               сумма{" "}
-              <span>
-                {entries.reduce((acc, value) => {
+              <span className={styles.total_price}>
+                {/* {entries.reduce((acc, value) => {
                   return (
                     acc +
                     Math.floor(
@@ -39,7 +50,10 @@ const SuccessfulOrderPage = () => {
                         train.departure.min_price,
                     )
                   );
-                }, 0)}
+                }, 0)} */}
+                
+  {formatPrice(totalPrice)}
+
               </span>
             </p>
             <img src={iconsPath + "/coin.svg"} alt="coin" />

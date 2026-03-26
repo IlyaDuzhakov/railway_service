@@ -135,7 +135,7 @@
 }
 
 .card_line {
-  border-bottom: 1px solid #c4c4c4;
+  border-bottom: 1px dashed #c4c4c4;
   height: 1px;
   padding-top: 49px;
 }
@@ -147,4 +147,77 @@
   padding-bottom: 44px;
   color: #292929;
   padding-left: 19px;
+}
+
+.icon {
+  margin-bottom: 26px;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text_icon {
+  color: #928F94;
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 18px;
+}
+
+.text_icon_active {
+  color: #f2a100;
+}
+
+
+/*           PassengersCard          */
+
+.passengers_card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.passengers_label {
+  font-size: 24px;
+  line-height: 1.2;
+  color: #2b2b2b;
+}
+
+.passengers_input {
+  width: 100%;
+  height: 72px;
+  padding: 0 24px;
+
+  border: 1px solid #9f9f9f;
+  border-radius: 12px;
+
+  font-size: 28px;
+  color: #2b2b2b;
+
+  background-color: #ffffff; 
+
+  outline: none;
+  transition: all 0.2s ease;
+}
+.passengers_input:hover {
+  background-color: #ffffff;
+  border: 2px solid #f2a100;
+}
+
+.passengers_card:hover {
+  border: 1px solid #f2a100;
+  background-color: #ffffff;
+}
+
+.passengers_text {
+  font-size: 20px;
+  line-height: 1.3;
+  color: #8d8d8d;
+  margin: 0;
+}
+
+.passengers_input::-webkit-outer-spin-button,
+.passengers_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

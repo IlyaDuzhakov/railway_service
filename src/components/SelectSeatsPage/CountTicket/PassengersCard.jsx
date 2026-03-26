@@ -7,10 +7,12 @@ const PassengersCard = ({ el }) => {
 
   return (
     <div className={styles.passengers_card}>
-      <label htmlFor="">{el.title}</label>
+      <label htmlFor={el.id} className={styles.passengers_label}>{el.title}</label>
       <input
+        id={el.id}
         className={styles.passengers_input}
         type="number"
+         min="0"
         value={tickets[el.id].count}
         onChange={(event) => {
           const key = el.id;
@@ -21,7 +23,7 @@ const PassengersCard = ({ el }) => {
         }}
       />
 
-      <p>{el.text} </p>
+      <p className={styles.passengers_text}>{el.text} </p>
     </div>
   );
 };

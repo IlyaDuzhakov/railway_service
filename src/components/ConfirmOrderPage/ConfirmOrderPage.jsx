@@ -1,6 +1,7 @@
 import styles from "./ConfirmOrderPage.module.css";
 import { useNavigate } from "react-router-dom";
 import TrainItem from "../SelectTrainPage/TrainsList/TrainItem";
+import { formatPrice } from "../../helpers/formatPrice";
 import {
   SelectTrainContext,
   PassengersContext,
@@ -19,6 +20,12 @@ const ConfirmOrderPage = () => {
   const entries = Object.entries(tickets).filter((el) => {
     return +el[1].count > 0;
   });
+  const totalPrice = entries.reduce((acc, value) => {
+    return (
+      acc +
+      Math.floor(value[1].count * value[1].koef * train.departure.min_price)
+    );
+  }, 0);
 
   return (
     <div>
@@ -70,15 +77,10 @@ const ConfirmOrderPage = () => {
 
           <div className={styles.total_sum}>
             <div className={styles.total_sum_wrapper}>
-              <span className={styles.all_price}>Всего:</span>{" "}
-              {entries.reduce((acc, value) => {
-                return (
-                  acc +
-                  Math.floor(
-                    value[1].count * value[1].koef * train.departure.min_price,
-                  )
-                );
-              }, 0)}
+              <span className={styles.all_price}>Всего</span>
+              <span className={styles.total_price}>
+                {formatPrice(totalPrice)}
+              </span>
               <img
                 className={styles.img_coin}
                 src={process.env.PUBLIC_URL + "/img/icons/coin.svg"}

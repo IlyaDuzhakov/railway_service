@@ -2,7 +2,7 @@ import styles from "./CustomButton.module.css";
 
 const CustomButton = ({
   children,
-  
+
   variant = "primary",
   className = "",
 

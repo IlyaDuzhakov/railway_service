@@ -49,6 +49,12 @@
   color: #928F94;
 }
 
+.number:hover {
+  color: #292929;
+  font-size: 18px;
+  font-weight: 700;
+}
+
 .select {
   border: none;
   appearance: none;

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SelectTrainContext, TrainContext } from "../../../helpers/context.js";
 import { useContext } from "react";
 import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
+import { formatPrice } from "../../../helpers/formatPrice.js";
 
 const TrainItem = ({ el, index, type_btn }) => {
   const [trains, setTrains] = useContext(TrainContext);
@@ -57,7 +58,7 @@ const TrainItem = ({ el, index, type_btn }) => {
                   <p className={styles.seat_count}>{count}</p>
                   <div className={styles.seat_price_wrapper}>
                     <span className={styles.seat_price_from}>от</span>
-                    <span className={styles.seat_price}>{el.min_price}</span>
+                    <span className={styles.seat_price}>{formatPrice(el.min_price)}</span>
                     <img
                       className={styles.seat_coin}
                       src={process.env.PUBLIC_URL + "/img/icons/coin.svg"}
@@ -75,10 +76,13 @@ const TrainItem = ({ el, index, type_btn }) => {
               }
               alt="service"
             />
-
             <CustomButton
-              variant="outline"
-              className={styles.choose_seats}
+              variant={type_btn === "select" ? "outline" : "dark"}
+              className={
+                type_btn === "select"
+                  ? styles.choose_seats
+                  : styles.change_train_btn
+              }
               onClick={() => {
                 setTrain(getTrain(trains, el.departure._id));
               }}

@@ -96,3 +96,8 @@
     font-size: 48px;
     font-weight: 700;
 }
+
+.sum_wrapper {
+    display: flex;
+    align-items: center;
+}

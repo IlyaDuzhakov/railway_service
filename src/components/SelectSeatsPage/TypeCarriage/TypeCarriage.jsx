@@ -21,7 +21,7 @@ const TypeCarriage = ({ train, chooseCarriage, selectCarriage }) => {
               chooseCarriage(el.name)
             }}>
           <img src={selectCarriage === el.name ? el.img_active : el.img} alt="seat" />
-          <p>{el.title}</p>
+          <p className={styles.text_icon}>{el.title}</p>
         </div>
         })}
         
