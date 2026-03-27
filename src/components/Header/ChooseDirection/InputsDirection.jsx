@@ -7,6 +7,11 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
   const [showFrom, setShowFrom] = useState(false);
   const [showTo, setShowTo] = useState(false);
   const [newTicket, setNewTicket] = useContext(TicketContext);
+  
+
+  const reverse = () => {
+       setNewTicket({...newTicket, to: newTicket.from, from: newTicket.to})
+  }
   return (
     <div className={styles.direction}>
       <div className={styles.form_title}>Направление</div>
@@ -46,7 +51,9 @@ const InputsDirection = ({ listCitiesFrom, listCitiesTo }) => {
             ""
           )}
         </div>
-        <img className={styles.update_icon} src={updateIcon} alt="swap" />
+        <img className={styles.update_icon} src={updateIcon} alt="swap" onClick={()=> {
+          reverse()
+        }}/>
         <div className={styles.input_container}>
           <input
             value={formatCity(newTicket.to)}

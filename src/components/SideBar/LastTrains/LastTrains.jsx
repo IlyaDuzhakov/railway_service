@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./LastTrains.module.css";
 import { formatCity } from "../../../helpers/functions";
+import {formatPrice} from "../../../helpers/formatPrice.js"
+
 
 const LastTrains = () => {
   const [lastTickets, setLastTickets] = useState([]);
@@ -58,7 +60,7 @@ const LastTrains = () => {
               </div>
               <div className={styles.bottom_left}>
                 <p className={styles.price_text}>
-                  oт <span className={styles.price}>{el.min_price} </span>{" "}
+                  oт <span className={styles.price}>{formatPrice(el.min_price)}</span>{" "}
                   <img
                     className={styles.coin}
                     src={process.env.PUBLIC_URL + "/img/icons/coin.svg"}

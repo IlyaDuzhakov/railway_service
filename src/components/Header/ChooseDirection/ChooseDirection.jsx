@@ -12,7 +12,7 @@ import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
 
 const ChooseDirection = () => {
   const navigate = useNavigate();
-  const [setTrains] = useContext(TrainContext);
+  const [trains, setTrains] = useContext(TrainContext);
   const [newTicket] = useContext(TicketContext);
   const [listCitiesFrom, setListCitiesFrom] = useState([]);
   const [listCitiesTo, setListCitiesTo] = useState([]);
