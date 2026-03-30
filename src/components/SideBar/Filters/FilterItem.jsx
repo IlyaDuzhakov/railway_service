@@ -43,10 +43,20 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
               width: "28px",
               height: "28px",
             },
-            "& .MuiSwitch-thumb.Mui-checked": {
+            "& .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb": {
               backgroundColor: "#ffa800",
               width: "28px",
               height: "28px",
+            },
+            "& .MuiSwitch-track": {
+              backgroundColor: "#ffffff",
+              opacity: "1",
+              height: "19px",
+            },
+            "& .MuiSwitch-track.Mui-checked": {
+              backgroundColor: "#fcdc9d",
+              opacity: "1",
+              height: "19px",
             },
           }}
           color="red"
