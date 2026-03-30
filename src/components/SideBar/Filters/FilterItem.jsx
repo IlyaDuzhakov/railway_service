@@ -38,6 +38,15 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
       <StylesProvider injectFirst>
         <Switch
           sx={{
+            width: "96px",
+            "& .MuiSwitch-switchBase.Mui-checked": {
+              transform: "translate(49px)",
+              padding: "8px",
+            },
+            "& .MuiSwitch-switchBase": {
+              padding: "8px",
+            },
+
             "& .MuiSwitch-thumb": {
               backgroundColor: "#c4c4c4",
               width: "28px",
@@ -53,7 +62,7 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
               opacity: "1",
               height: "19px",
             },
-            "& .MuiSwitch-track.Mui-checked": {
+            "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
               backgroundColor: "#fcdc9d",
               opacity: "1",
               height: "19px",
