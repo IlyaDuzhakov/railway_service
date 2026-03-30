@@ -37,6 +37,18 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
 
       <StylesProvider injectFirst>
         <Switch
+          sx={{
+            "& .MuiSwitch-thumb": {
+              backgroundColor: "#c4c4c4",
+              width: "28px",
+              height: "28px",
+            },
+            "& .MuiSwitch-thumb.Mui-checked": {
+              backgroundColor: "#ffa800",
+              width: "28px",
+              height: "28px",
+            },
+          }}
           color="red"
           checked={checked}
           name={el.label}
