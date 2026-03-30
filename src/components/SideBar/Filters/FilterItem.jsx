@@ -10,34 +10,8 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
   const [trains, setTrains] = useContext(TrainContext);
   const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
   const [checked, setChecked] = useState(false);
-  const handleSwitch = (event) => {
-    setChecked((prev) => {
-      if (prev === false) {
-        setActiveFilters([...activeFilters, event.target.name]);
-        const actualTrains = filterTrains(trains, [
-          ...activeFilters,
-          event.target.name,
-        ]);
-        setshowTrains(actualTrains);
-      } else {
-        const rezult = deleteFilter(activeFilters, event.target.name);
-        setActiveFilters(rezult);
-        const actualTrains = filterTrains(trains, rezult);
-        setshowTrains(actualTrains);
-      }
 
-      return !prev;
-    });
-  };
-
-  return (
-    <div className={styles.filter} key={index}>
-      <img src={el.img} alt="iconPhone" />
-      <p className={styles.train_place}>{el.title}</p>
-
-      <StylesProvider injectFirst>
-        <Switch
-          sx={{
+  const switchStyles = {
             width: "96px",
             "& .MuiSwitch-switchBase.Mui-checked": {
               transform: "translate(49px)",
@@ -67,7 +41,37 @@ const FilterItem = ({ el, index, activeFilters, setActiveFilters }) => {
               opacity: "1",
               height: "19px",
             },
-          }}
+          }
+
+
+  const handleSwitch = (event) => {
+    setChecked((prev) => {
+      if (prev === false) {
+        setActiveFilters([...activeFilters, event.target.name]);
+        const actualTrains = filterTrains(trains, [
+          ...activeFilters,
+          event.target.name,
+        ]);
+        setshowTrains(actualTrains);
+      } else {
+        const rezult = deleteFilter(activeFilters, event.target.name);
+        setActiveFilters(rezult);
+        const actualTrains = filterTrains(trains, rezult);
+        setshowTrains(actualTrains);
+      }
+
+      return !prev;
+    });
+  };
+
+  return (
+    <div className={styles.filter} key={index}>
+      <img src={el.img} alt="iconPhone" />
+      <p className={styles.train_place}>{el.title}</p>
+
+      <StylesProvider injectFirst>
+        <Switch
+          sx={switchStyles}
           color="red"
           checked={checked}
           name={el.label}

@@ -1,18 +1,22 @@
 import Slider from "@mui/material/Slider";
 import "./PriceRange.css";
-import { useContext, useState, useEffect,  } from "react";
-import { MinMaxContext, TrainContext, ShowTrainsContext } from "../../../helpers/context";
+import { useContext, useState, useEffect } from "react";
+import {
+  MinMaxContext,
+  TrainContext,
+  ShowTrainsContext,
+} from "../../../helpers/context";
 import { filterPrice } from "../../../helpers/functions";
 
 const PriceRange = () => {
   const range = useContext(MinMaxContext);
   const [trains, setTrains] = useContext(TrainContext);
   const [price, setPrice] = useState([range.min, range.max]);
-  const [showTrains, setshowTrains] = useContext(ShowTrainsContext)
+  const [showTrains, setshowTrains] = useContext(ShowTrainsContext);
   const changePrice = (event, newValue) => {
     setPrice(newValue);
-    const rezult = filterPrice(trains, price[0], price[1])
-    setshowTrains(rezult)
+    const rezult = filterPrice(trains, price[0], price[1]);
+    setshowTrains(rezult);
   };
   const middle = (range.min + range.max) / 2 || 0;
   const marks = [
@@ -30,9 +34,9 @@ const PriceRange = () => {
     },
   ];
 
-  useEffect(()=> {
-      setPrice([range.min, range.max])
-  }, [range])
+  useEffect(() => {
+    setPrice([range.min, range.max]);
+  }, [range]);
 
   return (
     <div className="price_range">
@@ -42,6 +46,18 @@ const PriceRange = () => {
         <span className="to">до</span>
       </div>
       <Slider
+        sx={{
+          "& .MuiSlider-thumb": {
+            backgroundColor: "#ffffff",
+            width: "24px",
+            height: "24px",
+          },
+          "& .MuiSlider-track": {
+            border: "3px solid #FFA800",
+            backgroundColor: " #FFA800",
+            height: "19px",
+          },
+        }}
         className="price"
         step={10}
         marks={marks}

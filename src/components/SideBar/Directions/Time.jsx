@@ -30,6 +30,30 @@ const Time = ({ text }) => {
       <h3 className={addClass}>{text}</h3>
       <div className="direction_text_bottom"></div>
       <Slider
+        sx={{
+          "& .MuiSlider-rail ": {
+            backgroundColor: "#3E3C41",
+            border: "1px solid #C4C4C4",
+            height: "19px",
+            borderRadius: "8px",
+            opacity: "1",
+          },
+          "& .MuiSlider-markLabel": {
+            fontWeight: "400",
+            fontSize: "16px",
+            color: "#E5E5E5",
+          },
+          "& .MuiSlider-track ": {
+            backgroundColor: "#FFA800",
+            height: "19px",
+            border: "3px solid #FFA800"
+          },
+          "& .MuiSlider-thumb": {
+            backgroundColor: "#ffffff",
+            width: "24px",
+            height: "24px",
+          }
+        }}
         className="time"
         defaultValue={10}
         step={1}
