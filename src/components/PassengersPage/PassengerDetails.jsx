@@ -67,16 +67,16 @@ const PassengerDetails = ({
     <div className={styles.document_row}>
       <div className={styles.document_field}>
         <div className={styles.label}>Тип документа</div>
-
-        <CustomSelect
-          value={passenger.document_type}
-          options={documentOptions}
-          onChange={(value) => {
-            handleDocumentTypeChange({
-              target: { value },
-            });
+        <div
+          className={styles.document_type_text}
+          style={{
+            width: passenger.document_type === "passport" ? "200px" : "320px",
           }}
-        />
+        >
+          {passenger.document_type === "passport"
+            ? "Паспорт РФ"
+            : "Свидетельство о рождении"}
+        </div>
       </div>
 
       {passenger.document_type === "passport" ? (

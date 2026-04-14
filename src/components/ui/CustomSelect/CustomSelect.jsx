@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styles from "./CustomSelect.module.css";
 
-const CustomSelect = ({ value, onChange, options }) => {
+const CustomSelect = ({ value, onChange, options, variant = "default" }) => {
   const [open, setOpen] = useState(false);
 
   const selectedOption = options.find((option) => option.value === value);
 
   return (
-    <div className={styles.select}>
+    <div className={`${styles.select} ${styles[variant]}`}>
       <button
         type="button"
         className={styles.selectTrigger}

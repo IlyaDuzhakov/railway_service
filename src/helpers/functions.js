@@ -187,6 +187,8 @@ const createUsers = (count) => {
       document_type: "passport",
       document_series: "",
       document_number: "",
+      isDocumentValid: false,
+      isDateValid: false,
     };
   });
   return users;

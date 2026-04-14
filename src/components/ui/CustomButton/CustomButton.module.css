@@ -6,6 +6,7 @@
   transition: all 0.2s ease;
   border: 1px solid transparent;
   box-sizing: border-box;
+  margin-top: 40px;
 }
 
 /* 1. Найти билеты */

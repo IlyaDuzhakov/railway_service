@@ -4,6 +4,7 @@ import PassengerItem from "../PassengerItem/PassengerItem";
 import { PassengersContext } from "../../../helpers/context.js";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
+import Popup from "../../ui/Popup/Popup.jsx";
 
 const PassengersList = () => {
   const [active, setActive] = useState(false);
@@ -32,6 +33,14 @@ const PassengersList = () => {
     return countCheck === usersList.length;
   };
 
+  const checkValidation = (usersList) => {
+    return usersList.every(
+      (user) => user.isDocumentValid === true && user.isDateValid === true,
+    );
+  };
+
+  const [isErrorOpen, setIsErrorOpen] = useState(false);
+
   const updateUser = (id, fields) => {
     setUsers((prev) => {
       const rezult = prev.map((user) =>
@@ -47,6 +56,7 @@ const PassengersList = () => {
   };
 
   const isFormValid = checkFillForm(users);
+  const isFormCorrect = checkValidation(users);
 
   return (
     <main className={styles.passengers_container}>
@@ -69,13 +79,22 @@ const PassengersList = () => {
         className="btn_next"
         disabled={!isFormValid}
         onClick={() => {
-          checkFillForm(users) === true
-            ? navigate("/payment")
-            : alert("заполните все поля");
+          if (isFormCorrect) {
+            navigate("/payment");
+          } else {
+            setIsErrorOpen(true);
+          }
         }}
       >
         ДАЛЕЕ
       </CustomButton>
+      <Popup
+        type="error"
+        title="Ошибка"
+        message="Проверьте корректность данных документа перед переходом к следующему шагу."
+        isOpen={isErrorOpen}
+        onClose={() => setIsErrorOpen(false)}
+      />
     </main>
   );
 };

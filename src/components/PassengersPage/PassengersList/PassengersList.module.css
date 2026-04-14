@@ -341,3 +341,12 @@
 .select_age .option {
   background-color: #8bc34a;
 }
+
+.popup_information {
+  color: #ff2a00;
+  font-weight: 700;
+  font-size: 30px;
+  border: 1px solid #fc0000;
+  border-radius: 50%;
+  padding: 3px 16px;
+}

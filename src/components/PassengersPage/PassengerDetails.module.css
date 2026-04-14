@@ -59,3 +59,19 @@
   display: flex;
   align-items: center;
 }
+
+.document_type_text{
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+/* .full_width {
+  width: 320px;
+} */

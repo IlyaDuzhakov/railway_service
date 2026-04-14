@@ -14,7 +14,7 @@
   font-family: Roboto;
   font-size: 18px;
   font-weight: 400;
-  align-items: center;
+  /* align-items: center; */
   gap: 10px;
   color: #928F94;
 }

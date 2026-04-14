@@ -9,6 +9,7 @@ import {
 } from "../../../helpers/context.js";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
+import Popup from "../../ui/Popup/Popup.jsx";
 
 const ChooseDirection = () => {
   const navigate = useNavigate();
@@ -39,6 +40,8 @@ const ChooseDirection = () => {
       hideLoader();
     }
   };
+
+  const [popupType, setPopupType] = useState(null);
 
   const findCities = async (direction, str) => {
     try {
@@ -81,12 +84,19 @@ const ChooseDirection = () => {
               await findTrains();
               navigate("/select_train");
             } else {
-              alert("Выберите направление");
+              setPopupType("direction");
             }
           }}
         >
           НАЙТИ БИЛЕТЫ
         </CustomButton>
+        <Popup
+          type="error"
+          title="Ошибка"
+          message={popupType === "direction" ? "Выберите направление" : ""}
+          isOpen={popupType !== null}
+          onClose={() => setPopupType(null)}
+        />
       </div>
     </form>
   );

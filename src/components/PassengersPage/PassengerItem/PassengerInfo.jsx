@@ -4,6 +4,7 @@ import PassengerDetails from "../PassengerDetails.jsx";
 import PassengerStatus from "../PassengersList/PassengerStatus.jsx";
 import { getAge } from "../../../helpers/functions.js";
 import CustomSelect from "../../ui/CustomSelect/CustomSelect.jsx";
+import Popup from "../../ui/Popup/Popup.jsx";
 
 const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
   const nameRegex = /^[A-Za-zА-Яа-яЁё-]+$/;
@@ -14,20 +15,16 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
   const [nameError, setNameError] = useState(false);
   const [dateError, setDateError] = useState(false);
 
-  const validateAge = (date, documentType) => {
+  const validateAge = (date, type) => {
     if (!date) return false;
 
     const age = getAge(date);
 
-    if (documentType === "passport") {
+    if (type === "adult") {
       return age >= 14;
     }
 
-    if (documentType === "document_child") {
-      return age < 14;
-    }
-
-    return false;
+    return age < 14;
   };
 
   const passengerTypeOptions = [
@@ -36,13 +33,30 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
     { value: "child_no_seat", label: "Детский без места" },
   ];
 
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
+
   return (
     <div className={styles.bottom}>
       <div className={styles.select_wrapper}>
         <CustomSelect
           value={passenger.type}
           options={passengerTypeOptions}
-          onChange={(value) => onUpdate(passenger.id, { type: value })}
+          onChange={(value) => {
+            const documentType =
+              value === "adult" ? "passport" : "document_child";
+
+            onUpdate(passenger.id, {
+              type: value,
+              document_type: documentType,
+              document_series: "",
+              document_number: "",
+              isDocumentValid: false,
+              isDateValid: false,
+            });
+            setDateError(false);
+            setDocumentCheckStarted(false);
+            setDocumentValid(null);
+          }}
         />
         <img
           src={passenger_info + "triangular_arrow.svg"}
@@ -165,19 +179,29 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
             onChange={(event) => {
               const value = event.target.value;
 
-              onUpdate(passenger.id, { date: value });
-
               if (value === "") {
+                onUpdate(passenger.id, {
+                  date: value,
+                  isDateValid: false,
+                });
                 setDateError(false);
-              } else {
-                setDateError(!validateAge(value, passenger.document_type));
+                return;
               }
+
+              const isValid = validateAge(value, passenger.type);
+
+              onUpdate(passenger.id, {
+                date: value,
+                isDateValid: isValid,
+              });
+
+              setDateError(!isValid);
             }}
           />
         </div>
         {dateError && (
           <p style={{ color: "red" }}>
-            {passenger.document_type === "passport"
+            {passenger.type === "adult"
               ? "Для паспорта возраст должен быть не меньше 14 лет"
               : "Для свидетельства возраст должен быть меньше 14 лет"}
           </p>
@@ -195,7 +219,21 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
         />
         <span className={styles.custom_checkbox}></span>
         <span className={styles.checkbox_text}>ограниченная подвижность</span>
+        <span
+          className={styles.popup_information}
+          onClick={() => setIsInfoOpen(true)}
+        >
+          i
+        </span>
       </label>
+      <Popup
+        type="info"
+        title=""
+        message="Если вам требуется помощь при передвижении, отметьте этот пункт. 
+Сотрудники вокзала помогут вам и сопроводят до вагона."
+        isOpen={isInfoOpen}
+        onClose={() => setIsInfoOpen(false)}
+      />
 
       <PassengerDetails
         passenger={passenger}
@@ -203,10 +241,18 @@ const PassengerInfo = ({ passenger_info, passenger, onUpdate }) => {
         onValidationChange={(isValid) => {
           setDocumentCheckStarted(true);
           setDocumentValid(isValid);
+
+          onUpdate(passenger.id, {
+            isDocumentValid: isValid,
+          });
         }}
         onResetValidation={() => {
           setDocumentCheckStarted(false);
           setDocumentValid(null);
+
+          onUpdate(passenger.id, {
+            isDocumentValid: false,
+          });
         }}
       />
 
