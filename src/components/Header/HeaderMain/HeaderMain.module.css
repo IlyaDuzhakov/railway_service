@@ -11,7 +11,7 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: var(--container-size);
   margin: 0 auto;
 }
 
@@ -92,6 +92,27 @@
 
 /* headerlogo*/
 .logo_container {
-  width: 1400px;
+  width: var(--container-size);
   margin: 0 auto;
+}
+
+@media (max-width: 1450px) {
+  .logo_container,
+  .container {
+    width: var(--adaptive-container-size);
+  }
+}
+
+@media (max-width: 1250px) {
+  .search_tickets_wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+  .search_tickets_text {
+    margin: 25px 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 }

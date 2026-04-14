@@ -73,7 +73,7 @@
   padding-left: 15px;
   padding-top: 12px;
   padding-bottom: 12px;
-  padding-right: 134px;
+  padding-right: 15px;
   color: #292929;
 }
 
@@ -165,4 +165,17 @@
 
 .cash_block {
   margin-bottom: 83px;
+}
+
+.right_number {
+  color: green;
+}
+
+.wrong_number {
+  color: red;
+}
+
+.inputError {
+  border: 1px solid red;
+  background-color: #fff2f2;
 }

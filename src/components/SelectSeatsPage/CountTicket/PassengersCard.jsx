@@ -5,22 +5,33 @@ import { CountTicketContext } from "../../../helpers/context.js";
 const PassengersCard = ({ el }) => {
   const [tickets, setTickets] = useContext(CountTicketContext);
 
+    const handleChange = (event) => {
+    const key = el.id;
+    const value = event.target.value;
+
+    if (!/^\d*$/.test(value)) {
+      return;
+    }
+
+    setTickets({
+      ...tickets,
+      [key]: {
+        ...tickets[key],
+        count: value,
+      },
+    });
+  };
+
   return (
     <div className={styles.passengers_card}>
       <label htmlFor={el.id} className={styles.passengers_label}>{el.title}</label>
       <input
         id={el.id}
         className={styles.passengers_input}
-        type="number"
-         min="0"
+          type="text"
+        inputMode="numeric"
         value={tickets[el.id].count}
-        onChange={(event) => {
-          const key = el.id;
-          setTickets({
-            ...tickets,
-            [key]: { ...tickets[key], count: event.target.value },
-          });
-        }}
+        onChange={handleChange}
       />
 
       <p className={styles.passengers_text}>{el.text} </p>

@@ -207,6 +207,37 @@ const getAge = (date) => {
   return age;
 };
 
+const phoneNumber = (numbers) => {
+  let digits = numbers.replace(/\D/g, '');
+
+  if (digits.startsWith('7')) {
+    digits = digits.slice(1);
+  }
+
+  digits = digits.slice(0, 10);
+  let str = "+7 ";
+    if (digits.length > 0) {
+    str += '(' + digits.slice(0, 3);
+  }
+
+  if (digits.length >= 3) {
+    str += ')';
+  }
+
+  if (digits.length > 3) {
+    str += digits.slice(3, 6);
+  }
+
+  if (digits.length > 6) {
+    str += '-' + digits.slice(6, 8);
+  }
+
+  if (digits.length > 8) {
+    str += '-' + digits.slice(8, 10);
+  } 
+  return str
+};
+
 export {
   formatDate,
   travelTime,
@@ -225,4 +256,5 @@ export {
   getTrainsDate,
   createUsers,
   getAge,
+  phoneNumber
 };

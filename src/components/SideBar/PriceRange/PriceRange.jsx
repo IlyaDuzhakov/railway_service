@@ -57,6 +57,11 @@ const PriceRange = () => {
             backgroundColor: " #FFA800",
             height: "19px",
           },
+           "& .MuiSlider-markLabel": {
+            fontWeight: "400",
+            fontSize: "16px",
+            color: "#E5E5E5",
+          }
         }}
         className="price"
         step={10}

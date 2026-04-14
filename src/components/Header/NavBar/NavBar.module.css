@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 60px;
-  width: 1400px;
+  width: var(--container-size);
   margin: 0 auto;
 }
 
@@ -12,7 +12,7 @@
   align-items: center;
   padding: 0 20px;
   height: 94px;
-  max-width: 1919px;
+  /* max-width: 1919px; */
   top: 64px;
   background-color: #292929;
 }
@@ -24,4 +24,10 @@
   color: #ffffff;
   text-decoration: none;
   justify-content: flex-start;
+}
+
+@media (max-width: 1450px) {
+  .nav_container {
+    width: var(--adaptive-container-size);
+  }
 }

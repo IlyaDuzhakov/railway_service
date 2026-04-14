@@ -5,18 +5,40 @@ import { travelTimeLong } from "../../../helpers/functions.js";
 import CountTicket from "../CountTicket/CountTicket.jsx";
 import TypeCarriage from "../TypeCarriage/TypeCarriage.jsx";
 import Seats from "../Seats/Seats.jsx";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../ui/CustomButton/CustomButton.jsx";
+import { CountTicketContext } from "../../../helpers/context.js";
 
 const SeatsSelect = ({ train }) => {
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
   const [selectCarriage, setSelectCarriage] = useState(null);
+  const [tickets] = useContext(CountTicketContext);
   const chooseCarriage = (type) => {
     setSelectCarriage(type);
-    setActive(true)
+    setActive(true);
   };
+
+  const [modalMessage, setModalMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = (message) => {
+    setModalMessage(message);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalMessage("");
+  };
+
+  const hasAtLeastOnePassenger = Object.values(tickets).some(
+    (item) => Number(item.count || 0) > 0,
+  );
+
+  const canGoNext = selectCarriage !== null && hasAtLeastOnePassenger;
+
   return (
     <main>
       <p className={styles.choose_text}>Выбор мест</p>
@@ -83,12 +105,20 @@ const SeatsSelect = ({ train }) => {
         <CustomButton
           // active={active}
           variant="secondary"
-          className="btn_next"
-          disabled={selectCarriage === null}
+          className="btn_next"      
+          disabled={!canGoNext}
           onClick={() => {
-            selectCarriage !== null
-              ? navigate("/passengers")
-              : alert("Выберите тип вагона");
+            if (selectCarriage === null) {
+              showModal("Сначала выберите тип вагона");
+              return;
+            }
+
+            if (!hasAtLeastOnePassenger) {
+              showModal("Укажите хотя бы одного пассажира");
+              return;
+            }
+
+            navigate("/passengers");
           }}
         >
           ДАЛЕЕ

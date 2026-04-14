@@ -1,3 +1,8 @@
+:root {
+  --container-size: 1400px;
+  --adaptive-container-size: 90vw;
+}
+
 * {
   box-sizing: border-box;
   font-family: Roboto;
@@ -7,7 +12,7 @@
 }
 
 .container {
-  width: 1400px;
+  width: var(--container-size);
   position: relative;
 }
 
@@ -200,4 +205,10 @@
 
 .btn_active {
   background-color: aquamarine;
+}
+
+@media (max-width: 1450px) {
+  .container {
+    width: var(--adaptive-container-size);
+  }
 }

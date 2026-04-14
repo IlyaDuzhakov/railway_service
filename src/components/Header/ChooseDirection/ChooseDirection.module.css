@@ -28,7 +28,7 @@
 }
 
 .form_container {
-  max-width: 1400px;
+  max-width: var(--container-size);
   position: relative;
   background-color: rgba(41, 41, 41, 0.8);
   padding: 24px;
@@ -87,4 +87,10 @@
 
 .btn_active {
   background-color: rgb(10, 58, 179);
+}
+
+@media (max-width: 1250px) {
+  .form_container {
+    max-width: var(--adaptive-container-size);
+  }
 }
