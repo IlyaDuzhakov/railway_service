@@ -113,3 +113,16 @@
     padding-top: 10px;
     color: #928F94;
 }
+
+@media (max-width: 1050px) {
+  .review_сard {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .review_сard {
+      flex-direction: column;
+      margin-bottom: 20px;
+  }
+}

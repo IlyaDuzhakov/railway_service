@@ -75,11 +75,11 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  г. Москва
-                  <br />
-                  ул. Московская 27–35
-                  <br />
-                  555 555
+                  <span>г. Москва</span>
+
+                  <span>ул. Московская 27–35</span>
+
+                  <span>555 555</span>
                 </a>
               </address>
             </div>
@@ -89,7 +89,8 @@ const Footer = () => {
 
             <div className={styles.footer_block}>
               <span className={styles.events}>Будьте в курсе событий</span>
-              <div className={styles.footer_box}>
+              <div className={`${styles.footer_box} ${styles.footer_mail}`}>
+              {/* <div className={styles.footer_box + ' ' + styles.footer_mail}> */}
                 <input
                   className={styles.email}
                   type="email"

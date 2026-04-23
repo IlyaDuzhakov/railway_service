@@ -35,11 +35,19 @@ const Reviews = () => {
   return (
     <div className={styles.reviews_block}>
     <div className="container">
-      <h2 className={styles.reviews}>отзывы</h2>
+      <h2 className={styles.reviews}>ОТЗЫВЫ</h2>
       <Swiper
           modules={[Pagination]}
           slidesPerView={2}
           spaceBetween={50}
+          breakpoints={{
+            320: {
+               slidesPerView: 1
+            },
+            1050: {
+              slidesPerView: 2
+            },
+          }}
           pagination={{ clickable: true }}
           loop={true}
         >

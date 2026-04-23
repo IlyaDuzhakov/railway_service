@@ -31,3 +31,28 @@
     width: var(--adaptive-container-size);
   }
 }
+
+@media (max-width: 830px) {
+  .nav_container {
+    flex-wrap: wrap;
+  }
+  .nav_text {
+    flex: 1;
+  }
+}
+
+@media (max-width: 750px) {
+  .nav_text {
+    font-size: 24px;
+  }
+  .nav_container {
+    gap: 20px;
+    display: flex;
+  }
+}
+
+@media (max-width: 501px) {
+  .navbar {
+    display: none;
+  }
+}

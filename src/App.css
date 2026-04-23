@@ -1,12 +1,16 @@
 :root {
   --container-size: 1400px;
   --adaptive-container-size: 90vw;
+  --dark-font-color: #292929;
+  --white-color: #fff;
+  --light-color: #e5e5e5;
+  --accent-color: #ffa800;
 }
 
 * {
   box-sizing: border-box;
   font-family: Roboto;
-  color: #292929;
+  color: var(--dark-font-color);
   margin: 0;
   padding: 0;
 }
@@ -21,7 +25,7 @@
 .swiper-pagination .swiper-pagination-bullet {
   width: 19px;
   height: 19px;
-  background-color: #e5e5e5;
+  background-color: var(--light-color);
   opacity: 1;
 }
 
@@ -39,7 +43,7 @@
   padding: 0 12px;
   color: #000;
   outline: none;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 .react-datepicker-wrapper:first-child {
@@ -48,7 +52,7 @@
 
 .sidebarDivider {
   margin-right: -36px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--light-color);
   margin-left: -28px;
 }
 
@@ -65,7 +69,7 @@
   font-family: Roboto;
   font-weight: 400;
   font-size: 30px;
-  color: #fff;
+  color: var(--white-color);
 }
 
 .direction_text {
@@ -79,19 +83,19 @@
   font-family: Roboto;
   font-weight: 400;
   font-size: 18px;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .books:hover {
-  fill: #ffa800;
+  fill: var(--accent-color);
 }
 
 .cup:hover {
-  fill: #ffa800;
+  fill: var(--accent-color);
 }
 
 .air:hover {
-  fill: #ffa800;
+  fill: var(--accent-color);
 }
 
 .tooltip_wrapper {
@@ -100,7 +104,7 @@
 }
 
 .wiFi:hover {
-  fill: #ffa800;
+  fill: var(--accent-color);
 }
 
 .wiFi {
@@ -114,7 +118,7 @@
   transform: translateX(-50%);
   padding: 8px 16px;
   background-color: #f5f4f6;
-  color: #292929;
+  color: var(--dark-font-color);
   border-radius: 5px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
@@ -134,11 +138,11 @@
   height: 60px;
   width: 322px;
   right: 0;
-  color: #292929;
+  color: var(--dark-font-color);
   font-size: 24px;
   font-weight: 700;
   /* margin-top: 79px; */
-  background: #ffb800;
+  background: var(--accent-color);
   border: none;
   border-radius: 4px;
   font-weight: 700;
@@ -149,7 +153,7 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 24px;
-  color: #292929;
+  color: var(--dark-font-color);
 }
 
 .choose_seats {
@@ -157,7 +161,7 @@
   font-weight: 700;
   font-size: 24px;
   color: #ffffff;
-  background-color: #ffa800;
+  background-color: var(--accent-color);
   border: none;
   border-radius: 5px;
   padding-left: 9px;
@@ -179,7 +183,7 @@
   font-weight: 700;
   font-size: 24px;
   color: #fff;
-  background-color: #ffa800;
+  background-color: var(--accent-color);
   border: none;
   border-radius: 5px;
   padding-left: 74px;
@@ -197,5 +201,11 @@
 @media (max-width: 1450px) {
   .container {
     width: var(--adaptive-container-size);
+  }
+}
+
+@media (max-width: 800px) {
+  .react-datepicker-wrapper:first-child {
+    margin-right: 0;
   }
 }

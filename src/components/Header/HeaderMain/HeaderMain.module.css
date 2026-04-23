@@ -116,3 +116,23 @@
     gap: 10px;
   }
 }
+
+@media (max-width: 800px) {
+  .search_tickets_text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .search_tickets {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+    .title_bold {
+      font-size: 40px;
+    }
+    .title_thin {
+      font-size: 28px;
+    }
+}
