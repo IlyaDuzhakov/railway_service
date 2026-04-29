@@ -30,7 +30,7 @@ const TrainItem = ({ el, index, type_btn }) => {
             <p className={styles.from_text}>
               {formatCity(el.departure.from.city.name)}
             </p>
-            <img
+            <img className={styles.arrow}
               src={
                 process.env.PUBLIC_URL + "/img/icons/arrow_direction_black.svg"
               }

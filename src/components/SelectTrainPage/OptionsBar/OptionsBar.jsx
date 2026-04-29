@@ -22,7 +22,7 @@ const OptionsBar = () => {
   return (
     <div className={styles.button_choose}>
       <div>
-        <p className={styles.found}>найдено</p>
+        <p className={styles.found}>найдено: {showTrains.length}</p>
       </div>
       <div className={styles.button_select}>
         <p className={styles.select_text}>сортировать по:</p>

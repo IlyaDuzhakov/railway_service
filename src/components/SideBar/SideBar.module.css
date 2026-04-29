@@ -6,3 +6,139 @@
     padding-right: 36px;
     
 }
+
+.btn_filter {
+     height: 66px;
+    padding: 10px 30px;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    border: 1px solid #292929;
+    display: none;
+}
+
+.btn_filter:hover {
+    background-color: #FDB935;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.icon_filter path {
+  fill: #fff;
+  font-size: 30px !important;
+}
+
+.icon_filter {
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+
+
+/* @media (max-width: 1450px) {
+    .btn_filter_active {
+        display: flex;
+        max-width: 120px;
+    }
+    .aside_close {
+        display: none;
+        position: absolute;
+        /* transform: translateX(-100%); */
+        /* opacity: 0; */
+        /* top: 100px;
+        background-color: var(--white-color);
+    }
+}  */
+
+
+
+
+
+@media (max-width: 1450px) {
+  .aside_close {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 1000;
+
+    /* width: 320px;
+    max-width: 85vw; */
+    /* height: calc(100vh - 100px); */
+
+    background-color: var(--grey-color);
+  }
+
+  .aside_enter {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .aside_enter_active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 300ms ease, opacity 300ms ease;
+  }
+
+  .aside_exit {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .aside_exit_active {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 300ms ease, opacity 300ms ease;
+  }
+
+  .btn_filter_active {
+    display: flex;
+    max-width: 120px;
+  }
+
+  .btn_filter_active,
+  .btn_filter_close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 120px;
+    position: absolute;
+    top: -82px;
+    left: -4px;
+    z-index: 2000;
+  }
+
+  .btn_filter_close {
+    left: 335px;
+  }
+}
+
+
+@media (max-width: 730px) {
+    .btn_filter_active {
+        max-width: 60px;
+    }
+    .btn_filter {
+        height: 50px;
+        padding: 10px;
+    }
+    .icon_filter {
+        font-size: 30px;
+    }
+     .btn_filter_active,
+     .btn_filter_close {
+        top: -65px;
+        left: -4px;
+     }
+}
+
+
+@media (max-width: 405px) {
+    .aside_top {
+        width: 320px;
+    }
+}
+
+@media (min-width: 1451px) {
+    .aside_close {
+        position: static;
+    }
+}

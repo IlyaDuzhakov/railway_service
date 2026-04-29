@@ -90,3 +90,16 @@
   box-shadow: none;
   cursor: not-allowed;
 }
+
+@media (max-width: 500px) {
+  .button {
+    margin-top: 0;
+    
+  }
+}
+
+@media (max-width: 370px) {
+  .button {
+    font-size: 20px;
+  }
+}

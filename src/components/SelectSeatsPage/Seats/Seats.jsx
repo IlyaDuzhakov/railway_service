@@ -76,7 +76,7 @@ const Seats = ({selectCarriage, train}) => {
         </div>
       </div>
       <div className={styles.bottom}>
-            <img src={process.env.PUBLIC_URL + "/img/icons/seats.png"} alt="seats" />
+            <img className={styles.img_seats} src={process.env.PUBLIC_URL + "/img/icons/seats.png"} alt="seats" />
       </div>
     </div>
   );

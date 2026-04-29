@@ -45,3 +45,15 @@
 .caret_right img:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 530px) {
+  .caret_left img {
+     width: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .caret_wrapper {
+    gap: 20px;
+  }
+}

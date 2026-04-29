@@ -116,6 +116,24 @@
 
 .button_select{
   display: flex;
-  /* gap: 8px; */
   align-items: baseline; 
+}
+
+@media (max-width: 1100px) {
+  .selectTrigger {
+    width: 30vh;
+  }
+}
+
+
+@media (max-width: 475px) {
+  .select {
+    width: 100px;
+  }
+}
+
+@media (max-width: 380px) {
+  .selectTrigger {
+    width: 25vh;
+  }
 }

@@ -51,3 +51,52 @@
 .departure_left {
   text-align: right;
 }
+
+@media (max-width: 1450px) {
+  .train_item {
+    flex-direction: column;
+    width: 250px;
+    gap: 20px;
+  }
+  .departure_left {
+    text-align: left;
+  }
+}
+
+@media (max-width: 800px) {
+  .train_item {
+    width: 180px;
+  }
+}
+
+@media (max-width: 730px) {
+  .train_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .train_item_from,
+  .departure_left {
+    width: 42%;
+  }
+
+  .train_item_arrow {
+    width: 16%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .departure_left {
+    text-align: right;
+  }
+}
+
+@media (max-width: 340px) {
+  .train_item {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

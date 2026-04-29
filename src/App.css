@@ -2,6 +2,7 @@
   --container-size: 1400px;
   --adaptive-container-size: 90vw;
   --dark-font-color: #292929;
+  --grey-color: #3E3C41;
   --white-color: #fff;
   --light-color: #e5e5e5;
   --accent-color: #ffa800;
@@ -208,4 +209,82 @@
   .react-datepicker-wrapper:first-child {
     margin-right: 0;
   }
+}
+
+@media (max-width: 730px) {
+  .sidebarDivider {
+    margin-right: -26px;
+  margin-left: -26px;
+}
+}
+
+/* animation*/
+
+.my-node {
+  background-color: #ffa800;
+}
+
+.my-node-enter {
+  width: 0;
+  /* opacity: 0;
+  transform: translateX(-100%); */
+}
+.my-node-enter-active {
+  width: 300px;
+  /* opacity: 1;
+  transform: translateX(600px); */
+  transition: all 1000ms;
+}
+.my-node-exit {
+  width: 300px;
+  /* opacity: 1;
+  transform: translateX(0); */
+}
+.my-node-exit-active {
+   width: 300px;
+  /* opacity: 0; */
+  /* transform: translateX(100%);  */
+  transition: all 500ms; 
+}
+
+@media (max-width: 480px) {
+    .input {
+      width: 280px;
+    }
+     .submit_btn {
+    width: 280px;
+  }
+  .btn_next {
+    width: 160px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 410px) {
+    .input {
+      width: 260px;
+    }
+     /* .submit_btn {
+    width: 260px;
+  } */
+}
+
+@media (max-width: 370px) {
+    .input {
+      width: 240px;
+    }
+     /* .submit_btn {
+    width: 240px;
+  } */
+}
+
+@media (max-width: 340px) {
+    .input {
+      width: 220px;
+    }
+     /* .submit_btn {
+    width: 220px;
+    font-size: 20px;
+  } */
 }

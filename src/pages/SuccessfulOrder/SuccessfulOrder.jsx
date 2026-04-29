@@ -3,6 +3,7 @@ import HeaderLogo from "../../components/Header/HeaderLogo";
 import styles from "../SelectTrain/SelectTrain.module.css";
 import classes from './SuccessfulOrder.module.css'
 import SuccessfulOrderPage from "../../components/SuccessfulOrderPage/SuccessfulOrderPage";
+import BurgerMenu from "../../components/ui/BurgerMenu/BurgerMenu";
 
 const SuccessfulOrder = () => {
   return (
@@ -10,9 +11,9 @@ const SuccessfulOrder = () => {
       <div className={classes.header_wrapper}>
         <HeaderLogo />
         <NavBar />
-        
+        < BurgerMenu />
       </div>
-      <div className={styles.main}>
+      <div className={`${styles.main} ${classes.main_height}`}>
         <div className="container">
           <div className={styles.main_wrapper}>
             <SuccessfulOrderPage />

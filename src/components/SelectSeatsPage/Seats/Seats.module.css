@@ -54,3 +54,27 @@
 .seats_service {
     display: flex;
 }
+
+.img_seats {
+    width: 100%;
+}
+
+@media (max-width: 850px) {
+    .middle {
+        flex-wrap: wrap;
+    }
+    .seats_info {
+        padding-top: 20px;
+        width: 50%;
+    }
+    .seats_end {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        padding-right: 20px;
+    }
+    .choose_seats {
+        width: fit-content;
+    }
+}

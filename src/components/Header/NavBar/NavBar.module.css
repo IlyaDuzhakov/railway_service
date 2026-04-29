@@ -41,6 +41,13 @@
   }
 }
 
+@media (max-width: 800px) {
+  .navbar {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+}
+
 @media (max-width: 750px) {
   .nav_text {
     font-size: 24px;

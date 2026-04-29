@@ -30,7 +30,6 @@
   font-family: Roboto;
   font-size: 18px;
   font-weight: 400;
-  /* color: #928F94; */
 }
 
 .show_text {
@@ -63,4 +62,11 @@
 .show_numbers {
   display: flex;
   gap: 10px;
+}
+
+@media (max-width: 810px) {
+  .button_choose {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

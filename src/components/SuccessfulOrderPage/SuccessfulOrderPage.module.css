@@ -140,3 +140,152 @@
     font-weight: 500;
     font-size: 18px;
 }
+
+
+@media (max-width: 1110px) {
+  .grade_wrapper {
+      flex-direction: column;
+      justify-content: space-around;
+  }
+  .order_info_wrapper {
+    gap: 80px;
+  }
+  .big_text {
+    font-size: 60px;
+  }
+  .ord img {
+    width: 116px;
+    height: 116px;
+  }
+}
+
+@media (max-width: 900px) {
+    .big_text {
+    font-size: 40px;
+  }
+   .ord img {
+    width: 90px;
+    height: 90px;
+  }
+  .successfull_wrapper {
+    margin-left: 150px;
+    margin-right: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+ 
+  .order_info_wrapper {
+    gap: 20px;
+  }
+  .sum {
+    font-size: 28px;
+  }
+  .number {
+    font-size: 28px;
+  }
+   .successfull_wrapper {
+    margin-left: 80px;
+    margin-right: 60px;
+  }
+  .star {
+    width: 30px;
+    height: 30px;
+  }
+  .grade_wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+   .order_wrapper {
+    position: relative;
+    top: -55vh;
+  }
+}
+
+@media (max-width: 690px) {
+  .order_info_wrapper {
+      flex-direction: column;
+      align-items: center;
+  }
+  .ord img {
+    width: 116px;
+    height: 116px;
+  }
+  .order_number_wrapper {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+  }
+   .big_text {
+    font-size: 34px;
+  }
+  .coin {
+    width: 18px;
+    
+  }
+}
+
+@media (max-width: 550px) {
+  .customer_text {
+    font-size: 32px;
+  }
+  .successfull_order {
+    font-size: 20px;
+  }
+  .successfull_order_bold {
+    font-size: 20px;
+  }
+  .successfull_wrapper {
+            margin-left: 50px;
+        margin-right: 40px;
+  }
+  .grade_text {
+    font-size: 18px;
+  }
+  .star {
+    width: 20px;
+    
+  }
+  .btn_return {
+    font-size: 20px;
+  }
+  .grade_wrapper {
+    height: 130px;
+  }
+}
+
+@media (max-width: 460px) {
+   .big_text {
+    font-size: 28px;
+  }
+   .sum {
+    font-size: 22px;
+  }
+  .number {
+    font-size: 22px;
+  }
+  .coin {
+    width: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+   .big_text {
+    font-size: 24px;
+  }
+   .sum {
+    font-size: 18px;
+  }
+  .number {
+    font-size: 18px;
+  }
+  .coin {
+    width: 12px;
+  }
+}
+
+/* @media (max-width: 800px) {
+  .main {
+    margin-bottom: -380px;
+  }
+} */

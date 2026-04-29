@@ -8,3 +8,12 @@
   background-position: center;
   padding: 0;
 }
+
+@media (max-width: 800px) {
+    .main_height {
+    margin-bottom: -380px;
+  }
+   .header_wrapper {
+      min-height: 70vh;
+  }
+}

@@ -56,7 +56,7 @@ const SuccessfulOrderPage = () => {
 
               </span>
             </p>
-            <img src={iconsPath + "/coin.svg"} alt="coin" />
+            <img className={styles.coin} src={iconsPath + "/coin.svg"} alt="coin" />
           </div>
         </div>
         <div className={styles.order_info_wrapper}>
@@ -100,7 +100,7 @@ const SuccessfulOrderPage = () => {
             <p className={styles.grade_text}>Оценить сервис</p>
             {arrStar.map((el) => {
               return (
-                <img
+                <img className={styles.star}
                   src={
                     raiting >= el
                       ? iconsPath + "/active_star.svg"

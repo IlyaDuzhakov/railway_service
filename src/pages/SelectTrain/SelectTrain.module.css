@@ -52,3 +52,11 @@
 .content {
   flex: 1;
 }
+
+@media (max-width: 1450px) {
+  .main_wrapper {
+    gap: 30px;
+    flex-direction: column;
+  }
+}
+

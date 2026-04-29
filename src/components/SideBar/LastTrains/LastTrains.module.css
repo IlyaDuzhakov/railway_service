@@ -66,3 +66,13 @@
   text-align: left;
   text-transform: uppercase;
 }
+
+@media (max-width: 1450px) {
+  .last_ticket_text {
+    color: var(--white-color);
+    text-align: center;
+  }
+  .last_ticket {
+    margin-bottom: 2px;
+  }
+}
