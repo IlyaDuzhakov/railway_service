@@ -60,7 +60,6 @@
 }
 
 .social_icon {
-  /* width: 30px; */
   height: 30px;
   display: flex;
   gap: 36px;
@@ -193,30 +192,25 @@
   }
 }
 @media (max-width: 600px) {
-    .information {
-        flex-direction: column;
-    }
+  .information {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 500px) {
-    .email {
-        width: 80vw;
-    }
-    /* .footer {
-        margin-top: 20px;
-    } */
+  .email {
+    width: 80vw;
+  }
 }
 
 @media (max-width: 400px) {
-    .bottom_box {
-        flex-direction: column;
+  .bottom_box {
+    flex-direction: column;
     padding-bottom: 20px;
     padding-top: 10px;
     height: fit-content;
-    }
-    .arrow_icon {
-        margin: 14px 0;
-    }
+  }
+  .arrow_icon {
+    margin: 14px 0;
+  }
 }
-
-

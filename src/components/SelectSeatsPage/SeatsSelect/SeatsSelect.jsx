@@ -55,7 +55,7 @@ const SeatsSelect = ({ train }) => {
           </button>
         </div>
         <div className={styles.cap}>
-          <img
+          <img className={styles.img_train_cap}
             src={process.env.PUBLIC_URL + "/img/icons/train_icon.svg"}
             alt="train"
           />

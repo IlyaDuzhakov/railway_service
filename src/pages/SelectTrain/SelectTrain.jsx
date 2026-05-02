@@ -7,7 +7,7 @@ import { TrainContext, LoaderContext } from "../../helpers/context.js";
 import OptionsBar from "../../components/SelectTrainPage/OptionsBar/OptionsBar.jsx";
 import Loader from "../../components/SelectTrainPage/Loader/Loader.jsx";
 import InstructionsText from "../../components/SelectTrainPage/TrainsList/InstructionsText.jsx";
-// import { useLocation } from "react-router-dom";
+
 
 
 const SelectTrain = () => {

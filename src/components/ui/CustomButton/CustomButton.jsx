@@ -11,7 +11,7 @@ const CustomButton = ({
   ...props
 }) => {
   return (
-    <button
+    <button 
       disabled={disabled}
       className={`${styles.button} ${styles[variant]} submit_btn ${className} `}
       {...props}

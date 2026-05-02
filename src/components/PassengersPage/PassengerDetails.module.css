@@ -70,11 +70,16 @@
   width: 200px;
   display: flex;
   align-items: center;
+   box-sizing: border-box;
 }
 
-/* .full_width {
+.passport_width {
+  width: 200px;
+}
+
+.birth_width {
   width: 320px;
-} */
+}
 
 @media (max-width: 800px) {
   .document_row {
@@ -85,5 +90,14 @@
   .document_field {
     margin-top: 14px;
     margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .passport_width,
+  .birth_width {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 }

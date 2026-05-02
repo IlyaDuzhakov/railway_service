@@ -6,59 +6,46 @@ import Directions from "./Directions/Directions.jsx";
 import LastTrains from "./LastTrains/LastTrains.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders, faXmark } from "@fortawesome/free-solid-svg-icons";
-import {CSSTransition} from 'react-transition-group'
+import { CSSTransition } from "react-transition-group";
 import { useState, useRef } from "react";
-
 
 const SideBar = () => {
   const nodeRef = useRef(null);
   const [inProp, setInProp] = useState(false);
-  const [showSideBar, setShowSideBar] = useState(true);
-  const [width, setWidth] = useState(window.innerWidth)
-  window.addEventListener('resize', ()=> {
-    setWidth(window.innerWidth)
-  })
+  const [showSideBar, setShowSideBar] = useState(false);
+
   return (
     <>
-      {/* {showSideBar === true ? ( */}
-        {/* <CSSTransition
-          nodeRef={nodeRef}
-          in={inProp}
-          timeout={3000}
-          classNames="my-node"
-        > */}
-         <CSSTransition
+      <CSSTransition
         nodeRef={nodeRef}
         in={showSideBar}
         timeout={300}
         classNames={{
           enter: styles.aside_enter,
           enterActive: styles.aside_enter_active,
+          enterDone: styles.aside_enter_done,
           exit: styles.aside_exit,
           exitActive: styles.aside_exit_active,
+          exitDone: styles.aside_exit_done,
         }}
-        unmountOnExit
+        // unmountOnExit
       >
-          <aside className={styles.aside_close} ref={nodeRef}>
-            <div className={styles.aside_top}>
-              <SelectDate />
-              <Filters />
-              <PriceRange />
-              <Directions />
-            </div>
+        <aside className={styles.aside_close} ref={nodeRef}>
+          <div className={styles.aside_top}>
+            <SelectDate />
+            <Filters />
+            <PriceRange />
+            <Directions />
+          </div>
 
-            <LastTrains />
-          </aside>
-        
-        {/* ) : (  */}
-         {/* ""  */}
-      {/* )}   */}
+          <LastTrains />
+        </aside>
       </CSSTransition>
       <button
         className={`${styles.btn_filter} ${styles.btn_filter_active}`}
         onClick={() => {
           setShowSideBar((prev) => !prev);
-          setInProp(true)
+          setInProp(true);
         }}
       >
         {showSideBar === false ? (
@@ -77,21 +64,6 @@ const SideBar = () => {
       </button>
     </>
   );
-
-  // const [inProp, setInProp] = useState(false);
-  // const nodeRef = useRef(null);
-  // return (
-  //   <div>
-  //     <CSSTransition nodeRef={nodeRef} in={inProp} timeout={200} classNames="my-node">
-  //       <div ref={nodeRef}>
-  //         {"I'll receive my-node-* classes"}
-  //       </div>
-  //     </CSSTransition>
-  //     <button type="button" onClick={() => setInProp(true)}>
-  //       Click to Enter
-  //     </button>
-  //   </div>
-  // );
 };
 
 export default SideBar;

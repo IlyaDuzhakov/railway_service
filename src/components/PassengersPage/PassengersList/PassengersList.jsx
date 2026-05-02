@@ -74,7 +74,6 @@ const PassengersList = () => {
       </div>
 
       <CustomButton
-        // active={active}
         variant="secondary"
         className="btn_next"
         disabled={!isFormValid}

@@ -221,3 +221,65 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+@media (max-width: 1060px) {
+  .passengers_row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 830px) {
+  .cap {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (max-width: 730px) {
+  .img_train_cap {
+    width: 80px;
+  }
+  .cap {
+    flex-direction: column;
+    align-items: center;
+  }
+  .train_number {
+    margin-top: 20px;
+  }
+  .passengers_label {
+    font-size: 20px;
+  }
+  .passengers_text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 470px) {
+  .choose_train_arrow {
+    width: 60px;
+  }
+  .choose_train_btn {
+    width: 250px;
+    height: 50px;
+  }
+  .choose_train_btn a {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 370px) {
+  .choose_train_arrow {
+    width: 50px;
+  }
+  .choose_train_btn {
+    width: 220px;
+    height: 40px;
+  }
+  .choose_train_btn a {
+    font-size: 16px;
+  }
+  .number_tickets {
+    font-size: 24px;
+  }
+  
+}

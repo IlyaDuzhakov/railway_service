@@ -1,80 +1,159 @@
 .top {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(255, 168, 0, 0.44);
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 168, 0, 0.44);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .middle {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .seats_info {
-    display: flex;
+  display: flex;
 }
 
 .left {
-    margin-right: 113px;
+  margin-right: 113px;
 }
 
 .choose_seats {
-    background-color: #F3F3F3;
-    border-radius: 5px;
-    width: 199px;
-    font-weight: 400;
-    font-size: 16px;
-    color: #292929;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  width: 199px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #292929;
 }
 
 .block_train {
-    background-color: #FFD98F;
-    width: 190px;
-    height: 160px;
+  background-color: #ffd98f;
+  width: 190px;
+  height: 160px;
 }
 
 .train_number {
-    font-size: 72px;
-    font-weight: 700;
-    color: #292929;
-   
+  font-size: 72px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.top_train {
+  margin-right: 10px;
+}
+
+.top_train_number {
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.top_train_second_number {
+  font-weight: 600;
 }
 
 .train_wrapper {
-     padding-left: 37px;
-    padding-top: 30px;
-    padding-bottom: 52px; 
-     padding-bottom: 64px; 
+  padding-left: 37px;
+  padding-top: 30px;
+  padding-bottom: 52px;
+  padding-bottom: 64px;
 }
 
 .train_name {
-    font-weight: 400;
-    font-size: 24px;
+  font-weight: 400;
+  font-size: 24px;
 }
 
 .seats_service {
-    display: flex;
+  display: flex;
 }
 
 .img_seats {
-    width: 100%;
+  width: 100%;
 }
 
 @media (max-width: 850px) {
-    .middle {
-        flex-wrap: wrap;
-    }
-    .seats_info {
-        padding-top: 20px;
-        width: 50%;
-    }
-    .seats_end {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        width: 100%;
-        padding-right: 20px;
-    }
-    .choose_seats {
-        width: fit-content;
-    }
+  .middle {
+    flex-wrap: wrap;
+  }
+  .seats_info {
+    padding-top: 20px;
+    width: 50%;
+  }
+  .seats_end {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    padding-right: 20px;
+  }
+  .choose_seats {
+    width: fit-content;
+  }
+  .block_train {
+    width: 150px;
+    height: 150px;
+  }
+  .train_number {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 694px) {
+  .seats_info {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .top {
+    flex-direction: column;
+  }
+  .seats_info {
+    width: 60%;
+  }
+  .left {
+    margin-right: 80px;
+  }
+}
+
+@media (max-width: 490px) {
+  .block_train {
+    width: 100px;
+    height: 100px;
+  }
+  .train_number {
+    font-size: 40px;
+  }
+  .train_wrapper {
+    padding-left: 20px;
+    padding-top: 14px;
+  }
+  .seats_info {
+    width: 68%;
+  }
+  .left {
+    margin-right: 60px;
+  }
+}
+
+@media (max-width: 370px) {
+  .left {
+    margin-right: 20px;
+  }
+  .block_train {
+    width: 70px;
+    height: 70px;
+  }
+  .train_number {
+    font-size: 26px;
+  }
+  .train_name {
+    font-size: 16px;
+  }
+  .seats_info {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }

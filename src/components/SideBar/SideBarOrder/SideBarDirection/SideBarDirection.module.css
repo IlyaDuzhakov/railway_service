@@ -58,3 +58,11 @@
     font-size: 18px;
     color: #fff;
 }
+
+@media (max-width: 410px) {
+   
+    .direction_text {
+        font-size: 20px;
+    }
+   
+}

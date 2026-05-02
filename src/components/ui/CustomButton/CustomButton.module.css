@@ -91,9 +91,15 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1070px) {
+   .outline {
+      align-self: flex-end;
+    }
+}
+
+@media (max-width: 690px) {
   .button {
-    margin-top: 0;
+    margin-top: 20px;
     
   }
 }
@@ -101,5 +107,6 @@
 @media (max-width: 370px) {
   .button {
     font-size: 20px;
+    width: 240px;
   }
 }

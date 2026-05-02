@@ -6,7 +6,7 @@ import Books from '../../icons/Books.jsx'
 import WiFi from '../../icons/WiFi.jsx'
 import Air from '../../icons/Air.jsx'
 import Cup from '../../icons/Cup.jsx'
-// import {ReactComponent as Cup} from '../../icons/cup.svg'
+
 
 const Seats = ({selectCarriage, train}) => {
   const [ticketPrice, setTicketPrice] = useState({top_price: 0, bottom_price: 0})
@@ -34,9 +34,9 @@ const Seats = ({selectCarriage, train}) => {
     <div>
       <div className={styles.top}>
         <p>
-          <span>Вагоны</span>
-          <span>07</span>
-          <span>09</span>
+          <span className={styles.top_train}>Вагоны</span>
+          <span className={styles.top_train_number}>07</span>
+          <span className={styles.top_train_second_number}>09</span>
         </p>
         <p>Нумерация вагонов начинается с головы поезда</p>
       </div>

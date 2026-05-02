@@ -67,11 +67,18 @@ const PassengerDetails = ({
     <div className={styles.document_row}>
       <div className={styles.document_field}>
         <div className={styles.label}>Тип документа</div>
-        <div
+        {/* <div
           className={styles.document_type_text}
           style={{
             width: passenger.document_type === "passport" ? "200px" : "320px",
           }}
+        > */}
+        <div
+          className={`${styles.document_type_text} ${
+            passenger.document_type === "passport"
+              ? styles.passport_width
+              : styles.birth_width
+          }`}
         >
           {passenger.document_type === "passport"
             ? "Паспорт РФ"

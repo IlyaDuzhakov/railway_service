@@ -362,7 +362,7 @@
 }
 
 @media (max-width: 1010px) {
-   .initials_input {
+  .initials_input {
     width: 240px;
   }
   .initials {
@@ -372,32 +372,35 @@
 }
 
 @media (max-width: 910px) {
-    .initials_wrapper {
-      display: flex;
-      flex-direction: column;
-    }
-     .initials_input {
+  .initials_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .initials_input {
     width: 640px;
   }
 }
 
 @media (max-width: 800px) {
-      .initials_input {
+  .initials_input {
     width: 550px;
   }
 }
 
 @media (max-width: 690px) {
-      .initials_input {
+  .initials_input {
     width: 480px;
   }
   .checkbox_text {
     font-size: 24px;
   }
+  .status_success {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 614px) {
-     .initials_input {
+  .initials_input {
     width: 400px;
   }
   .btn_next {
@@ -414,20 +417,20 @@
   }
   .popup_information {
     font-size: 20px;
-        padding: 6px 16px;
+    padding: 6px 16px;
   }
   .gender_wrapper {
     flex-direction: column;
     align-items: flex-start;
   }
-     .initials_input {
+  .initials_input {
     width: 320px;
   }
 }
 
 @media (max-width: 490px) {
   .popup_information {
-     margin-right: 140px;
+    margin-right: 140px;
   }
   .btn_next {
     width: 200px;
@@ -438,16 +441,20 @@
 }
 
 @media (max-width: 440px) {
-    .initials_input {
+  .initials_input {
     width: 260px;
   }
 }
 
 @media (max-width: 380px) {
-   .initials_input {
+  .initials_input {
     width: 220px;
   }
   .btn_delete {
     margin-right: 20px;
+  }
+  .status_button {
+    width: 260px;
+    margin-top: 10px;
   }
 }

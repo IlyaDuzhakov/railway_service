@@ -89,7 +89,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
   }, [users]);
-  // console.log(window.innerWidth)
+  
   return (
     <div className="App">
       <OrderContext.Provider value={[order, setOrder]}>

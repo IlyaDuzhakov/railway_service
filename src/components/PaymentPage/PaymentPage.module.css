@@ -179,3 +179,57 @@
   border: 1px solid red;
   background-color: #fff2f2;
 }
+
+@media (max-width: 1070px) {
+    .payment_wrapper {
+        align-items: normal;
+    }
+    .payment_initials_wrapper {
+      flex-direction: column;
+    }
+    .payment_initials {
+      margin-bottom: 0;
+    }
+    .phone {
+      width: 100%;
+    }
+    .email {
+      width: 100%;
+    }
+    .payment_initials_input {
+      width: 100%;
+    }
+    .contact_details {
+      margin-top: 50px;
+    }
+   
+}
+
+@media (max-width: 630px) {
+    .payment_top_text {
+        font-size: 24px;
+    }
+    .online_bottom p {
+      font-size: 20px;
+    }
+    .payment_text {
+      font-size: 24px;
+    }
+}
+
+@media (max-width: 530px) {
+   .online_bottom  {
+      flex-direction: column;
+      gap: 20px;
+    }
+   .online_bottom p {
+      font-size: 24px;
+    }
+}
+
+@media (max-width: 370px) {
+  .payment_top {
+    padding-left: 10px;
+  }
+}
+

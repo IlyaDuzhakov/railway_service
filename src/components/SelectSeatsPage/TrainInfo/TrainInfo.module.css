@@ -54,8 +54,6 @@
 
 @media (max-width: 1450px) {
   .train_item {
-    flex-direction: column;
-    width: 250px;
     gap: 20px;
   }
   .departure_left {
@@ -63,9 +61,10 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1140px) {
   .train_item {
-    width: 180px;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 

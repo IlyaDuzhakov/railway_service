@@ -15,12 +15,12 @@
 }
 
 @media (max-width: 1450px) {
-  .main_wrapper {
+   .main_wrapper {
     display: block;
     position: relative;
   }
   .sidebar_order_wrap {
-    position: absolute;
+     position: absolute;
     top: 100px;
     left: 30px;
     z-index: 1500;
@@ -54,10 +54,11 @@
     transform: translateX(-130%);
   }
   .info_btn {
-    display: flex;
-    align-items: center;
+  display: flex;
+     align-items: center;
     justify-content: center;
-
+    color: white;
+    /* position: fixed; */
     top: 120px;
     left: 20px;
     z-index: 3000;
@@ -70,8 +71,10 @@
     font-size: 28px;
     cursor: pointer;
     margin-bottom: 20px;
-  }
-  .info_btn path {
-    color: #fff;
-  }
 }
+.info_btn path {
+color: #fff;
+}
+
+}
+
