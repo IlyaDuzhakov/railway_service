@@ -109,4 +109,10 @@
     font-size: 20px;
     width: 240px;
   }
-}
+} 
+
+ @media (max-width: 340px) {
+    .button {
+      width: 220px;
+    }
+} 

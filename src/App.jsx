@@ -84,7 +84,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("tickets_count", JSON.stringify(tickets));
     setUsers(() => createUsers(count));
-  }, [tickets, count]);
+  }, [tickets, count]); // при изменении tickets или count будет выполняться функция
 
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
@@ -104,7 +104,8 @@ function App() {
                     value={[showTrains, setshowTrains]}
                   >
                     <TicketContext.Provider value={[newTicket, setNewTicket]}>
-                      <TrainContext.Provider value={[trains, setTrains]}>
+                      <TrainContext.Provider value={[trains, setTrains]}> 
+                         {/* в провайдер нашего контекста мы оборачиваем те страницы, на которых планируем использовать контекст */}
                         <Routes>
                           <Route path="/" element={<Main />} />
                           <Route

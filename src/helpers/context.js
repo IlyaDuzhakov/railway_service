@@ -6,7 +6,7 @@ const CountTicketContext = createContext({
   children: { count: 0, koef: 0.5 },
   child_no_seat: { count: 0, koef: 0 },
 });
-const TrainContext = createContext([]);
+const TrainContext = createContext([]); // [] - начальное значение
 const SelectTrainContext = createContext({});
 const TicketContext = createContext({});
 const ShowTrainsContext = createContext([]);

@@ -5,8 +5,8 @@ import trainIcon from "../../assets/icons/railway_service.svg";
 const HeaderLogo = () => {
   return (
     <div className={styles.top_bar}>
-        <div className={styles.logo_container}>
-          <img className={styles.trainIcon} src={trainIcon} alt="Railway service" />
+        <div id="live"  className={styles.logo_container}>
+          <img className={styles.logo} src={trainIcon} alt="Railway service" />
         </div>
       </div>
   )

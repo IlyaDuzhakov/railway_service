@@ -46,12 +46,12 @@
 }
 
 .bottom_right {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 .price_text {
-    line-height: 100%;
+  line-height: 100%;
 }
 
 .last_ticket_wrapper {
@@ -71,6 +71,11 @@
   .last_ticket_text {
     color: var(--white-color);
     text-align: center;
+    background-color: #fff;
+    color: #292929;
+    margin-bottom: 2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .last_ticket {
     margin-bottom: 2px;

@@ -4,7 +4,7 @@ import { SelectTrainContext } from "../../../../helpers/context";
 import { useContext } from "react";
 import { formatCity } from "../../../../helpers/functions";
 
-const DirectionInfo = () => {
+const DirectionInfo = ({direction}) => {
 
     const [train, setTrain] = useContext(SelectTrainContext)
   return (
@@ -22,7 +22,7 @@ const DirectionInfo = () => {
           </div>
         </div>
       </div>
-      <TrainInfo show={true} showDate={true} train={train}/>
+      <TrainInfo show={true} showDate={true} train={train} direction={direction} variant="sidebar"/>
     </div>
   );
 };

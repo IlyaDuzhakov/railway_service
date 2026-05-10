@@ -4,7 +4,7 @@
 }
 
 .selectTrigger {
-  width: 100%;
+  /* width: 100%; */
   height: 50px;
   padding: 0 18px;
   border: 1px solid #c4c4c4;
@@ -118,11 +118,11 @@
   align-items: baseline;
 }
 
-@media (max-width: 1100px) {
+/* @media (max-width: 1100px) {
   .selectTrigger {
     width: 20vh;
   }
-}
+} */
 
 @media (max-width: 690px) {
   .button {
@@ -137,9 +137,9 @@
   .dropdown {
     width: 62vw;
   }
-  .selectTrigger {
+  /* .selectTrigger {
     width: 16vh;
-  }
+  } */
 }
 
 @media (max-width: 380px) {

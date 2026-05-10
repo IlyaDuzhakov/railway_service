@@ -1,18 +1,20 @@
 import DatePicker from "react-datepicker";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TicketContext} from '../../../helpers/context.js'
 import './SelectDate.css'
 
 const SelectDate = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [newTicket, setNewTicket] = useContext(TicketContext)
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [endDate, setEndDate] = useState(new Date());
   return (
     <div className='date'>
       <h3 className="travel_date">Дата поездки</h3>
       <DatePicker
         dateFormat="dd.MM.yyyy"
         showIcon
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        selected={newTicket.dateStart}
+        onChange={(date) => setNewTicket({...newTicket, dateStart: date})}
         className="input"
         icon={
           <svg
@@ -37,8 +39,8 @@ const SelectDate = () => {
       <DatePicker
         dateFormat="dd.MM.yyyy"
         showIcon
-        selected={endDate}
-        onChange={(date) => setEndDate(date)}
+        selected={newTicket.dateEnd}
+        onChange={(date) => setNewTicket({...newTicket, dateEnd: date})}
         className="input"
         icon={
           <svg 

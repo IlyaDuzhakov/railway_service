@@ -12,6 +12,12 @@
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
+.user_avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .user_avatar_wrapper {
   display: flex;
   margin-top: 61px;
@@ -183,5 +189,20 @@
   .coin_wrapper {
     flex-direction: column;
     align-items: center;
+  }
+  /* .passengers_avatar {
+    width: 30px;
+  } */
+  .user_avatar_wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+  }
+  .user_info {
+    margin-left: 0;
+    gap: 10px;
+  }
+  .passengers_text {
+    padding-top: 10px;
   }
 }

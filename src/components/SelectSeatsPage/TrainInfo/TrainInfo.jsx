@@ -5,20 +5,31 @@ import {
   formatCity,
   getTrainsDate,
 } from "../../../helpers/functions";
+import { TicketContext } from "../../../helpers/context.js";
+import { useContext } from "react";
 
-const TrainInfo = ({ train, show, showDate }) => {
+const TrainInfo = ({ train, show, showDate, direction, variant }) => {
+  const [newTicket, setNewTicket] = useContext(TicketContext);
   const colorDate = showDate ? "#ffffff" : "#000000";
   const colorCity = showDate ? "#ffffff" : "#292929";
   return (
     <>
-      <div className={styles.train_item}>
+      <div
+        className={`${styles.train_item} ${
+          variant === "sidebar"
+            ? styles.sidebar_train_item
+            : styles.list_train_item
+        }`}
+      >
         <div className={styles.train_item_from}>
           <p className={styles.departure_datetime} style={{ color: colorDate }}>
             {formatDate(train?.departure.from.datetime)}
           </p>
           {showDate ? (
             <p className={styles.departure_date}>
-              {getTrainsDate(train?.departure.from.datetime)}
+              {direction === "Туда"
+                ? getTrainsDate(newTicket.dateStart)
+                : getTrainsDate(newTicket.dateEnd)}
             </p>
           ) : (
             ""
@@ -46,13 +57,21 @@ const TrainInfo = ({ train, show, showDate }) => {
           />
         </div>
 
-        <div className={styles.departure_left}>
+        <div
+          className={`${styles.departure_left} ${
+            variant === "sidebar"
+              ? styles.sidebar_departure_left
+              : styles.list_departure_left
+          }`}
+        >
           <p className={styles.departure_datetime} style={{ color: colorDate }}>
             {formatDate(train?.departure.to.datetime)}
           </p>
           {showDate ? (
             <p className={styles.departure_date}>
-              {getTrainsDate(train?.departure.to.datetime)}
+              {direction === "Туда"
+                ? getTrainsDate(newTicket.dateStart)
+                : getTrainsDate(newTicket.dateEnd)}
             </p>
           ) : (
             ""

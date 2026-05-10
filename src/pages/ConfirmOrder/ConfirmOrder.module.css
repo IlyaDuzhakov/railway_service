@@ -75,3 +75,9 @@
     color: #fff;
   }
 }
+
+@media (max-width: 400px) {
+  .btn_confirm {
+    padding: 0 16px;
+  }
+}

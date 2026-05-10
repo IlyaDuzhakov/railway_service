@@ -42,11 +42,11 @@ const ConfirmOrderPage = () => {
               return (
                 <div className={styles.user_avatar_wrapper}>
                   <div className={styles.user_avatar}>
-                    <img
+                    <img className={styles.passengers_avatar}
                       src={process.env.PUBLIC_URL + "/img/icons/passenger.svg"}
                       alt="avatar"
                     />
-                    {user.type === "adult" ? <p>Взрослый</p> : <p>Детский</p>}
+                    {user.type === "adult" ? <p className={styles.passengers_text}>Взрослый</p> : <p className={styles.passengers_text}>Детский</p>}
                   </div>
                   <div className={styles.user_info}>
                     <p>

@@ -16,6 +16,7 @@ import twitterIcon from "../../assets/icons/twitter.svg";
 import twitterActiveIcon from "../../assets/icons/twitter_color.svg";
 import arrowIcon from "../../assets/icons/arrow.svg";
 import trainIcon from "../../assets/icons/railway_service.svg";
+import { Route } from "react-router-dom";
 
 const Footer = () => {
   const [facebookActive, setFacebookActive] = useState(false);
@@ -90,7 +91,7 @@ const Footer = () => {
             <div className={styles.footer_block}>
               <span className={styles.events}>Будьте в курсе событий</span>
               <div className={`${styles.footer_box} ${styles.footer_mail}`}>
-              {/* <div className={styles.footer_box + ' ' + styles.footer_mail}> */}
+                {/* <div className={styles.footer_box + ' ' + styles.footer_mail}> */}
                 <input
                   className={styles.email}
                   type="email"
@@ -142,7 +143,16 @@ const Footer = () => {
         <div className={styles.footer_bottom}>
           <div className={styles.bottom_box}>
             <img className={styles.train_icon} src={trainIcon} alt="logo" />
-            <img className={styles.arrow_icon} src={arrowIcon} alt="arrow" />
+            <img
+              className={styles.arrow_icon}
+              src={arrowIcon}
+              alt="arrow"
+              onClick={() => {
+                document.getElementById("live").scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            />
             <span className={styles.date}>2018 WEB</span>
           </div>
         </div>

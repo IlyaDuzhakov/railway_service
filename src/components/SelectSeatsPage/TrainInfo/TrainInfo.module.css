@@ -56,16 +56,27 @@
   .train_item {
     gap: 20px;
   }
-  .departure_left {
+  /* .departure_left {
     text-align: left;
-  }
+  } */
 }
 
 @media (max-width: 1140px) {
-  .train_item {
+  .list_train_item {
     flex-direction: column;
     gap: 20px;
+    
   }
+  .departure_left {
+    text-align: left;
+  }
+  .sidebar_train_item {
+    gap: 0;
+  }
+  .sidebar_departure_left {
+    text-align: right;
+  }
+    
 }
 
 @media (max-width: 730px) {
