@@ -5,7 +5,7 @@ const InstructionsText = () => {
     <div className={styles.ticket_wrapper}>
       <div className={styles.ticket}>
         <h2 className={styles.ticket_text}>
-          Выберите города и даты и нажмите на кнопку "найти билеты"
+          По выбранному направлению и датам билеты не найдены. Выберите другие города и/или даты.
         </h2>
         <img
           className={styles.ticket_icon}

@@ -27,7 +27,7 @@ function App() {
     JSON.parse(localStorage.getItem("train")) || {},
   );
   const [trains, setTrains] = useState(
-    JSON.parse(localStorage.getItem("trains")) || [],
+  localStorage.getItem("trains") ? JSON.parse(localStorage.getItem("trains")) : [],
   );
   const [showTrains, setshowTrains] = useState(trains);
   const [newTicket, setNewTicket] = useState({

@@ -1,7 +1,11 @@
 .burger_menu {
     display: none;
-    position: relative;
+    /* position: relative; */
+    position: absolute;
+     top: 60px;
+  /* right: 0; */
     z-index: 2;
+    width: 100%;
 }
 
 .menu_content {

@@ -102,13 +102,18 @@ const sortTrains = (trains, selectedSort) => {
 
 const findMinMax = (trains) => {
   const prices = [];
-  for (let train of trains) {
-    prices.push(train.min_price);
+  if (Array.isArray(trains)) {
+    for (let train of trains) {
+      prices.push(train.min_price);
+    }
+    prices.sort((a, b) => {
+      return a - b;
+    });
+    return { min: prices[0], max: prices[prices.length - 1] };
   }
-  prices.sort((a, b) => {
-    return a - b;
-  });
-  return { min: prices[0], max: prices[prices.length - 1] };
+  else {
+    return {min: 0, max: 0}
+  }
 };
 
 const getTrain = (trains, id) => {
@@ -210,20 +215,20 @@ const getAge = (date) => {
 };
 
 const phoneNumber = (numbers) => {
-  let digits = numbers.replace(/\D/g, '');
+  let digits = numbers.replace(/\D/g, "");
 
-  if (digits.startsWith('7')) {
+  if (digits.startsWith("7")) {
     digits = digits.slice(1);
   }
 
   digits = digits.slice(0, 10);
   let str = "+7 ";
-    if (digits.length > 0) {
-    str += '(' + digits.slice(0, 3);
+  if (digits.length > 0) {
+    str += "(" + digits.slice(0, 3);
   }
 
   if (digits.length >= 3) {
-    str += ')';
+    str += ")";
   }
 
   if (digits.length > 3) {
@@ -231,13 +236,13 @@ const phoneNumber = (numbers) => {
   }
 
   if (digits.length > 6) {
-    str += '-' + digits.slice(6, 8);
+    str += "-" + digits.slice(6, 8);
   }
 
   if (digits.length > 8) {
-    str += '-' + digits.slice(8, 10);
-  } 
-  return str
+    str += "-" + digits.slice(8, 10);
+  }
+  return str;
 };
 
 export {
@@ -258,5 +263,5 @@ export {
   getTrainsDate,
   createUsers,
   getAge,
-  phoneNumber
+  phoneNumber,
 };

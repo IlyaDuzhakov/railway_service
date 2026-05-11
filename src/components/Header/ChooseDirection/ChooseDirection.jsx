@@ -84,7 +84,7 @@ const ChooseDirection = () => {
           className="submit_btn"
           onClick={async (e) => {
             e.preventDefault();
-            if (newTicket.to !== "" && newTicket.from !== "" && newTicket.dateStart !== "" && newTicket.dateEnd !== "") {
+            if (newTicket.to !== "" && newTicket.from !== "" && newTicket.dateStart  && newTicket.dateEnd) {
               await findTrains();
               navigate("/select_train");
             } else {
@@ -97,7 +97,7 @@ const ChooseDirection = () => {
         <Popup
           type="error"
           title="Ошибка"
-          message={popupType === "direction" ? "Выберите направление" : ""}
+          message={popupType === "direction" ? "Выберите направление и даты" : ""}
           isOpen={popupType !== null}
           onClose={() => setPopupType(null)}
         />

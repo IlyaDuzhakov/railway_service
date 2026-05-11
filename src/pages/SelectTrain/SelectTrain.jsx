@@ -23,7 +23,7 @@ const SelectTrain = () => {
           <div className={styles.main_wrapper}>
             <SideBar />
             <main className={styles.content}>
-              {isLoading === false && trains.length === 0 ? (
+              {isLoading === false && trains?.length === 0 ? (
                 <InstructionsText />
               ) : isLoading === true ? (
                 <Loader />

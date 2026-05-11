@@ -3,25 +3,22 @@
 In the project directory, you can run:
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Дипломный проект railway_service представляет собой React-приложение для поиска и покупки железнодорожных билетов.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+В проекте используются React, React Router, хуки useState, useEffect, useContext, useNavigate, работа с localStorage, кастомные UI-компоненты, фильтры, для выбора дат использована библиотека react-datepicker, и библиотека mui для разных инпутов-переключателей. 
+В проекте есть popup, loader.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+В приложении реализовано: 
+Поиск билетов по направлению и датам, отображение списка поездов, фильтрация результатов и выбор подходящего поезда.
+Выбор мест и типа вагона.
+Заполнение данных пассажира: ФИО, пол, дата рождения, тип документа, паспорт или свидетельство о рождении.
+Заполнение данных покупателя: ФИО, телефон, email и способ оплаты.
+Проверка заказа, возможность изменить введённые данные и подтверждение покупки.
+Отображение информации об успешно оформленном заказе  с возможностью вернуться на главную страницу.
+
+В проекте есть валидация пользовательских данных: проверка ФИО, телефона, email, даты рождения, возраста пассажира и корректности выбранного типа документа.
 
