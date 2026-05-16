@@ -53,6 +53,9 @@ const getCityId = async (name) => {
     `https://students.netoservices.ru/fe-diplom/routes/cities?name=${name}`,
   );
   const data = await response.json();
+  if (!data.length) {
+    return null;
+  }
   return data[0]._id;
 };
 

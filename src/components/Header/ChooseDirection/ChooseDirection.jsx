@@ -2,7 +2,7 @@ import styles from "./ChooseDirection.module.css";
 import { useState, useEffect, useContext } from "react";
 // useState - этот хук позволяет изменять значение переменной и делать так, чтобы react при необходимости повторно отрисовывал компонент
 // хуки - это специальные функции react, которые позволяют работать с состоянием и методами жизненного цикла компонента
-// useEffect - это хук который позволяет контролировать количество вызовов какой-то функции 
+// useEffect - это хук который позволяет контролировать количество вызовов какой-то функции
 // useEffect - 1 параметром принимает callback функцию (то что мы будем делать) а 2 параметром принимает массив зависимостей
 import Inputs from "./Inputs.jsx";
 import { getCityId } from "../../../helpers/functions.js";
@@ -32,8 +32,7 @@ const ChooseDirection = () => {
       const cityTo = await getCityId(newTicket.to);
       let longLink = `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${cityFrom}&to_city_id=${cityTo}&date_start=${newTicket.dateStart}&date_end=${newTicket.dateEnd}`;
       // let shortLink = `https://students.netoservices.ru/fe-diplom/routes?from_city_id=${cityFrom}&to_city_id=${cityTo}`;
-      let url = longLink
-        
+      let url = longLink;
 
       const response = await fetch(url);
       const data = await response.json();
@@ -82,14 +81,52 @@ const ChooseDirection = () => {
           variant="primary"
           type="submit"
           className="submit_btn"
+          // onClick={async (e) => {
+          //   e.preventDefault();
+          //   // if (newTicket.to !== "" && newTicket.from !== "" && newTicket.dateStart  && newTicket.dateEnd) {
+
+          //   const isFormValid =
+          //     isCityFromBackend(newTicket.from, listCitiesFrom) &&
+          //     isCityFromBackend(newTicket.to, listCitiesTo) &&
+          //     newTicket.from.trim() !== newTicket.to.trim() &&
+          //     newTicket.dateStart &&
+          //     newTicket.dateEnd;
+
+          //   if (isFormValid) {
+          //     await findTrains();
+          //     navigate("/select_train");
+          //   } else {
+          //     setPopupType("direction");
+          //   }
+          // }}
           onClick={async (e) => {
             e.preventDefault();
-            if (newTicket.to !== "" && newTicket.from !== "" && newTicket.dateStart  && newTicket.dateEnd) {
-              await findTrains();
-              navigate("/select_train");
-            } else {
+
+            if (
+              !newTicket.from ||
+              !newTicket.to ||
+              !newTicket.dateStart ||
+              !newTicket.dateEnd
+            ) {
               setPopupType("direction");
+              return;
             }
+
+            if (newTicket.from.trim() === newTicket.to.trim()) {
+              setPopupType("direction");
+              return;
+            }
+
+            const cityFrom = await getCityId(newTicket.from);
+            const cityTo = await getCityId(newTicket.to);
+
+            if (!cityFrom || !cityTo) {
+              setPopupType("direction");
+              return;
+            }
+
+            await findTrains();
+            navigate("/select_train");
           }}
         >
           НАЙТИ БИЛЕТЫ
@@ -97,7 +134,9 @@ const ChooseDirection = () => {
         <Popup
           type="error"
           title="Ошибка"
-          message={popupType === "direction" ? "Выберите направление и даты" : ""}
+          message={
+            popupType === "direction" ? "Выберите направление и даты" : ""
+          }
           isOpen={popupType !== null}
           onClose={() => setPopupType(null)}
         />
